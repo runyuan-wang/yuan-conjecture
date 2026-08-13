@@ -1,0 +1,19 @@
+{
+  "status": "verified",
+  "ambient": "projective P^4; quadrics form a 15-dimensional vector space",
+  "single_hexagon": {
+    "vertices": 6,
+    "edges": 6,
+    "constraint_rows": 12,
+    "constraint_rank": 12,
+    "quadric_vector_space_dimension": 3
+  },
+  "theta_3_3_3": {
+    "vertices": 8,
+    "edges": 9,
+    "constraint_rows": 17,
+    "constraint_rank": 15,
+    "quadric_vector_space_dimension": 0
+  },
+  "interpretation": "Every six-edge projective hexagon has at least a 3-dimensional vector space of containing quadrics; the displayed generic hexagon has exactly dimension 3. Two C12s sharing a three-edge path need not share any nonzero quadric: the displayed theta(3,3,3) has rank 15."
+}

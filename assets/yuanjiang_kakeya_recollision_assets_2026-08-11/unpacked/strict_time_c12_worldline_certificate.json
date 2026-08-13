@@ -1,0 +1,34 @@
+{
+  "status": "verified",
+  "verifier": "verify_strict_time_c12_worldlines.py",
+  "arithmetic": "exact rational",
+  "strict_event_order": [
+    "Q0",
+    "Q5",
+    "Q1",
+    "Q2",
+    "Q4",
+    "Q3"
+  ],
+  "event_times_by_cycle_index": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "201/100",
+    "99/100"
+  ],
+  "minimum_nonadjacent_segment_distance_squared": "2017/55600",
+  "minimum_nonadjacent_segment_pair": [
+    2,
+    4
+  ],
+  "minimum_event_to_nonincident_segment_distance_squared": "529/12200",
+  "minimum_event_to_nonincident_line": [
+    "Q2",
+    2
+  ],
+  "minimum_absolute_triple_velocity_determinant": "7/3000",
+  "minimum_absolute_affine_quadruple_velocity_determinant": "43/33000",
+  "certified_consequence": "For every delta < 1/25, the six event balls give an induced C12; there is no nonconsecutive tube intersection, no three-tube bush, and no common affine velocity 2-plane or spacetime 3-hyperplane."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "verifier": "verify_rooted_c12_deletion.py",
+  "graph": "K_{6,6}",
+  "initial_edge_count": 36,
+  "deleted_root_count": 5,
+  "residual_edge_count": 31,
+  "rooted_cycle_count": 5,
+  "gf2_cycle_rank": 5,
+  "triangular_against_root_order": true,
+  "residual_has_c12": false,
+  "identity_deleted_plus_residual": 36,
+  "certified_consequence": "The greedy roots are distinct, their selected C12 incidence vectors are linearly independent, and deletion stops at a C12-free graph."
+}

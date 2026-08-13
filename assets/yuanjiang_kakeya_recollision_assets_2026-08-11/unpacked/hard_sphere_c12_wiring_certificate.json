@@ -1,0 +1,72 @@
+{
+  "status": "verified",
+  "verifier": "verify_hard_sphere_c12_wiring.py",
+  "model": "six equal-mass hard spheres with central binary collisions",
+  "sphere_diameter": 1e-05,
+  "matching_matrix_shape": [
+    18,
+    24
+  ],
+  "matching_matrix_rank": 18,
+  "smallest_nonzero_singular_value": 0.10279762885315918,
+  "maximum_linear_system_residual": 2.4424906541753444e-15,
+  "maximum_lane_matching_residual": 1.3877787807814457e-16,
+  "maximum_midpoint_shift_in_diameter_units": 0.7321627539217999,
+  "maximum_time_shift_in_diameter_units": 0.5824128064576964,
+  "strict_collision_order": [
+    0,
+    5,
+    1,
+    2,
+    4,
+    3
+  ],
+  "minimum_center_distance_over_affine_time_pieces": 9.999999999831843e-06,
+  "unintended_overlap_count": 0,
+  "collision_checks": [
+    {
+      "event": 0,
+      "contact_distance": 1.0000000000000003e-05,
+      "approach_dot": -8.660254037844388e-06,
+      "swap_error_i": 9.614813431917819e-17,
+      "swap_error_j": 9.614813431917819e-17
+    },
+    {
+      "event": 1,
+      "contact_distance": 1.00000000000068e-05,
+      "approach_dot": -2.23606797750131e-06,
+      "swap_error_i": 2.7755575615628914e-17,
+      "swap_error_j": 5.551115123125783e-17
+    },
+    {
+      "event": 2,
+      "contact_distance": 1.0000000000055995e-05,
+      "approach_dot": -5.744562646570195e-06,
+      "swap_error_i": 7.850462293418876e-17,
+      "swap_error_j": 7.97218214573518e-17
+    },
+    {
+      "event": 3,
+      "contact_distance": 1.00000000000345e-05,
+      "approach_dot": -1.0472409468028654e-05,
+      "swap_error_i": 7.788084551326613e-12,
+      "swap_error_j": 7.788090528467585e-12
+    },
+    {
+      "event": 4,
+      "contact_distance": 9.999999999953241e-06,
+      "approach_dot": -7.916524494038616e-06,
+      "swap_error_i": 9.880929493618822e-13,
+      "swap_error_j": 9.880874036576458e-13
+    },
+    {
+      "event": 5,
+      "contact_distance": 9.999999999971066e-06,
+      "approach_dot": -6.48074069838911e-06,
+      "swap_error_i": 1.922943196457043e-12,
+      "swap_error_j": 1.9229580316063775e-12
+    }
+  ],
+  "certified_consequence": "The strict-time six-line C12 has a finite-radius central-collision realization for the tested diameter. Every collision exchanges the two velocities; the six lane segments match to numerical precision; and no unintended overlap occurs on 0<=t<=3.",
+  "scope_warning": "This certifies one isolated bounded-size gadget. It does not embed an arbitrary Kakeya tube family into one global hard-sphere history."
+}

@@ -1,0 +1,111 @@
+{
+  "status": "verified",
+  "verifier": "verify_collision_holonomy.py",
+  "ambient_velocity_dimension": 18,
+  "chronological_event_order": [
+    0,
+    5,
+    1,
+    2,
+    4,
+    3
+  ],
+  "event_reflections": [
+    {
+      "event": 0,
+      "particle_pair": [
+        0,
+        1
+      ],
+      "incoming_lane_pair": [
+        0,
+        1
+      ],
+      "reflection_swap_residual": 1.1775693440128312e-16
+    },
+    {
+      "event": 5,
+      "particle_pair": [
+        5,
+        1
+      ],
+      "incoming_lane_pair": [
+        5,
+        0
+      ],
+      "reflection_swap_residual": 1.6711069443220838e-16
+    },
+    {
+      "event": 1,
+      "particle_pair": [
+        0,
+        2
+      ],
+      "incoming_lane_pair": [
+        1,
+        2
+      ],
+      "reflection_swap_residual": 4.163336342344337e-17
+    },
+    {
+      "event": 2,
+      "particle_pair": [
+        0,
+        3
+      ],
+      "incoming_lane_pair": [
+        2,
+        3
+      ],
+      "reflection_swap_residual": 3.06884301130794e-16
+    },
+    {
+      "event": 4,
+      "particle_pair": [
+        4,
+        1
+      ],
+      "incoming_lane_pair": [
+        4,
+        5
+      ],
+      "reflection_swap_residual": 2.0396099332657776e-16
+    },
+    {
+      "event": 3,
+      "particle_pair": [
+        0,
+        1
+      ],
+      "incoming_lane_pair": [
+        3,
+        4
+      ],
+      "reflection_swap_residual": 4.344434768182728e-16
+    }
+  ],
+  "final_particle_on_lane": [
+    5,
+    2,
+    3,
+    1,
+    0,
+    4
+  ],
+  "holonomy_orthogonality_residual": 2.277272256896983e-15,
+  "holonomy_determinant": 0.9999999999999984,
+  "momentum_fixed_residual": 1.932640780356245e-16,
+  "fixed_subspace_dimension_total": 12,
+  "fixed_subspace_dimension_after_momentum_quotient": 9,
+  "smallest_nonzero_singular_value_of_I_minus_H_relative": 0.40255853269756825,
+  "nonzero_eigenangle_magnitudes_radians": [
+    0.40532748188812906,
+    0.40532748188812906,
+    2.402713440756361,
+    2.402713440756361,
+    2.8906340323334603,
+    2.8906340323334603
+  ],
+  "initial_to_final_velocity_residual": 1.6004645656917944e-16,
+  "interpretation": "The collision history carries a nontrivial orthogonal holonomy. The three uniform-momentum modes are necessarily fixed; all further fixed modes are genuine degeneracies of this particular cycle."
+}

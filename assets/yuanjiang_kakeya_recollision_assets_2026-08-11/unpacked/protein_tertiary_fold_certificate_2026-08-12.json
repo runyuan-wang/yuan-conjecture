@@ -1,0 +1,119 @@
+{
+  "certificate_type": "deterministic_screen_and_exact_near_miss_audit",
+  "created_utc": "2026-08-12",
+  "problem": {
+    "name": "four-slope arithmetic Kakeya entropy constant",
+    "known_lower_bound": 1.674733895,
+    "baseline_upper_bound": 1.75,
+    "source_for_current_record": "https://teorth.github.io/optimizationproblems/constants/3c.html"
+  },
+  "target_correction": {
+    "previous_atom_count": 8,
+    "previous_integer_cost": 13,
+    "previous_ratio": 1.625,
+    "status": "impossible_as_an_upper_bound_because_it_is_below_the_known_lower_bound",
+    "new_atom_count": 10,
+    "new_integer_cost": 17,
+    "new_ratio": 1.7,
+    "window_check": "1.674733895 < 1.7 < 1.75"
+  },
+  "biological_abstraction": {
+    "scope": "protein_tertiary_contact_topology_only_not_chemical_simulation",
+    "local_motif": "open_five_atom_colored_path",
+    "tertiary_contact": "sparse_joint_interface_between_two_path_copies",
+    "contact_graph_sources": [
+      "https://www.nature.com/articles/nsb1199_1005",
+      "https://www.nature.com/articles/35054591",
+      "https://pubmed.ncbi.nlm.nih.gov/23861573/"
+    ]
+  },
+  "probabilistic_legality": {
+    "construction": "two_identically_distributed_open_five_atom_paths_glued_over_the_same_joint_interface_tuple_W",
+    "local_conditional_copy_cost": 8,
+    "interface_independent_rank": "r",
+    "interface_entropy_bound": "H(W) <= r*M",
+    "total_collision_cost": "8+r",
+    "encoding_budget_at_target_17": "9-r",
+    "reason_joint_gluing_is_legal": "the_same_residue_positions_and_projection_labels_are_used_on_both_identically_distributed_copies"
+  },
+  "screen": {
+    "reversal_inequivalent_backbones": 136,
+    "raw_fold_specifications": 11648,
+    "distinct_cost_aware_folds": 9635,
+    "exact_rank_beam_rowspaces_evaluated": 6076559,
+    "beam_width": 32,
+    "target_candidates": 0,
+    "best_reconstruction_rank": 8,
+    "target_dimension": 10,
+    "maximum_visible_anchors": 4,
+    "elapsed_seconds_first_full_run_approx": 266.346
+  },
+  "strongest_near_miss": {
+    "backbone": ["X", "X", "X", "Y"],
+    "fold_mode": "parallel",
+    "interface": ["X+Y[3]", "X[4]"],
+    "interface_rank": 2,
+    "collision_cost": 10,
+    "encoding_budget": 7,
+    "encoding": ["X[0]", "C[4]", "D[8]", "Y[0]", "Y[1]", "Y[2]", "Y[5]"],
+    "visible_anchor_indices": [0, 1, 2, 9],
+    "reconstruction_rank": 8,
+    "target_dimension": 10
+  },
+  "exact_near_miss_audits": [
+    {
+      "rank": 1,
+      "distinct_encoding_rowspaces": 195980,
+      "candidate_found": false,
+      "best_reconstruction_rank": 8,
+      "best_anchor_indices": [0, 1, 2, 9]
+    },
+    {
+      "rank": 2,
+      "distinct_encoding_rowspaces": 165182,
+      "candidate_found": false,
+      "best_reconstruction_rank": 8,
+      "best_anchor_indices": [0, 1, 4, 8]
+    },
+    {
+      "rank": 3,
+      "distinct_encoding_rowspaces": 165212,
+      "candidate_found": false,
+      "best_reconstruction_rank": 8,
+      "best_anchor_indices": [0, 1, 2, 9]
+    },
+    {
+      "rank": 4,
+      "distinct_encoding_rowspaces": 147622,
+      "candidate_found": false,
+      "best_reconstruction_rank": 8,
+      "best_anchor_indices": [0, 1, 7, 9]
+    },
+    {
+      "rank": 5,
+      "distinct_encoding_rowspaces": 152476,
+      "candidate_found": false,
+      "best_reconstruction_rank": 8,
+      "best_anchor_indices": [0, 3, 4, 6]
+    }
+  ],
+  "exact_audit_total_distinct_rowspaces": 826472,
+  "rank_arithmetic_audit": {
+    "primary_prime": 1000000007,
+    "independent_reproduction_prime": 1000000009,
+    "hadamard_bound_for_relevant_integer_minors": 100000000,
+    "result": "all_five_rowspace_counts_best_ranks_and_anchor_sets_agreed_exactly",
+    "interpretation": "both_modular_rank_runs_equal_rational_rank_for_the_audited_minors"
+  },
+  "conclusion": {
+    "result": "no_17_over_10_candidate_in_the_screened_family",
+    "plain_language": "long_range_contacts_exposed_more_anchors_but_their_information_was_shared_and_left_two_independent_dimensions_missing",
+    "scope_limit": "not_a_no_go_theorem_for_all_protein_inspired_or_all_joint_interfaces",
+    "next_structure": "heterogeneous_open_local_motifs_glued_to_one_low_entropy_core"
+  },
+  "reproduction": {
+    "script": "protein_tertiary_fold_search.py",
+    "script_sha256": "db5e2e64b68f41cca1da5a3500f54adf119ff956a121775a6e49dc63fa73611c",
+    "command": "python3 protein_tertiary_fold_search.py"
+  }
+}

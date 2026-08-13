@@ -1,0 +1,186 @@
+{
+  "ambient_dimension": 4,
+  "chorded_C6": {
+    "chord_0_2": {
+      "circuit_rank": 2,
+      "edges": 7,
+      "extra_flex_beyond_translation_scale": 0,
+      "nullity": 5,
+      "parallel_rigid": true,
+      "rank": 19,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.00012916029491441195,
+      "vertices": 6
+    },
+    "chord_0_3": {
+      "circuit_rank": 2,
+      "edges": 7,
+      "extra_flex_beyond_translation_scale": 0,
+      "nullity": 5,
+      "parallel_rigid": true,
+      "rank": 19,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.0022367591541136078,
+      "vertices": 6
+    },
+    "chord_0_4": {
+      "circuit_rank": 2,
+      "edges": 7,
+      "extra_flex_beyond_translation_scale": 0,
+      "nullity": 5,
+      "parallel_rigid": true,
+      "rank": 19,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.0003711117787283389,
+      "vertices": 6
+    }
+  },
+  "coordinate_model": "integer moment curve (t,t^2,t^3,t^4)",
+  "cycles": {
+    "C10": {
+      "circuit_rank": 1,
+      "edges": 10,
+      "extra_flex_beyond_translation_scale": 5,
+      "nullity": 10,
+      "parallel_rigid": false,
+      "rank": 30,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.0006119234987166289,
+      "vertices": 10
+    },
+    "C3": {
+      "circuit_rank": 1,
+      "edges": 3,
+      "extra_flex_beyond_translation_scale": 0,
+      "nullity": 5,
+      "parallel_rigid": true,
+      "rank": 7,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.1415933350851185,
+      "vertices": 3
+    },
+    "C4": {
+      "circuit_rank": 1,
+      "edges": 4,
+      "extra_flex_beyond_translation_scale": 0,
+      "nullity": 5,
+      "parallel_rigid": true,
+      "rank": 11,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.009222798679968055,
+      "vertices": 4
+    },
+    "C5": {
+      "circuit_rank": 1,
+      "edges": 5,
+      "extra_flex_beyond_translation_scale": 0,
+      "nullity": 5,
+      "parallel_rigid": true,
+      "rank": 15,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.000365555127737197,
+      "vertices": 5
+    },
+    "C6": {
+      "circuit_rank": 1,
+      "edges": 6,
+      "extra_flex_beyond_translation_scale": 1,
+      "nullity": 6,
+      "parallel_rigid": false,
+      "rank": 18,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.000495820984358535,
+      "vertices": 6
+    },
+    "C7": {
+      "circuit_rank": 1,
+      "edges": 7,
+      "extra_flex_beyond_translation_scale": 2,
+      "nullity": 7,
+      "parallel_rigid": false,
+      "rank": 21,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.0005621312373599661,
+      "vertices": 7
+    },
+    "C8": {
+      "circuit_rank": 1,
+      "edges": 8,
+      "extra_flex_beyond_translation_scale": 3,
+      "nullity": 8,
+      "parallel_rigid": false,
+      "rank": 24,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.0005946666432534575,
+      "vertices": 8
+    },
+    "C9": {
+      "circuit_rank": 1,
+      "edges": 9,
+      "extra_flex_beyond_translation_scale": 4,
+      "nullity": 9,
+      "parallel_rigid": false,
+      "rank": 27,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.0006085476631064494,
+      "vertices": 9
+    }
+  },
+  "theta": {
+    "shared_1_edges": {
+      "circuit_rank": 2,
+      "edges": 11,
+      "extra_flex_beyond_translation_scale": 2,
+      "nullity": 7,
+      "parallel_rigid": false,
+      "rank": 33,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.00011249393739583085,
+      "vertices": 10
+    },
+    "shared_2_edges": {
+      "circuit_rank": 2,
+      "edges": 10,
+      "extra_flex_beyond_translation_scale": 1,
+      "nullity": 6,
+      "parallel_rigid": false,
+      "rank": 30,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 4.404831095647235e-05,
+      "vertices": 9
+    },
+    "shared_3_edges": {
+      "circuit_rank": 2,
+      "edges": 9,
+      "extra_flex_beyond_translation_scale": 0,
+      "nullity": 5,
+      "parallel_rigid": true,
+      "rank": 27,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 5.600349574356494e-05,
+      "vertices": 8
+    },
+    "shared_4_edges": {
+      "circuit_rank": 2,
+      "edges": 8,
+      "extra_flex_beyond_translation_scale": 0,
+      "nullity": 5,
+      "parallel_rigid": true,
+      "rank": 23,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 3.742635261691059e-05,
+      "vertices": 7
+    },
+    "shared_5_edges": {
+      "circuit_rank": 2,
+      "edges": 7,
+      "extra_flex_beyond_translation_scale": 1,
+      "nullity": 6,
+      "parallel_rigid": false,
+      "rank": 18,
+      "rank_is_exact_over_Q": true,
+      "smallest_nonzero_singular": 0.0004960918398918246,
+      "vertices": 6
+    }
+  }
+}

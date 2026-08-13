@@ -1,0 +1,204 @@
+{
+  "status": "verified",
+  "verifier": "verify_bearing_cycle_spectrum.py",
+  "exact_C6_encounter_network": {
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        0
+      ]
+    ],
+    "matrix_shape": [
+      18,
+      18
+    ],
+    "rank": 12,
+    "nullity": 6,
+    "trivial_gauge_dimension": 4,
+    "extra_flex_dimension": 2,
+    "graph_cycle_rank": 1,
+    "edge_stalk_dimension": 12,
+    "H0_dimension": 6,
+    "H1_dimension": 0,
+    "forest_baseline_rank": 10,
+    "fresh_cycle_closure_rank": 2,
+    "closure_rank_plus_H1": 2,
+    "twice_graph_cycle_rank": 2,
+    "intercept_constraint_residual": 8.321539211988267e-16,
+    "nonzero_singular_values": [
+      1.9740474311811993,
+      1.9192444319177528,
+      1.7601840661051924,
+      1.7313224585204805,
+      1.6779842869371757,
+      1.5514688633088598,
+      1.2621189984241241,
+      1.0882870635967055,
+      1.0012604779090193,
+      0.9496062623158046,
+      0.5625840475455225,
+      0.32114909224051896
+    ],
+    "translation_gauge_residual": 0.0,
+    "time_shift_gauge_residual": 4.3111979390364425e-16
+  },
+  "cycle_plus_generic_chord_rank_test": {
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "matrix_shape": [
+      21,
+      18
+    ],
+    "rank": 14,
+    "nullity": 4,
+    "trivial_gauge_dimension": 4,
+    "extra_flex_dimension": 0,
+    "graph_cycle_rank": 2,
+    "edge_stalk_dimension": 14,
+    "H0_dimension": 4,
+    "H1_dimension": 0,
+    "forest_baseline_rank": 10,
+    "fresh_cycle_closure_rank": 4,
+    "closure_rank_plus_H1": 4,
+    "twice_graph_cycle_rank": 4,
+    "intercept_constraint_residual": 1.1884245626780316,
+    "nonzero_singular_values": [
+      2.2147531534889713,
+      2.0307603628457898,
+      1.7890213412301839,
+      1.7313320324971144,
+      1.6959206348910756,
+      1.588863332591605,
+      1.423486889293723,
+      1.3601324267483041,
+      1.1398067884449377,
+      1.0044664337516331,
+      0.8700752200450788,
+      0.5713198449205595,
+      0.3118234013567119,
+      0.08414749551565029
+    ],
+    "translation_gauge_residual": 0.0,
+    "time_shift_gauge_residual": 4.3117563120395654e-16
+  },
+  "cycle_plus_two_generic_chords_stress_test": {
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ],
+    "matrix_shape": [
+      24,
+      18
+    ],
+    "rank": 14,
+    "nullity": 4,
+    "trivial_gauge_dimension": 4,
+    "extra_flex_dimension": 0,
+    "graph_cycle_rank": 3,
+    "edge_stalk_dimension": 16,
+    "H0_dimension": 4,
+    "H1_dimension": 2,
+    "forest_baseline_rank": 10,
+    "fresh_cycle_closure_rank": 4,
+    "closure_rank_plus_H1": 6,
+    "twice_graph_cycle_rank": 6,
+    "intercept_constraint_residual": 1.1910347655137488,
+    "nonzero_singular_values": [
+      2.335171572111417,
+      2.2086399997449937,
+      1.8236148866366202,
+      1.732050807568877,
+      1.7281751108175525,
+      1.6958396568586405,
+      1.6563530410130691,
+      1.5133361387183677,
+      1.2125839668229736,
+      1.1448935903103148,
+      1.0018604159484368,
+      0.5979629948852331,
+      0.5434321273708439,
+      0.09703134459232703
+    ],
+    "translation_gauge_residual": 0.0,
+    "time_shift_gauge_residual": 4.461039660953078e-16
+  },
+  "scope_warning": "The extra chord is not an encounter in the strict C12 geometry; it only certifies the generic bearing-rank mechanism.  A Kakeya proof must extract such independent constraints from actual near events."
+}

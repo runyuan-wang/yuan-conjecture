@@ -1,0 +1,95 @@
+{
+  "title": "Yuanjiang bounded collision-cycle no-go certificate",
+  "date": "2026-08-11",
+  "status": "exact finite-family result; not a general arithmetic Kakeya theorem",
+  "target": {
+    "input_projections": ["X", "Y", "X+Y", "X+2Y"],
+    "output_projection": "X-Y",
+    "known_ratio": "7/4",
+    "strict_eight_atom_budget": "a+b<=13"
+  },
+  "four_atom_search": {
+    "generation_schemas": 1725,
+    "encoding_tests": 313762,
+    "fixed_label_cost_7_seeds": 16,
+    "strict_cost_at_most_6_candidates": 0
+  },
+  "all_seed_eight_atom_search": {
+    "seed_constraint_sets": 16,
+    "cross_copy_tuples_per_seed": 6885,
+    "graphs": 110160,
+    "encoding_tests": 8931424,
+    "strict_cost_at_most_13_candidates": 0,
+    "elapsed_seconds": 220.145,
+    "best_near_miss": {
+      "seed_index": 1,
+      "cross_copy_tuple": [],
+      "encoding": ["X[0]", "Y[0]", "X+Y[4]", "X+2Y[6]", "Y[7]"],
+      "anchors": [0, 5],
+      "reconstruction_rank": 6,
+      "quotient_dimension": 8,
+      "missing_degrees_of_freedom": 2,
+      "accounted_cost": 13
+    }
+  },
+  "mobius_twist_search": {
+    "proved_safe_arbitrary_atom_seams": {
+      "description": "Glue any atom in one cost-7 seed copy to any atom in the other over one projection (cost 1) or the full atom (joint cost 2).",
+      "distinct_cost_aware_graphs": 884,
+      "encoding_tests": 7905772,
+      "strict_cost_at_most_13_candidates": 0,
+      "elapsed_seconds_first_run": 252.511,
+      "best_rejected_reconstruction_rank": 6,
+      "best_rejected_quotient_dimension": 8
+    },
+    "formal_four_rung_permutation_diagnostic": {
+      "description": "Connect four rungs through every atom permutation and every same-projection color assignment; joint-boundary gluing validity would require a separate audit if a rank candidate existed.",
+      "raw_labeled_graphs": 98304,
+      "distinct_fixed_label_constraint_spaces": 41980,
+      "encoding_tests": 812025,
+      "formal_rank_candidates": 0,
+      "elapsed_seconds_first_run": 30.291,
+      "best_rejected_reconstruction_rank": 1,
+      "best_rejected_quotient_dimension": 4,
+      "best_rejected_anchor_count": 0
+    }
+  },
+  "exactness": {
+    "main_rank_field_prime": 1000000007,
+    "second_full_run_rank_field_prime": 1000000009,
+    "second_full_run_reproduced_all_mobius_counts": true,
+    "hadamard_minor_upper_bound": 100000000,
+    "rational_rank_equivalence": true,
+    "independent_fraction_audit": {
+      "all_four_atom_schemas_passed": true,
+      "all_original_katz_tao_seed_extra_copies_passed": true,
+      "global_near_miss_passed": true
+    }
+  },
+  "scope": {
+    "ruled_out": "two-layer four-atom individual-projection copy/encoding schemas; one further aligned copy layer over every cost-7 seed; every universally valid arbitrary-atom single seam; and every formal four-rung atom-permutation/coloring twist at the linear-rank level",
+    "not_ruled_out": [
+      "joint-entropy discounts for boundary tuples spanning several distinct atoms",
+      "long Möbius strips assembled from cells that are not individually closed before the final twist",
+      "non-rectangular long colored collision matroids",
+      "stronger copy-lemma or non-Shannon information inequalities",
+      "additional Euclidean or multiscale geometric input",
+      "the arithmetic Kakeya conjecture",
+      "the four-dimensional Kakeya conjecture"
+    ]
+  },
+  "files": {
+    "main_search": {
+      "name": "eight_atom_cycle_search.py",
+      "sha256": "0cd5b88ddd5418dce30e5bc41f956a430ea985e5489625b5b0416c42ab09a419"
+    },
+    "independent_verifier": {
+      "name": "verify_eight_atom_certificate.py",
+      "sha256": "015d00773f228def3c19a804f15bcf88ffedd643a778dab5fff4e2a577d00ae4"
+    },
+    "mobius_twist_search": {
+      "name": "mobius_twist_search.py",
+      "sha256": "547d96a635c5558d9cb666fd5c79139a0779132cae075d25249b771e4f86bf88"
+    }
+  }
+}
