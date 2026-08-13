@@ -1,0 +1,294 @@
+% Evidence provenance: this draft was written only after freezing and reading
+% CLAIM_EVIDENCE_MATRIX.md and literature/VERIFIED_LITERATURE_MATRIX.md in the
+% editorial preparation packet. Quantitative statements were then checked
+% against the named public source artifacts. These matrices are editorial gates,
+% not substitutes for independent execution or mathematical review.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,array}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\hbadness=10000
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{1.2em}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cform}{X+Y}
+\newcommand{\Dform}{X+2Y}
+\newcommand{\Zform}{X-Y}
+\newcommand{\boundarybox}[1]{\begin{center}\fcolorbox{black}{gray!8}{\parbox{0.91\linewidth}{\textbf{Scope boundary.} #1}}\end{center}}
+\newcommand{\assetpath}{../assets/yuanjiang_kakeya_recollision_assets_2026-08-11/unpacked/}
+
+\title{A Computational Exploration of Finite Projection Obstructions and Local Worldline Counterexamples Motivated by Four-Dimensional Kakeya}
+\author{Runyuan Wang}
+\date{Draft, 13 August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper reports a bounded computational exploration of a finite projection-copy model and a local worldline incidence model motivated by four-dimensional Kakeya. It does not prove or disprove the four-dimensional Kakeya conjecture, and it does not claim a new Kakeya bound. The paper also does not independently rerun the source package: it reports frozen source artifacts after manifest checking and static source-to-output audit. Within a restricted individual-projection copy-and-encode language, a finite search records 1,725 four-atom schemas and 313,762 encodings, and a one-more-copy search records 110,160 eight-atom graphs and 8,931,424 encodings, with no candidate below the classical $7/4$ cost in the specified budgets. Separately, an exact rational six-worldline certificate gives an induced strict-time $C_{12}$ for every $\delta<1/25$ while avoiding the three named local degeneracies; this is a counterexample only to the implication that such a $C_{12}$ forces a bush, a common affine velocity plane, or a spacetime hyperplane. An exact audit of one selected dual-core near miss gives rank $18$ and nullity $2$, with both residual modes identified as sibling fibre slides. Numerical entropy regression and bounded beam screens are reported in separate evidence classes, not as exact certificates or exhaustive searches. The outcome is a set of model-specific constraints and two unresolved interfaces, not a continuum conclusion.
+\end{abstract}
+
+\section{Scope, evidence classes, and non-claims}
+
+The Euclidean Kakeya problem asks how small a set can be while containing a unit line segment in every direction. At the literature-verification date, the introduction of a 2026 v1 preprint states that the Euclidean conjecture remains open in dimensions at least four \citep{JingWu2026CompactLieKakeya}; that very recent status must be rechecked before any submission. For dimension four, Katz and Zahl obtained a peer-reviewed Hausdorff-dimension lower bound of $3.059$ using planebrushes \citep{KatzZahl2021Planebrush}. We do not describe that number as current-best. Katz and Tao's arithmetic-projection work supplies the historical sum--difference and Kakeya lineage for the four-form model used below \citep{KatzTao1999ArithmeticProjections,KatzTao2002NewBounds}. Shared vocabulary does not establish equivalence between their hypotheses and the repository model.
+
+The claims in this paper are separated into the following evidence classes. The label is part of the claim, not a remote caveat.
+
+\begin{center}
+\begin{tabular}{>{\bfseries}p{0.12\linewidth}p{0.31\linewidth}p{0.45\linewidth}}
+\toprule
+Class & Role here & Permitted interpretation \\
+\midrule
+E1 & Exact finite certificate & Exact integer/rational or rank-equivalent computation inside a frozen finite family; not global completeness. \\
+E2 & Exact local audit & Exact rational analysis of one selected construction; selection may have been heuristic. \\
+N & Numerical regression & Floating-point entropy/linear-program output with controls; not an exact dual certificate. \\
+H & Heuristic or bounded screen & Beam search, sampling, or a predeclared mechanism gate; failure to find is not nonexistence. \\
+F & Framing or analogy & A shared vocabulary for organizing questions; no theorem transfer. \\
+U & Unresolved interface & A missing global theorem or cost argument, not a routine implementation detail. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The repository term ``KT seed'' is author terminology for one four-atom constraint pattern, plausibly alluding to the Katz--Tao arithmetic-projection/sum--difference lineage. No literature equivalence is asserted. Likewise, ``collision'', ``worldline'', ``fibre slide'', and ``dual core'' are definitions internal to the source package. A tube intersection is not automatically a physical collision, and graph similarity does not transfer Kakeya dimension estimates.
+
+\boundarybox{Nothing below proves or disproves four-dimensional Kakeya, improves an arithmetic Kakeya constant, establishes priority, or exhausts entropy/copy-lemma methods. Exactness always refers to arithmetic or rank in the stated frozen finite object.}
+
+\section{Finite projection-copy model}
+\label{sec:model}
+
+Let an atom be $U_i=(X_i,Y_i)$, with four allowed input forms
+\[
+  X,\qquad Y,\qquad C=X+Y,\qquad D=X+2Y,
+\]
+and target form $Z=X-Y$. A coloured collision row $R(U_i)=R(U_j)$ identifies one allowed input projection $R\in\{X,Y,C,D\}$ across two atoms. Given all collision rows, the source code passes to their linear quotient. A cut or encoding $h$ is a tuple of individual allowed projection values. An atom is an \emph{anchor} when $h$ determines its $Z$ value; the full anchor atom may then pay for a remaining conditional ambiguity. A candidate succeeds only if $h$, together with all full anchor atoms, spans the quotient.
+
+This is a deliberately narrow linear-rank syntax. Its cost counts collision components and individual encoding components, each bounded by one input entropy. It does not model arbitrary joint-entropy discounts, non-Shannon inequalities, long cells that close only after a final twist, or Euclidean multiscale information.
+
+The familiar four-atom pattern has collision rows
+\[
+ X_0=X_1,\qquad X_2=X_3,\qquad D_0=D_2,\qquad Y_1=Y_3.
+\]
+A three-component cut then gives total cost $7$ for four atoms. The source package relates this bookkeeping to the classical $7/4$ arithmetic-projection lineage, but the finite pattern is defined here on its own terms.
+
+\section{E1: restricted finite projection-copy no-go}
+\label{sec:nogo}
+
+The frozen source certificate and search implementation record two exhaustive computations inside the syntax of Section~\ref{sec:model}:
+\begin{enumerate}
+  \item \textbf{Four atoms.} All 1,725 two-layer generation schemas of accounted cost at most $7$ were tested through 313,762 encoding tests. There are 16 distinct fixed-label cost-$7$ seed constraint sets and no candidate of cost at most $6$.
+  \item \textbf{One more aligned copy layer.} For each of the 16 seeds, two copies were coupled over a tuple of individual allowed projection values. There are 6,885 such graphs per seed, hence 110,160 graphs, and the source records 8,931,424 encoding tests under total cost at most $13$. No candidate is recorded. The strongest recorded near miss has quotient dimension $8$, reconstruction rank $6$, anchors $0$ and $5$, and accounted cost $13$.
+\end{enumerate}
+
+The budget $13/8$ is not presented as a candidate bound. The frozen internal audit classifies it as below the source package's recorded lower-bound window and therefore uses it only as a syntax diagnostic. That time-sensitive lower-bound window was not independently established by the retained external literature set for this draft, so we make no external record-status assertion from it.
+
+Rank decisions in the main search were made modulo $1{,}000{,}000{,}007$. The implementation supplies a Hadamard upper bound of $10^8$ for every relevant nonzero integer minor, making these ranks equal to rational ranks within the implemented family. A second full finite-field run at $1{,}000{,}000{,}009$ is recorded for the wider twist diagnostics. A separate \texttt{Fraction}-based implementation checks all 1,725 four-atom schemas, all 6,885 extra-copy graphs for the single original four-atom seed, and the one reported global near miss. It does \emph{not} independently enumerate the full 16-seed eight-atom search or every M\"obius-style diagnostic.
+
+The public source links are the
+\href{\assetpath eight_atom_no_go_certificate_2026-08-11.json}{finite certificate},
+\href{\assetpath eight_atom_cycle_search.py}{main search}, and
+\href{\assetpath verify_eight_atom_certificate.py}{rational verifier}.
+
+\boundarybox{The result rules out only the stated two-layer individual-projection schemas and one aligned extra-copy layer in the specified budgets. It does not rule out stronger copy lemmas, joint tuple discounts, long non-rectangular or M\"obius structures, non-Shannon inequalities, Euclidean input, arithmetic Kakeya, or four-dimensional Kakeya.}
+
+\section{E1: an exact rational strict-time \texorpdfstring{$C_{12}$}{C12} local counterexample}
+\label{sec:c12}
+
+For $i=0,\ldots,5$, define a spacetime worldline segment
+\[
+  L_i(t)=(t,c_i+t v_i),\qquad 0\le t\le 3,
+\]
+with the following rational data. Event $Q_i$ is the intersection of $L_i$ and $L_{i+1}$, with indices modulo six.
+
+\begin{center}
+\small
+\begin{tabular}{c c c}
+\toprule
+$i$ & $v_i$ & $c_i$ \\
+\midrule
+0 & $(-3/10,\;1/5,\;1/5)$ & $(0,0,0)$ \\
+1 & $(1/5,\;-3/10,\;-3/10)$ & $(0,0,0)$ \\
+2 & $(1/5,\;-1/10,\;-1/5)$ & $(0,-1/5,-1/10)$ \\
+3 & $(-1/5,\;-1/5,\;1/5)$ & $(4/5,0,-9/10)$ \\
+4 & $(79/198,\;-82/165,\;-20/33)$ & $(-329/330,49/55,167/110)$ \\
+5 & $(1/10,\;-3/10,\;1/10)$ & $(-99/250,99/200,99/1000)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+By cycle index, the event times are
+\[
+  (0,1,2,3,201/100,99/100),
+\]
+so their strict chronological order is
+\[
+  Q_0<Q_5<Q_1<Q_2<Q_4<Q_3.
+\]
+The source verifier performs rational segment-distance minimization on $[0,3]^2$ and exact determinant checks. It records
+\[
+\begin{aligned}
+ \min d^2(\text{nonadjacent segments})&=\frac{2017}{55600},\\
+ \min d^2(\text{event, nonincident segment})&=\frac{529}{12200},\\
+ \min |\det(v_i,v_j,v_k)|&=\frac{7}{3000},\\
+ \min |\det(v_j-v_i,v_k-v_i,v_\ell-v_i)|&=\frac{43}{33000}.
+\end{aligned}
+\]
+These positive margins and the event equalities yield the certificate's stated consequence: for every $\delta<1/25$, the six event balls and six worldlines form an induced alternating $C_{12}$, with no nonconsecutive tube intersection, no three-tube bush, no common affine velocity two-plane, and no common spacetime three-hyperplane.
+
+The named implication being refuted is only:
+\begin{quote}
+Every induced strict-time six-worldline $C_{12}$ must force at least one of a three-tube bush, a common affine velocity two-plane, or a common spacetime three-hyperplane.
+\end{quote}
+The rational instance refutes that local forcing implication. It is not a counterexample to Kakeya, to a $C_{12}$-abundance statement, or to an extremal graph theorem. The certificate and checker are linked as
+\href{\assetpath strict_time_c12_worldline_certificate.json}{JSON} and
+\href{\assetpath verify_strict_time_c12_worldlines.py}{Python source}.
+
+\boundarybox{This paper statically inspected the exact witness and checker but did not execute them independently. ``Exact rational'' describes the frozen arithmetic, not independent reproduction of its provenance or run.}
+
+\section{E2: exact anatomy of one selected dual-core residual}
+\label{sec:residual}
+
+A later route coupled two five-atom coloured trees over a two-component interface. The wider family was selected and refined using bounded beam screens; only the strongest recorded near miss is analyzed exactly here. It has ten atoms and therefore 20 scalar coordinates. Its selected reconstruction system contains ten collision rows, seven encoding rows, and two coordinate rows for each of five anchors, for 27 rows in total.
+
+The seven recorded encoding values are
+\[
+ X_0,\ C_4,\ D_5,\ Y_0,\ Y_1,\ Y_2,\ X_8,
+\]
+and the anchors are $0,1,2,8,9$. Exact rational Gaussian elimination gives
+\[
+  \operatorname{rank}(A)=18,\qquad \dim\ker(A)=20-18=2.
+\]
+A primitive basis is supported on atoms 6 and 7:
+\[
+  e_6:\ (\Delta X_6,\Delta Y_6)=(1,-1),\qquad
+  e_7:\ (\Delta X_7,\Delta Y_7)=(1,-1),
+\]
+with all other coordinates zero. Each motion preserves $C=X+Y$ at one of two sibling $C$-coloured leaves. Thus the two missing directions are not diffuse: the two leaves slide independently while every recorded collision, all seven encoding values, and all five anchor atoms stay fixed.
+
+The exact audit is
+\href{\assetpath dual_core_residual_audit.py}{\texttt{dual\_core\_residual\_audit.py}}, and the combined result certificate is
+\href{\assetpath entropy_prover_residual_target_edge_certificate_2026-08-13.json}{\texttt{entropy\_prover\_residual\_target\_edge\_certificate\_2026-08-13.json}}.
+
+\boundarybox{Rank $18$, nullity $2$, and the two fibre slides describe this selected near miss. They are not a no-go statement for every dual-core interface, and they do not convert the preceding beam selection into an exhaustive result.}
+
+\section{N: entropy-cycle regression, not an exact LP certificate}
+\label{sec:entropy}
+
+The source ledger rewrites the classical four-form bookkeeping using conditional copies. With $U=(X,Y)$, $C=X+Y$, $D=X+2Y$, and $Z=X-Y$, it constructs one copy conditional on $X$ and a second copy conditional on $(D,Y')$. A three-value cut $h=(C,C',Y_1)$ reveals the copied target value and gives the hand-derived inequality
+\[
+ 4H(Z)\le 2H(X)+2H(Y)+2H(C)+H(D),
+\]
+hence the $7/4$ ratio after bounding the right side by seven times the largest input entropy. This is a collision-cycle interpretation of existing arithmetic-projection bookkeeping, not a claim of a new proof or theorem.
+
+The package also records a PSITIP 1.1.7 regression using OR-Tools 9.15.6755 and the floating GLOP solver. Pairwise functional dependence of the five forms alone does not prove the weighted inequality in that LP. Adding the two conditional-copy relations and the supplied cut dependencies does. Two controls---the deliberately false claim $H(Z)\le H(X)$ and collapse of the assumption cone to zero---are rejected.
+
+The source code
+\href{\assetpath weighted_cycle_cutting.py}{\texttt{weighted\_cycle\_cutting.py}}
+checks copied supports and cut identities, but evaluates entropies in floating point. The separate
+\href{\assetpath psitip_cycle_audit.py}{\texttt{psitip\_cycle\_audit.py}}
+supplies the arithmetic cut identities to the prover as functional dependencies and audits the entropy implication after that point. The PSITIP/GLOP output does not include an exact rational dual certificate. The controls and hand derivation increase diagnostic confidence but do not turn the regression into machine-checked exact linear programming.
+
+\section{H: bounded route-pruning screens}
+\label{sec:screens}
+
+Table~\ref{tab:screens} records mechanism gates, not global no-go results. A ``candidate count'' of zero means only that no candidate survived that specified beam or focused family. Exact rank arithmetic for visited states does not make beam coverage exhaustive.
+
+\begin{longtable}{p{0.18\linewidth}p{0.27\linewidth}p{0.20\linewidth}p{0.20\linewidth}}
+\caption{Bounded screens and adjacent scope limits.}\label{tab:screens}\\
+\toprule
+Route & Screen actually run & Recorded outcome & What remains untested \\
+\midrule
+\endfirsthead
+\toprule
+Route & Screen actually run & Recorded outcome & What remains untested \\
+\midrule
+\endhead
+Open-path joint-interface screen & Deterministically sampled interface subfamily across all 136 reversal-inequivalent backbones: per backbone 24/160 pair, 40/640 triple, and 16/64 structured-full interfaces, with smaller antiparallel samples on reversal-symmetric backbones; 9,635 distinct cost-aware folds; width-32 beam; 6,076,559 visited rowspaces. Five selected near misses then received 826,472 exact rowspace audits. & Zero beam candidates; best selected reconstruction rank $8/10$. & Other contact topologies and joint interfaces; beam nulls are not a no-go theorem. \\
+\addlinespace
+Heterogeneous rooted star/fork screen & 14,931 distinct folds; width-2 coarse beam over 3,423,723 rowspaces; width-32 refinement on 64 folds over 67,348 rowspaces. Three selected folds received 1,649,587 exact rowspace audits. & Zero beam candidates; best recorded rank $8/11$. More visible anchors did not supply independent directions. & Other heterogeneous motifs, multi-core interfaces, and entropy inequalities. \\
+\addlinespace
+Focused dual-$Y$-core screen & 15,936 distinct focused folds; width-2 coarse beam over 3,332,936 rowspaces; width-32 refinement on 108 folds over 92,983 rowspaces. Three selected folds received 561,380 exact rowspace audits. & Zero beam candidates; best deficit improved from 3 to 2, giving the selected $8/10$ residual in Section~\ref{sec:residual}. & Matched $X$ edges were sampled but not exhaustively covered; other dual-core interfaces remain open. \\
+\addlinespace
+Leaf-to-leaf rewiring gate & Four bridge colours, each with deterministic width 256; no expensive exact enumeration was authorized. & Every best state remained $8/10$; the mechanism gate failed. & All other rewired motifs. \\
+\addlinespace
+Target-edge dual-core gate & 800 structures; width-16 screen; 857,064 beam states. & Zero beam candidates; every structure had deficit 4, worsening the previous best deficit 2. & Full encoding space of the 800 structures and all other target-edge constructions. \\
+\bottomrule
+\end{longtable}
+
+The focused dual-core source is
+\href{\assetpath dual_core_tertiary_certificate_2026-08-12.json}{its certificate};
+the earlier screens are
+\href{\assetpath protein_tertiary_fold_certificate_2026-08-12.json}{open-path certificate} and
+\href{\assetpath heterogeneous_tertiary_fold_certificate_2026-08-12.json}{heterogeneous certificate}.
+The target-edge data are in the combined certificate linked in Section~\ref{sec:residual}.
+
+These screens were useful as falsification devices: they stopped mechanisms that exposed more anchors without closing independent fibre freedoms. They do not justify phrases such as ``the route is impossible'' or ``no such object exists.''
+
+\section{F and U: framing and the two unresolved interfaces}
+\label{sec:interfaces}
+
+Worldlines, multisloped projection fibres, and collision-graph circuit rank offer a common language for asking whether repeated local identifications create global rigidity. That is framing only. A geometric tube incidence need not be a physical collision; exclusion at a physical collision scale can suppress simultaneous overlap; and a graph circuit rank does not itself carry entropy, probability, or a Kakeya dimension estimate. Cross-domain analogies are therefore not used as evidence in this paper.
+
+The frozen
+\href{\assetpath proof_route_matrix_2026-08-13.md}{route matrix}
+leaves two project-defined interfaces:
+\begin{enumerate}
+  \item \textbf{Worldline-specific soft-mode-to-grain interface.} One would need a theorem for the tube--cube incidence system showing that low-frequency or near-kernel sections either generate enough fresh independent rank or synchronize into controlled planar/sticky grain structure. The exact two-dimensional local residual in Section~\ref{sec:residual} does not provide this global classification.
+  \item \textbf{Collision compilation/cost plus global-tail interface.} One would need to compile a bad tube family into on the order of $R\asymp ND$ chargeable genuine or conditional collision gates, or force the family into the preceding structured branch, and then prove a global large-deviation estimate at the needed scale. Local gadgets and bounded screens do not provide either step.
+\end{enumerate}
+
+Completing both interfaces without additional hypotheses would constitute the central body of a proof, not a routine follow-up. They are presented as this project's formulation of what is missing, not as literature consensus or as a claim that completion is feasible.
+
+\section{Reproducibility and trust surface}
+\label{sec:repro}
+
+The public source package contains a
+\href{\assetpath SHA256SUMS_2026-08-13.txt}{38-entry SHA-256 manifest}.
+The publication audit previously recorded that all 38 payload hashes matched, all 22 Python files parsed, and all 14 JSON files were valid JSON. Those are integrity and static-format checks. They are not data correspondence, mathematical validation, or execution reproduction.
+
+Before prose was drafted, quantitative claims were bounded by the frozen editorial files \texttt{CLAIM\_EVIDENCE\_MATRIX.md} and \texttt{literature/VERIFIED\_LITERATURE\_MATRIX.md}; the first mapped each internal statement to exact source artifacts, and the second retained only source-verified external citations. This provenance gate reduces claim drift but is not part of the mathematical evidence. Agreement among readers about the text would likewise establish text consistency, not correspondence with an actual run.
+
+\begin{center}
+\begin{tabular}{p{0.25\linewidth}p{0.31\linewidth}p{0.34\linewidth}}
+\toprule
+Layer & Available & Residual risk \\
+\midrule
+Manifest integrity & 38 source-reported payload hashes checked against the frozen manifest. & A matching file may still contain an error. \\
+Static audit & Decisive scripts, certificates, and exact witness logic read; source paths and numbers cross-checked. & Reading is not execution; dependent imports and environment behavior were not exercised. \\
+Local inspectability & Rational witness coordinates, distance margins, matrix dimensions, and residual modes are exposed. & The manuscript did not independently recompute them from execution. \\
+Execution record & Some certificates record commands, versions, elapsed times, and seeds. & No unified lock/environment, raw stdout/exit/machine logs, CI, or complete external-input capture. \\
+Independent rerun & None for this paper. & Search coverage, generated outputs, and runtime claims remain source-reported. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Computer-assisted theorem reports provide useful disclosure benchmarks by separating encoding, search, proof object, and checking \citep{HeuleKullmannMarek2016Pythagorean,Heule2018SchurFive}. This package does not have an analogous end-to-end formal proof certificate. Accordingly, we use ``source-reported,'' ``recorded,'' and ``statically audited,'' not ``reproduced.''
+
+\section{Limitations}
+
+The principal limitations are scientific, not cosmetic.
+\begin{itemize}
+  \item The projection no-go covers an explicitly restricted individual-projection linear-rank language; simultaneous/global and non-Shannon structures remain outside it.
+  \item The $C_{12}$ instance refutes only the named local forcing implication. It says nothing against $C_{12}$ abundance or stronger hypotheses using many interacting cycles.
+  \item The dual-core nullspace is exact only for a selected near miss. Its selection came from bounded beams.
+  \item GLOP is floating point and no exact rational LP dual was exported.
+  \item Every beam null is non-exhaustive. Width, focused family, and exact post-audit scope are therefore reported next to each outcome.
+  \item Manifest/hash and static source audit do not constitute independent reproduction. The source package was not rerun for this paper.
+  \item No bridge theorem transfers these finite/local statements to Euclidean four-dimensional Kakeya.
+  \item The literature packet was bounded, not systematic. It supports no priority, novelty, exhaustive-survey, or current-record assertion, and the 2026 preprint status must be rechecked before submission.
+\end{itemize}
+
+\section{Conclusion}
+
+This computational exploration records three exact but bounded outcomes: a no-go inside a restricted finite projection-copy syntax, an exact rational counterexample to one named strict-time $C_{12}$ forcing implication, and rank-$18$/nullity-$2$ anatomy for one selected dual-core residual. It also records a floating entropy regression and several bounded route-pruning screens with explicit stop conditions. These results constrain the examined models; they do not prove or disprove four-dimensional Kakeya, do not establish a new bound, and do not exhaust the untested proof languages. The source package was not independently rerun. The next scientifically meaningful steps are an independent source-first rerun/checker audit and progress on either of the two global interfaces in Section~\ref{sec:interfaces}; neither is a technical formality.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
