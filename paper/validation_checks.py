@@ -166,6 +166,30 @@ def main() -> int:
         need("Boltzmann" not in text and "boltzmann" not in text, f"unsupported Boltzmann material in {name}")
     print("PASS public-privacy-and-omission: no private path/worker ID; Boltzmann--Grad layer absent")
 
+    disclosure_requirements = {
+        "main.tex": [
+            "This manuscript was written and prepared using",
+            "https://github.com/Lingtai-AI/lingtai",
+            "LingTai AI assisted with evidence organization",
+            "Runyuan Wang retains sole authorship, scientific judgment, and responsibility for the final content.",
+        ],
+        "paper.html": [
+            "This manuscript was written and prepared using",
+            "https://github.com/Lingtai-AI/lingtai",
+            "LingTai AI assisted with evidence organization",
+            "Runyuan Wang retains sole authorship, scientific judgment, and responsibility for the final content.",
+        ],
+        "SUMMARY.zh-CN.md": [
+            "本文使用 [LingTai AI（灵台）]",
+            "协助证据整理、来源—主张核验、草稿写作、一致性检查和文档构建",
+            "Runyuan Wang 保留唯一作者身份、科学判断与最终内容责任。",
+        ],
+    }
+    for filename, tokens in disclosure_requirements.items():
+        missing = [token for token in tokens if token not in public[filename]]
+        need(not missing, f"LingTai tool-use disclosure absent from {filename}: {missing}")
+    print("PASS LingTai-tool-use-disclosure: explicit assistance and sole-human-authorship language agree across TeX, HTML, and Chinese summary")
+
     # Ban common affirmative overclaims while permitting explicit negations/non-claims.
     combined = "\n".join(public.values())
     prohibited = {

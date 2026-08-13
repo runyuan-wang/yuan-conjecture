@@ -128,3 +128,34 @@ cb449e4245b09a263e7b8f9ebce4fbc964918a702ba7eb994c21e054290a268b  validation_che
 - Literature novelty and current-best status were not established.
 - The 2026 v1 preprint and any problem-status sentence require a fresh literature-status check before any future formal submission.
 - This repository publication is a transparent research record, not journal/arXiv submission or peer-reviewed acceptance.
+
+## 8. 2026-08-13 LingTai tool-use disclosure follow-up
+
+Runyuan explicitly required the paper to state that LingTai was used to write it. This follow-up adds one matched disclosure to `main.tex`, `paper.html`, and `SUMMARY.zh-CN.md`, plus an exact cross-format validator gate. The wording states that LingTai AI assisted evidence organization, source-to-claim checking, drafting, consistency validation, and document build, while Runyuan Wang retains sole authorship, scientific judgment, and final responsibility.
+
+The scientific source package and both frozen editorial matrices were not changed or rerun. The validator-only private literature view had been removed during post-publication cleanup; it was faithfully reconstructed from the already accepted six-row public bibliography and the exact manuscript claim contexts, adding no new citation or scientific claim.
+
+Clean rebuild and validation results:
+
+- `latexmk -gg -pdf -interaction=nonstopmode -halt-on-error -file-line-error main.tex`: exit 0;
+- full `validation_checks.py --project ... --source ...`: `VALIDATION_CHECKS_PASS`;
+- frozen matrices 2/2, decisive source hashes 6/6, source payload hashes 38/38, citations 6/6: PASS;
+- LingTai disclosure parity across TeX, HTML, and Chinese summary: PASS;
+- HTML static checks: 17 IDs, 38 links, 14 mapped local assets, zero external resources or broken fragments;
+- final PDF: 10 pages, 306,172 bytes, no suspects, JavaScript, encryption, or form;
+- final LaTeX log: zero overfull/underfull boxes, hyperref warnings, unresolved citations/references, or rerun markers;
+- PDF fonts: 17/17 embedded, subset, and Unicode;
+- extracted PDF text: 616 lines, 3,378 words, 23,308 bytes;
+- visual review: PDF page 9 PASS with the disclosure integrated cleanly between Conclusion and References; full 1440×9000 HTML capture PASS with the disclosure visible, readable, and professionally placed before References. Page 10 retains the prior cosmetic reference spacing/hyphenation and blank-tail notes; the disclosure correctly appears on page 9.
+
+Final follow-up hashes before commit:
+
+```text
+48af59572b4a11cc4660778f6969006e289154f620703d8438229f9c65c51864  main.pdf
+a39908384b5d47723c62f1cc7a17c20a737f309687f911cc880c836b296e388a  main.tex
+0362f0ff13639906a8d9fb4181942c904b0a06248c9f060dd06a45f4542f1798  paper.html
+cce0e8f6e4de77f24a5f011367e43c54827d1f26e47356b76510bbfcf4539522  SUMMARY.zh-CN.md
+73028b8c9d946d5124af3892f39c2ffdb7e82a990cb3f60a9de30cb21d8110cd  validation_checks.py
+```
+
+No journal/arXiv submission, release, Pages, issue, pull request, new experiment, literature-status update, or scientific-claim expansion is part of this follow-up.
