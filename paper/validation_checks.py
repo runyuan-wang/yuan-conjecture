@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Deterministic editorial checks for the bounded draft package.
 
-Usage (from draft/):
-  python3 validation_checks.py --project .. --source "$SOURCE_ROOT"
-The source root is read-only and is selected by the frozen evidence matrices.
+Usage (from paper/):
+  python3 validation_checks.py --project <frozen-editorial-project-root> --source "$SOURCE_ROOT"
+The project root supplies the frozen matrices/literature rows; the source root is
+read-only and is selected by those evidence matrices.
 This script does not execute any source-package research computation.
 """
 from __future__ import annotations
@@ -13,6 +14,7 @@ import hashlib
 import json
 import re
 import sys
+import zipfile
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -101,6 +103,7 @@ def main() -> int:
     args = parser.parse_args()
     draft = Path.cwd().resolve()
     project = args.project.resolve()
+    repository = draft.parent
     source = args.source.resolve()
 
     required = ["main.tex", "references.bib", "SUMMARY.zh-CN.md", "paper.html", "main.pdf", "main.log"]
@@ -134,6 +137,24 @@ def main() -> int:
         need((source / filename).is_file(), f"payload missing: {filename}")
         need(sha256(source / filename) == expected, f"payload hash mismatch: {filename}")
     print("PASS source-payload-hashes: 38/38 manifest entries match")
+
+    # The public archive is the owner-designated latest package. Check its frozen
+    # identity and byte parity with the selected unpacked source root.
+    archive = repository / "assets" / "yuanjiang_kakeya_recollision_assets_2026-08-11" / "yuanjiang_kakeya_recollision_assets_2026-08-11.zip"
+    need(archive.is_file(), "latest package archive absent")
+    need(archive.stat().st_size == 166_934, f"latest package size mismatch: {archive.stat().st_size}")
+    need(sha256(archive) == "c4d6a3b8a0f59f5b98872be3ea4cec9d4dc13dd5abc0522744e480ebc824aa3e", "latest package SHA-256 mismatch")
+    source_files = sorted(path.relative_to(source).as_posix() for path in source.rglob("*") if path.is_file())
+    with zipfile.ZipFile(archive) as zf:
+        infos = [info for info in zf.infolist() if not info.is_dir()]
+        need(len(infos) == 39, f"latest package member count mismatch: {len(infos)}")
+        archive_names = sorted(info.filename for info in infos)
+        need(archive_names == source_files, "archive/unpacked relative-path inventory mismatch")
+        for info in infos:
+            parts = Path(info.filename).parts
+            need(not Path(info.filename).is_absolute() and ".." not in parts, f"unsafe archive member: {info.filename}")
+            need(zf.read(info) == (source / info.filename).read_bytes(), f"archive/unpacked payload mismatch: {info.filename}")
+    print("PASS latest-package-archive: 166,934 bytes, expected SHA-256, 39 safe regular members, all byte-identical to unpacked source")
 
     tex = (draft / "main.tex").read_text(encoding="utf-8")
     bib = (draft / "references.bib").read_text(encoding="utf-8")
@@ -189,6 +210,53 @@ def main() -> int:
         missing = [token for token in tokens if token not in public[filename]]
         need(not missing, f"LingTai tool-use disclosure absent from {filename}: {missing}")
     print("PASS LingTai-tool-use-disclosure: explicit assistance and sole-human-authorship language agree across TeX, HTML, and Chinese summary")
+
+    readme = (repository / "README.md").read_text(encoding="utf-8")
+    for token in ["胡思乱想，AI帮忙", "不把计算探索变成证明", "Runyuan Wang 作为唯一作者"]:
+        need(token in readme, f"requested guarded repository introduction token absent: {token}")
+    print("PASS repository-introduction: exact requested phrase, non-proof boundary, and sole-author responsibility present")
+
+    latest_package_requirements = {
+        "main.tex": [
+            "Latest experiment package audit (14 August 2026)",
+            "166,934 bytes",
+            "c4d6a3b8a0f59f5b98872be3ea4cec9d4dc13dd5abc0522744e480ebc824aa3e",
+            "all 39 unpacked payloads identical by relative path and bytes",
+            "best state retained by the stated beams improved the recorded deficit from 3 to 2",
+            "width-16 beam's best retained state had deficit 4",
+            "not a proved optimum over that structure's full encoding space",
+        ],
+        "paper.html": [
+            "Latest experiment package audit (14 August 2026)",
+            "166,934 bytes",
+            "c4d6a3b8a0f59f5b98872be3ea4cec9d4dc13dd5abc0522744e480ebc824aa3e",
+            "all 39 unpacked payloads identical by relative path and bytes",
+            "best state retained by the stated beams improved the recorded deficit from 3 to 2",
+            "width-16 beam's best retained state had deficit 4",
+            "not a proved optimum over that structure's full encoding space",
+        ],
+        "SUMMARY.zh-CN.md": [
+            "最新实验包更新（2026-08-14）",
+            "166,934 字节",
+            "c4d6a3b8a0f59f5b98872be3ea4cec9d4dc13dd5abc0522744e480ebc824aa3e",
+            "39 个展开载荷也全部逐字节相同",
+            "所述束保留的最佳状态把记录缺口从 3 改善到 2",
+            "宽度 16 束保留的最佳状态缺口均为 4",
+            "不是对各结构完整编码空间全局最优值的证明",
+        ],
+    }
+    for filename, tokens in latest_package_requirements.items():
+        missing = [token for token in tokens if token not in public[filename]]
+        need(not missing, f"latest-package/beam precision absent from {filename}: {missing}")
+    stale_beam_phrases = {
+        "main.tex": ["best deficit improved from 3 to 2", "every structure had deficit 4"],
+        "paper.html": ["Best deficit improved 3→2", "Every structure had deficit 4"],
+        "SUMMARY.zh-CN.md": ["最佳缺口从 3 改善到 2", "最佳缺口从 2 恶化到 4"],
+    }
+    for filename, tokens in stale_beam_phrases.items():
+        hits = [token for token in tokens if token in public[filename]]
+        need(not hits, f"stale beam-optimum wording remains in {filename}: {hits}")
+    print("PASS latest-package-and-beam-parity: byte-equality update and retained-state/non-optimum wording agree across public formats")
 
     # Ban common affirmative overclaims while permitting explicit negations/non-claims.
     combined = "\n".join(public.values())

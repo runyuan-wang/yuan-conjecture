@@ -14,7 +14,7 @@
 <p class="meta">Conservative computational-exploration draft</p>
 <h1>A Computational Exploration of Finite Projection Obstructions and Local Worldline Counterexamples Motivated by Four-Dimensional Kakeya</h1>
 <p class="author">Runyuan Wang</p>
-<p class="date">13 August 2026</p>
+<p class="date">14 August 2026</p>
 </header>
 
 <section class="abstract"><h2 style="margin-top:0;border:0">Abstract</h2>
@@ -22,7 +22,7 @@
 </section>
 
 <nav class="toc" aria-label="Contents"><strong>Contents</strong><ol>
-<li><a href="#scope">Scope and evidence classes</a></li><li><a href="#model">Finite model</a></li><li><a href="#nogo">Restricted finite no-go</a></li><li><a href="#c12">Strict-time C<sub>12</sub></a></li><li><a href="#residual">Dual-core residual</a></li><li><a href="#entropy">Entropy regression</a></li><li><a href="#screens">Route-pruning screens</a></li><li><a href="#interfaces">Unresolved interfaces</a></li><li><a href="#repro">Reproducibility</a></li><li><a href="#limits">Limitations and conclusion</a></li><li><a href="#tool-use">Tool-use disclosure</a></li></ol></nav>
+<li><a href="#scope">Scope and evidence classes</a></li><li><a href="#model">Finite model</a></li><li><a href="#nogo">Restricted finite no-go</a></li><li><a href="#c12">Strict-time C<sub>12</sub></a></li><li><a href="#residual">Dual-core residual</a></li><li><a href="#entropy">Entropy regression</a></li><li><a href="#screens">Route-pruning screens</a></li><li><a href="#interfaces">Unresolved interfaces</a></li><li><a href="#repro">Reproducibility</a></li><li><a href="#limits">Limitations and conclusion</a></li></ol></nav>
 
 <section id="scope"><h2>1. Scope, evidence classes, and non-claims</h2>
 <p>The Euclidean Kakeya problem asks how small a set can be while containing a unit line segment in every direction. At the literature-verification date, the introduction of a 2026 v1 preprint states that the Euclidean conjecture remains open in dimensions at least four <a href="#ref-jingwu">[1]</a>; that very recent status must be rechecked before any submission. For dimension four, Katz and Zahl obtained a peer-reviewed Hausdorff-dimension lower bound of 3.059 using planebrushes <a href="#ref-katz-zahl">[2]</a>. We do not describe that number as current-best. Katz and Tao's arithmetic-projection work supplies the historical sum–difference and Kakeya lineage for the four-form model <a href="#ref-kt1999">[3]</a> <a href="#ref-kt2002">[4]</a>. Shared vocabulary does not establish equivalence between their hypotheses and the repository model.</p>
@@ -34,6 +34,8 @@
 <tr><td><span class="tag">F</span></td><td>Framing or analogy</td><td>Shared vocabulary only; no theorem transfer.</td></tr>
 <tr><td><span class="tag">U</span></td><td>Unresolved interface</td><td>A missing global theorem or cost argument, not a routine implementation detail.</td></tr>
 </tbody></table>
+<h3 id="latest-package">Latest experiment package audit (14 August 2026)</h3>
+<p>The repository owner designated the 2026-08-11 recollision package as the latest experiment. Its archive is 166,934 bytes, has SHA-256 <code>c4d6a3b8a0f59f5b98872be3ea4cec9d4dc13dd5abc0522744e480ebc824aa3e</code>, and contains 39 regular files. A mechanical comparison found the supplied archive byte-for-byte identical to the archive already preserved in this repository, and found all 39 unpacked payloads identical by relative path and bytes. Fresh source-first static review therefore confirms, rather than extends, the experiment's substantive result: the strongest exact outcomes remain the restricted finite-syntax no-go, the strict-time C<sub>12</sub> local counterexample, and the rank-18/nullity-2 anatomy of one selected residual; the broader mechanism results remain bounded beam or focused screens. Byte equality and static review are not a new run or independent reproduction, and the two global interfaces remain open.</p>
 <p>“KT seed” is repository-author terminology for one four-atom constraint pattern, plausibly alluding to the Katz–Tao arithmetic-projection/sum–difference lineage. No literature equivalence is asserted. Likewise, “collision”, “worldline”, “fibre slide”, and “dual core” are internal definitions. A tube intersection is not automatically a physical collision, and graph similarity does not transfer Kakeya estimates.</p>
 <div class="scope"><strong>Scope boundary.</strong> Nothing below proves or disproves four-dimensional Kakeya, improves an arithmetic Kakeya constant, establishes priority, or exhausts entropy/copy-lemma methods. Exactness always refers to arithmetic or rank in the stated frozen finite object.</div>
 </section>
@@ -82,9 +84,9 @@
 <table><thead><tr><th>Route</th><th>Screen run</th><th>Outcome</th><th>Adjacent limitation</th></tr></thead><tbody>
 <tr><td>Open-path joint interface</td><td>Deterministically sampled interface subfamily across all 136 reversal-inequivalent backbones: per backbone 24/160 pair, 40/640 triple, and 16/64 structured-full interfaces, with smaller antiparallel samples on reversal-symmetric backbones; 9,635 folds; width 32; 6,076,559 visited rowspaces; five selected exact audits total 826,472 rowspaces.</td><td>Zero beam candidates; best selected rank 8/10.</td><td>Other topologies/interfaces remain; beam nulls are not no-go theorems.</td></tr>
 <tr><td>Heterogeneous star/fork</td><td>14,931 folds; width-2 coarse and width-32 refinement; three selected exact audits total 1,649,587 rowspaces.</td><td>Zero beam candidates; best 8/11.</td><td>Other motifs, multi-core interfaces, and inequalities remain.</td></tr>
-<tr><td>Focused dual-Y core</td><td>15,936 focused folds; width-2 coarse and width-32 refinement; three selected exact audits total 561,380 rowspaces.</td><td>Best deficit improved 3→2, yielding the selected 8/10 residual.</td><td>Matched X edges were sampled but not exhaustively covered.</td></tr>
+<tr><td>Focused dual-Y core</td><td>15,936 focused folds; width-2 coarse and width-32 refinement; three selected exact audits total 561,380 rowspaces.</td><td>The best state retained by the stated beams improved the recorded deficit from 3 to 2, yielding the selected 8/10 residual; this is not a proved optimum over the encoding space.</td><td>Matched X edges were sampled but not exhaustively covered.</td></tr>
 <tr><td>Leaf-to-leaf rewiring</td><td>Four bridge colours, deterministic width 256; no expensive exact enumeration.</td><td>Every best state remained 8/10.</td><td>Other rewired motifs remain untested.</td></tr>
-<tr><td>Target-edge dual core</td><td>800 structures; width 16; 857,064 beam states.</td><td>Every structure had deficit 4, worse than the previous 2.</td><td>The complete encoding space and other target-edge mechanisms remain.</td></tr>
+<tr><td>Target-edge dual core</td><td>800 structures; width 16; 857,064 beam states.</td><td>For each of the 800 structures, the width-16 beam's best retained state had deficit 4, worse than the previously recorded 2; this is not a proved optimum over that structure's full encoding space.</td><td>The complete encoding space and other target-edge mechanisms remain.</td></tr>
 </tbody></table>
 <p>Sources: <a href="../assets/yuanjiang_kakeya_recollision_assets_2026-08-11/unpacked/protein_tertiary_fold_certificate_2026-08-12.json">open-path certificate</a>, <a href="../assets/yuanjiang_kakeya_recollision_assets_2026-08-11/unpacked/heterogeneous_tertiary_fold_certificate_2026-08-12.json">heterogeneous certificate</a>, and <a href="../assets/yuanjiang_kakeya_recollision_assets_2026-08-11/unpacked/dual_core_tertiary_certificate_2026-08-12.json">focused dual-core certificate</a>. These are mechanism stop gates. Exact rank on visited states does not make beam coverage exhaustive.</p>
 </section>

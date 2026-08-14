@@ -1,6 +1,6 @@
 # Build and validation record
 
-**Date:** 2026-08-13
+**Date:** 2026-08-13 (original build); updated 2026-08-14
 
 ## 1. Scope and evidence boundary
 
@@ -159,3 +159,40 @@ cce0e8f6e4de77f24a5f011367e43c54827d1f26e47356b76510bbfcf4539522  SUMMARY.zh-CN.
 ```
 
 No journal/arXiv submission, release, Pages, issue, pull request, new experiment, literature-status update, or scientific-claim expansion is part of this follow-up.
+
+## 9. 2026-08-14 latest-experiment package and paper update
+
+Runyuan designated the 2026-08-11 recollision package as the latest experiment. The supplied Agent Mail ZIP is 166,934 bytes with SHA-256 `c4d6a3b8a0f59f5b98872be3ea4cec9d4dc13dd5abc0522744e480ebc824aa3e`. Mechanical comparison found it byte-for-byte identical to the repository ZIP. The extracted package and repository each contain the same 39 relative paths, with all 39 payloads byte-for-byte identical; the archive has 39 safe regular members, its 38-row payload manifest matches 38/38, and all 22 Python plus 14 JSON files parse. Byte equality does not make the owner-designated latest experiment irrelevant and does not remove the need to update its paper interpretation.
+
+A fresh source-first static review read every package source. It confirms rather than expands the existing substantive boundary: the strongest exact outcomes remain the restricted finite-syntax no-go, the exact rational strict-time local $C_{12}$ counterexample, and the rank-18/nullity-2 anatomy of one beam-selected residual. Numerical entropy results remain floating/tolerance-conditioned, and broader mechanism failures remain bounded search evidence. The paper now states precisely that the dual-core deficit 3-to-2 result is the best state retained by the stated beams and that, for each of the 800 target-edge structures, the width-16 beam's best retained state had deficit 4. Neither statement is a proved optimum over the relevant encoding space. The worldline soft-mode-to-grain and collision-compilation/global-tail interfaces remain open.
+
+The repository introduction now includes Runyuan's exact phrase `胡思乱想，AI帮忙` with an explicit computational-exploration/non-proof guard. Existing LingTai assistance disclosure and Runyuan Wang's sole authorship, scientific judgment, and final responsibility remain intact.
+
+Final local checks, using only already-installed tools:
+
+- `latexmk -gg -pdf -interaction=nonstopmode -halt-on-error -file-line-error main.tex`: exit 0;
+- final `main.log`: overfull 0, underfull 0, hyperref warnings 0, unresolved citations/references 0, rerun markers 0;
+- `python3 validation_checks.py --project <frozen-editorial-project-root> --source ../assets/yuanjiang_kakeya_recollision_assets_2026-08-11/unpacked`: exit 0 and `VALIDATION_CHECKS_PASS`;
+- validator package gate: expected 166,934-byte archive and SHA-256, 39 safe members, and 39/39 archive-to-unpacked payload equality: PASS;
+- frozen matrices 2/2, decisive source hashes 6/6, payload hashes 38/38, citations 6/6: PASS;
+- README phrase/boundary, latest-package cross-format parity, retained-state/non-optimum precision, claim lint, source correspondence, and whitespace/conflict checks: PASS;
+- HTML static checks: 18 IDs, 37 links, 14 mapped local assets, zero external resources or broken fragments;
+- final PDF: 11 pages, 329,147 bytes, US Letter, PDF 1.5, no suspects, form, JavaScript, or encryption;
+- PDF fonts: 18/18 embedded, subset, and Unicode-mapped;
+- layout-preserving PDF text: 30,755 bytes, 514 lines, 3,591 words, 11 page breaks; updated date/audit/hash/disclosure present and zero private-path, worker-ID, `??`, or `undefined` hits;
+- all 11 pages rasterized successfully to nonempty 306-by-396 PNGs at 36 dpi as a rendering smoke test; this mechanical smoke test is not claimed as a fresh human visual review;
+- public/candidate text hygiene: zero private absolute path, LingTai runtime path, worker ID, private-key header, AWS-key form, or GitHub-token form outside the validator's intentional lint literals;
+- `git diff --check`: exit 0.
+
+Final updated paper artifact hashes:
+
+```text
+414f931319eeaa3965e86276e114b591715e39f9ffcbc46c627749bdd75dd714  main.pdf
+b5deb2583c651712aec21bfe4067c48fdd41f1f6a1a04cd95c5abbadb8b3d611  main.tex
+2d8d185f11db68b5d5d29bc0a921dbb1bf1b5821724fd1dc0261930980fd89e2  paper.html
+6573925664792e2df6ec363a336a6776839a437d6b14542024a555cb76cdc651  SUMMARY.zh-CN.md
+6e8892246909e1c1abf0959c917ce85a7bfd87f2b8a8697a1762351b0237a9bd  validation_checks.py
+c06419021f9361eafb1735fd5d54ca2851b02dafb424dadb15d9d42edcffb1f5  references.bib
+```
+
+This update did not rerun the research programs and is not an independent mathematical reproduction. It changes only the reviewed repository/paper presentation and validation files; no source asset, citation, external literature-status assertion, release, Pages deployment, issue, pull request, contact, install, fetch, or formal submission is part of it.
