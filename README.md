@@ -14,12 +14,24 @@
 
 ## 论文与实验资产
 
-- [计算探索论文（HTML）](paper/paper.html)
-- [计算探索论文（PDF）](paper/main.pdf)
+### 第一篇：计算探索记录
+
+- [论文（HTML）](paper/paper.html)
+- [论文（PDF）](paper/main.pdf)
 - [中文摘要](paper/SUMMARY.zh-CN.md)
 - [Kakeya 重碰撞实验资产（2026-08-11）](assets/yuanjiang_kakeya_recollision_assets_2026-08-11/)
 
-论文是一份有限、局部、可审计的计算探索记录，重点报告严格的有限语法 no-go、显式反例、局部秩障碍与失败路线剪枝；它不声称证明或证伪四维 Kakeya 猜想，也不声称获得新维数界、当前最佳结果、穷尽性或独立复现。
+第一篇是一份有限、局部、可审计的计算探索记录，重点报告严格的有限语法 no-go、显式反例、局部秩障碍与失败路线剪枝；它不声称证明或证伪四维 Kakeya 猜想，也不声称获得新维数界、当前最佳结果、穷尽性或独立复现。
+
+### 第二篇：有界跨度稀疏弹性矩形框架
+
+- [论文说明与边界](paper-2/README.md)
+- [论文（PDF）](paper-2/main.pdf)
+- [中文摘要](paper-2/SUMMARY.zh-CN.md)
+- [证据矩阵](paper-2/SOURCE_MATRIX.md)
+- [构建与验证](paper-2/BUILD_AND_VALIDATION.md)
+
+第二篇严格证明：在入射度和矩形边长都统一有界时，规范化商空间 gap 至多为 `O(m^-2)`，因此固定大小的局部/固定块拼接族不能给出统一 expander。允许跨度随 `m` 增长的非局部问题仍然开放；`m=2,…,5` 的精确证书与数值 gap 只作为有限证据，不外推为 Kakeya 定理、非局部结论或新颖性声明。
 
 ## 证据边界
 

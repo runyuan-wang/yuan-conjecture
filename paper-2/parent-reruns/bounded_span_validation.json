@@ -1,0 +1,196 @@
+{
+  "all_checks_passed": true,
+  "block_candidate_inequality_checks": [
+    {
+      "D": 25,
+      "L_squared": 8,
+      "candidate_id": "m2_block_glue_d24_t0_d9ba760005c1",
+      "closed_form_theorem_upper_bound": 8.451542547285166,
+      "g_weighted_projected_Rayleigh_sigma": 0.11722732726487646,
+      "inequality_chain_verified": true,
+      "m": 2,
+      "max_abs_Delta_g": 4,
+      "observed_smallest_sigma": 0.08335506328301158,
+      "two_L_squared": 16
+    },
+    {
+      "D": 25,
+      "L_squared": 8,
+      "candidate_id": "m3_block_glue_d24_t0_69e8a31546b3",
+      "closed_form_theorem_upper_bound": 4.08248290463863,
+      "g_weighted_projected_Rayleigh_sigma": 0.062531896627723,
+      "inequality_chain_verified": true,
+      "m": 3,
+      "max_abs_Delta_g": 4,
+      "observed_smallest_sigma": 0.045831066402261936,
+      "two_L_squared": 16
+    },
+    {
+      "D": 25,
+      "L_squared": 8,
+      "candidate_id": "m4_block_glue_d24_t0_c0d595fbe5ca",
+      "closed_form_theorem_upper_bound": 2.417468892076141,
+      "g_weighted_projected_Rayleigh_sigma": 0.039760897188118725,
+      "inequality_chain_verified": true,
+      "m": 4,
+      "max_abs_Delta_g": 4,
+      "observed_smallest_sigma": 0.029958226221588793,
+      "two_L_squared": 16
+    },
+    {
+      "D": 25,
+      "L_squared": 8,
+      "candidate_id": "m5_block_glue_d24_t0_5fe3e03b153f",
+      "closed_form_theorem_upper_bound": 1.6012815380508714,
+      "g_weighted_projected_Rayleigh_sigma": 0.027743233524142243,
+      "inequality_chain_verified": true,
+      "m": 5,
+      "max_abs_Delta_g": 4,
+      "observed_smallest_sigma": 0.020256156964578838,
+      "two_L_squared": 16
+    }
+  ],
+  "created_utc": "2026-08-15T08:15:37Z",
+  "environment": {
+    "implementation": "CPython",
+    "numpy": "2.3.3",
+    "platform": "macOS-14.4.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "pythonhashseed": "0",
+    "scipy": "1.16.1"
+  },
+  "exact_moment_and_orthogonality_checks": [
+    {
+      "G_bruteforce": 12,
+      "G_formula": 12,
+      "equal": true,
+      "m": 1,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 700,
+      "G_formula": 700,
+      "equal": true,
+      "m": 2,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 8232,
+      "G_formula": 8232,
+      "equal": true,
+      "m": 3,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 49896,
+      "G_formula": 49896,
+      "equal": true,
+      "m": 4,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 207636,
+      "G_formula": 207636,
+      "equal": true,
+      "m": 5,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 676676,
+      "G_formula": 676676,
+      "equal": true,
+      "m": 6,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 1856400,
+      "G_formula": 1856400,
+      "equal": true,
+      "m": 7,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 4480656,
+      "G_formula": 4480656,
+      "equal": true,
+      "m": 8,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 9794652,
+      "G_formula": 9794652,
+      "equal": true,
+      "m": 9,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "G_bruteforce": 19785612,
+      "G_formula": 19785612,
+      "equal": true,
+      "m": 10,
+      "unweighted_mode_inner_products": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "schema": "bounded_span_theorem_validation.v1",
+  "script_sha256": "31c17bebb40a1162c8be6af8f8e8791f061bf3ca19ba317e74f47d792677e67c"
+}
