@@ -2,9 +2,9 @@
 
 ## Frozen artifacts
 
-- `main.pdf`: 8 letter-sized pages, 259,178 bytes, SHA-256 `2bed369b9808d58e7c6aa0e9e28cd22d4c4e1a99c7da3aa17d955d499f730498`
-- `main.tex`: SHA-256 `37e428913ed953268159e47877940c949c5497defdac281049025b51276f3d8c`
-- `validation_checks.py`: SHA-256 `ff8c8f83ab58ba08a51a6dbad3a0b430c8e5815205f6b606b8c4ddf8e8ebb645`
+- `main.pdf`: 8 letter-sized pages, 259,336 bytes, SHA-256 `9eda214d86520015c6017ce0bebccd41de38c687aa377f6dfbe2259600185eb9`
+- `main.tex`: SHA-256 `911a21ff8138e336a0355c7e57cf70613fb9c197b5c3147f09e2ba56ed207403`
+- `validation_checks.py`: SHA-256 `6ce9983736d499231cbd92c77534ed11c4d1e71e32779c08db4fd713ba47faed`
 - `assets/collision_rectangle_expander_assets.zip`: 2,001,758 bytes, 200 regular files, SHA-256 `cd4b859a8dfb51ac07427748a9ba852e5b90c2b166e75c9c04999600d829bf2a`
 
 The experiment ZIP is preserved byte-for-byte. The six JSON files under `parent-reruns/` are the exact certificate, gap and bounded-span artifacts consumed by the manuscript validator.
@@ -23,7 +23,7 @@ cp parent-reruns/certificates/*.json .repro/PARENT_RERUNS/certificates/
 PYTHONDONTWRITEBYTECODE=1 python3 validation_checks.py --source .repro --root .
 ```
 
-Accepted parent result: **PASS — 26,810 deterministic assertions and four candidate notes; empty standard error**.
+Accepted parent result: **PASS — 26,818 deterministic assertions and four candidate notes; empty standard error**.
 
 The validator checks every designated candidate row, canonical rectangle geometry, five exact collision-mode residuals, domain-separated hashes, degree ranges, four exact rational-kernel certificates and listed odd minors over `F_2`, two large-prime screens, finite gap values/residuals, bounded-span arithmetic, citations, synchronized manuscript values, claim-boundary language, structure and path/privacy hygiene.
 
@@ -59,7 +59,7 @@ Accepted build checks:
 
 ## Independent review and parent acceptance
 
-One corrected source-first independent Sol review read the proof, source scripts, raw evidence and certificate package before reading the parent review. It reported `INDEPENDENT_SOL_PASS` with no MATERIAL or MINOR manuscript findings. Parent then reran the frozen validator, theorem arithmetic, certificate/delivery/gap JSON gates and PDF checks; manuscript hashes were unchanged.
+One corrected source-first independent Sol review read the proof, source scripts, raw evidence and certificate package before reading the parent review. It reported `INDEPENDENT_SOL_PASS` with no MATERIAL or MINOR manuscript findings on the original manuscript. The later disclosure-only amendment changed no proof, evidence or scientific claim; parent reran the 26,818-assertion validator, exact theorem arithmetic, PDF metadata/log/font gates and all-eight-page visual review on the amended build.
 
 ## Limits
 

@@ -59,6 +59,7 @@ EXPECTED = {
 
 PUBLIC_FILES = [
     "PAPER_PLAN.md",
+    "README.md",
     "SOURCE_MATRIX.md",
     "main.tex",
     "SUMMARY.zh-CN.md",
@@ -286,6 +287,7 @@ def audit_manuscript(audit: Audit, root: Path) -> None:
 
     tex = texts["main.tex"]
     plan = texts["PAPER_PLAN.md"]
+    readme = texts["README.md"]
     matrix = texts["SOURCE_MATRIX.md"]
     zh = texts["SUMMARY.zh-CN.md"]
     report = texts["REPORT.md"]
@@ -308,18 +310,32 @@ def audit_manuscript(audit: Audit, root: Path) -> None:
     chinese_disclosure = (
         "本文全部正文文字与整体结构均由 LingTai AI 在王润圆的指导和授权下生成"
     )
-    audit.require(english_disclosure in tex.replace("\n", " "),
+    english_playful_disclaimer = (
+        "This work is shared purely for personal enjoyment and playful exploration with AI. "
+        "If anything is incorrect, please excuse it; criticism and corrections are warmly welcomed."
+    )
+    chinese_playful_disclaimer = (
+        "这纯粹是自娱自乐，和AI一起玩耍，如果有不对之处，请见谅，请批评指正"
+    )
+    normalized_tex = re.sub(r"\s+", " ", tex)
+    audit.require(english_disclosure in normalized_tex,
                   "exact English all-AI-writing disclosure missing")
-    audit.require("AI production is not evidence for any claim" in tex.replace("\n", " "),
+    audit.require("AI production is not evidence for any claim" in normalized_tex,
                   "English evidence boundary missing from disclosure")
-    audit.require("Runyuan Wang retains final scientific judgment and responsibility" in tex.replace("\n", " "),
+    audit.require("Runyuan Wang retains final scientific judgment and responsibility" in normalized_tex,
                   "English responsibility boundary missing")
+    audit.require(english_playful_disclaimer in normalized_tex,
+                  "English personal-enjoyment and correction disclaimer missing")
     audit.require(chinese_disclosure in zh,
                   "exact Chinese all-AI-writing disclosure missing")
     audit.require("AI 生成身份本身不构成任何结论的证据" in zh,
                   "Chinese evidence boundary missing")
     audit.require("王润圆保留最终科学判断" in zh and "承担最终责任" in zh,
                   "Chinese responsibility boundary missing")
+    audit.require(chinese_playful_disclaimer in zh,
+                  "Chinese personal-enjoyment disclaimer missing from summary")
+    audit.require(chinese_playful_disclaimer in readme,
+                  "Chinese personal-enjoyment disclaimer missing from README")
     audit.require("English and Chinese disclosures state exactly" in plan,
                   "AI disclosure acceptance gate missing from PAPER_PLAN.md")
 
