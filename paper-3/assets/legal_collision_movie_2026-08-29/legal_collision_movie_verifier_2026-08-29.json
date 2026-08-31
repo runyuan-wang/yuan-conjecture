@@ -1,0 +1,141 @@
+{
+  "arithmetic": "exact Fraction intersection checks; independent float64 SVD/lstsq wiring",
+  "exhaustive_optima": {
+    "planar_weave_K6_cap_2": 6,
+    "planar_weave_K6_cap_4": 12,
+    "regulus_K4_4_cap_2": 8,
+    "regulus_K4_4_cap_4": 12,
+    "regulus_K4_4_no_cap": 12,
+    "simultaneous_bush_K5_no_cap": 2
+  },
+  "full_network_checks": {
+    "generic_rational_C18": {
+      "cols": 36,
+      "left_null": 0,
+      "ok": true,
+      "rank": 27,
+      "residual": 6.672534958131687e-15,
+      "rows": 27,
+      "sigma_min": 0.08165366351971586
+    },
+    "planar_weave_K6": {
+      "cols": 60,
+      "left_null": 20,
+      "ok": true,
+      "rank": 52,
+      "residual": 1.3199306802766905e-13,
+      "rows": 72,
+      "sigma_min": 0.6013556575478884
+    },
+    "regulus_K4_4": {
+      "cols": 64,
+      "left_null": 13,
+      "ok": false,
+      "rank": 59,
+      "residual": 0.000469712188262642,
+      "rows": 72,
+      "sigma_min": 0.18648170301103212
+    },
+    "sheared_regulus_K4_4": {
+      "cols": 64,
+      "left_null": 13,
+      "ok": false,
+      "rank": 59,
+      "residual": 0.0018914250026367046,
+      "rows": 72,
+      "sigma_min": 0.13736448765003414
+    },
+    "simultaneous_bush_K5": {
+      "ok": false,
+      "reason": "simultaneous reuse"
+    },
+    "strict_C12_reference": {
+      "cols": 24,
+      "left_null": 0,
+      "ok": true,
+      "rank": 18,
+      "residual": 1.6365722610630073e-15,
+      "rows": 18,
+      "sigma_min": 0.10279762885315918
+    },
+    "time_separated_hinge_star": {
+      "cols": 32,
+      "left_null": 0,
+      "ok": true,
+      "rank": 21,
+      "residual": 1.9560787595079447e-15,
+      "rows": 21,
+      "sigma_min": 0.3901806440322562
+    }
+  },
+  "independence": "does not import legal_collision_movie_compiler.py and uses a different variable ordering",
+  "rcond_stability_sweep": {
+    "planar_weave_K6": [
+      {
+        "rank": 52,
+        "rcond": 1e-08,
+        "relative_residual": 1.3199306802766905e-13
+      },
+      {
+        "rank": 52,
+        "rcond": 1e-10,
+        "relative_residual": 1.3199306802766905e-13
+      },
+      {
+        "rank": 52,
+        "rcond": 1e-12,
+        "relative_residual": 1.3199306802766905e-13
+      },
+      {
+        "rank": 52,
+        "rcond": 1e-14,
+        "relative_residual": 1.3199306802766905e-13
+      }
+    ],
+    "regulus_K4_4": [
+      {
+        "rank": 59,
+        "rcond": 1e-08,
+        "relative_residual": 0.000469712188262642
+      },
+      {
+        "rank": 59,
+        "rcond": 1e-10,
+        "relative_residual": 0.000469712188262642
+      },
+      {
+        "rank": 59,
+        "rcond": 1e-12,
+        "relative_residual": 0.000469712188262642
+      },
+      {
+        "rank": 59,
+        "rcond": 1e-14,
+        "relative_residual": 0.000469712188262642
+      }
+    ],
+    "sheared_regulus_K4_4": [
+      {
+        "rank": 59,
+        "rcond": 1e-08,
+        "relative_residual": 0.0018914250026367046
+      },
+      {
+        "rank": 59,
+        "rcond": 1e-10,
+        "relative_residual": 0.0018914250026367046
+      },
+      {
+        "rank": 59,
+        "rcond": 1e-12,
+        "relative_residual": 0.0018914250026367046
+      },
+      {
+        "rank": 59,
+        "rcond": 1e-14,
+        "relative_residual": 0.0018914250026367046
+      }
+    ]
+  },
+  "status": "PASS"
+}

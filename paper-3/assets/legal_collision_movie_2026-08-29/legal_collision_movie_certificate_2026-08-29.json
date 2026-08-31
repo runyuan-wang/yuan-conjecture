@@ -1,0 +1,1889 @@
+{
+  "collision_specific_obstruction_summary": [
+    {
+      "chronology_valid": true,
+      "collision_specific_obstruction_detected": false,
+      "family": "strict_C12_reference",
+      "left_null_dimension": 0,
+      "relative_obstruction": 1.6470305495135716e-15
+    },
+    {
+      "chronology_valid": true,
+      "collision_specific_obstruction_detected": false,
+      "family": "generic_rational_C18",
+      "left_null_dimension": 0,
+      "relative_obstruction": 5.6080608672937295e-15
+    },
+    {
+      "chronology_valid": true,
+      "collision_specific_obstruction_detected": false,
+      "family": "time_separated_hinge_star",
+      "left_null_dimension": 0,
+      "relative_obstruction": 1.824447668025039e-15
+    },
+    {
+      "chronology_valid": false,
+      "collision_specific_obstruction_detected": false,
+      "family": "simultaneous_bush_K5",
+      "left_null_dimension": null,
+      "relative_obstruction": null
+    },
+    {
+      "chronology_valid": true,
+      "collision_specific_obstruction_detected": false,
+      "family": "planar_weave_K6",
+      "left_null_dimension": 20,
+      "relative_obstruction": 1.836952183516886e-13
+    },
+    {
+      "chronology_valid": true,
+      "collision_specific_obstruction_detected": true,
+      "family": "regulus_K4_4",
+      "left_null_dimension": 13,
+      "relative_obstruction": 0.00046971218826262864
+    },
+    {
+      "chronology_valid": true,
+      "collision_specific_obstruction_detected": true,
+      "family": "sheared_regulus_K4_4",
+      "left_null_dimension": 13,
+      "relative_obstruction": 0.0018914250026367066
+    }
+  ],
+  "families": [
+    {
+      "candidate_event_count": 6,
+      "candidate_incidence_count": 12,
+      "discrete_identity_audit": {
+        "chronological_event_names": [
+          "E0",
+          "E5",
+          "E1",
+          "E2",
+          "E4",
+          "E3"
+        ],
+        "extra_global_identity_entropy_bits": 0,
+        "final_token_on_lane": [
+          5,
+          2,
+          3,
+          1,
+          0,
+          4
+        ],
+        "global_route_count": 1,
+        "interpretation": "For central swaps, labels are a deterministic permutation; identity adds no nonlocal constraint.",
+        "local_route_count_per_event": 1,
+        "valid": true
+      },
+      "family_sha256": "2f100f6cee30faa37e1741d8e157bf05eee3e619e290cd67b65e9ff178891242",
+      "full_network": {
+        "absolute_residual": 3.455819958438988e-15,
+        "cols": 24,
+        "condition_number_nonzero": 21.025682198633834,
+        "left_null_dimension": 0,
+        "minimum_time_gap": 0.99,
+        "rank": 18,
+        "relative_residual": 1.6470305495135716e-15,
+        "rows": 18,
+        "smallest_nonzero_singular_value": 0.10279762885315896,
+        "solution_norm": 1.5541821331817334,
+        "wireable": true
+      },
+      "geometry_audit": {
+        "all_declared_intersections_exact_over_Q": true,
+        "all_event_times_in_0_1": false,
+        "distinct_event_time_count": 6,
+        "distinct_velocity_vectors": true,
+        "maximum_event_time_multiplicity": 1,
+        "no_repeated_lane_pair": true,
+        "unintended_exact_line_intersection_count": 0,
+        "unintended_exact_line_intersections": []
+      },
+      "geometry_class": "wide generic fixed cycle",
+      "lane_count": 6,
+      "maximum_compilable": {
+        "at_most_four_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 1,
+          "checked_subsets_until_first_optimum": 1,
+          "event_retention": 1.0,
+          "incidence_retention": 1.0,
+          "maximum_events": 6,
+          "witness_audit": {
+            "absolute_residual": 3.455819958438988e-15,
+            "cols": 24,
+            "condition_number_nonzero": 21.025682198633834,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.99,
+            "rank": 18,
+            "relative_residual": 1.6470305495135716e-15,
+            "rows": 18,
+            "smallest_nonzero_singular_value": 0.10279762885315896,
+            "solution_norm": 1.5541821331817334,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5"
+          ]
+        },
+        "at_most_two_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 1,
+          "checked_subsets_until_first_optimum": 1,
+          "event_retention": 1.0,
+          "incidence_retention": 1.0,
+          "maximum_events": 6,
+          "witness_audit": {
+            "absolute_residual": 3.455819958438988e-15,
+            "cols": 24,
+            "condition_number_nonzero": 21.025682198633834,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.99,
+            "rank": 18,
+            "relative_residual": 1.6470305495135716e-15,
+            "rows": 18,
+            "smallest_nonzero_singular_value": 0.10279762885315896,
+            "solution_norm": 1.5541821331817334,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5"
+          ]
+        },
+        "no_lane_reuse_cap": {
+          "at_least_this_many_optimal_witnesses_found": 1,
+          "checked_subsets_until_first_optimum": 1,
+          "event_retention": 1.0,
+          "incidence_retention": 1.0,
+          "maximum_events": 6,
+          "witness_audit": {
+            "absolute_residual": 3.455819958438988e-15,
+            "cols": 24,
+            "condition_number_nonzero": 21.025682198633834,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.99,
+            "rank": 18,
+            "relative_residual": 1.6470305495135716e-15,
+            "rows": 18,
+            "smallest_nonzero_singular_value": 0.10279762885315896,
+            "solution_norm": 1.5541821331817334,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5"
+          ]
+        }
+      },
+      "name": "strict_C12_reference",
+      "notes": "Previously verified positive control; included only to validate the generalized compiler."
+    },
+    {
+      "candidate_event_count": 9,
+      "candidate_incidence_count": 18,
+      "discrete_identity_audit": {
+        "chronological_event_names": [
+          "E0",
+          "E2",
+          "E6",
+          "E4",
+          "E8",
+          "E1",
+          "E7",
+          "E3",
+          "E5"
+        ],
+        "extra_global_identity_entropy_bits": 0,
+        "final_token_on_lane": [
+          8,
+          3,
+          0,
+          5,
+          2,
+          7,
+          4,
+          1,
+          6
+        ],
+        "global_route_count": 1,
+        "interpretation": "For central swaps, labels are a deterministic permutation; identity adds no nonlocal constraint.",
+        "local_route_count_per_event": 1,
+        "valid": true
+      },
+      "family_sha256": "34c9f0d88ac94a96a34911f3d1b4ff542e99d900eb906e757d2fa48168becf93",
+      "full_network": {
+        "absolute_residual": 1.598588636369067e-14,
+        "cols": 36,
+        "condition_number_nonzero": 18743.92475052094,
+        "left_null_dimension": 0,
+        "minimum_time_gap": 0.25,
+        "rank": 27,
+        "relative_residual": 5.6080608672937295e-15,
+        "rows": 27,
+        "smallest_nonzero_singular_value": 0.0816536635197162,
+        "solution_norm": 0.4108613532840794,
+        "wireable": true
+      },
+      "geometry_audit": {
+        "all_declared_intersections_exact_over_Q": true,
+        "all_event_times_in_0_1": true,
+        "distinct_event_time_count": 9,
+        "distinct_velocity_vectors": true,
+        "maximum_event_time_multiplicity": 1,
+        "no_repeated_lane_pair": true,
+        "unintended_exact_line_intersection_count": 0,
+        "unintended_exact_line_intersections": []
+      },
+      "geometry_class": "wide generic fixed cycle",
+      "lane_count": 9,
+      "maximum_compilable": {
+        "at_most_four_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 1,
+          "checked_subsets_until_first_optimum": 1,
+          "event_retention": 1.0,
+          "incidence_retention": 1.0,
+          "maximum_events": 9,
+          "witness_audit": {
+            "absolute_residual": 1.598588636369067e-14,
+            "cols": 36,
+            "condition_number_nonzero": 18743.92475052094,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.25,
+            "rank": 27,
+            "relative_residual": 5.6080608672937295e-15,
+            "rows": 27,
+            "smallest_nonzero_singular_value": 0.0816536635197162,
+            "solution_norm": 0.4108613532840794,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5",
+            "E6",
+            "E7",
+            "E8"
+          ]
+        },
+        "at_most_two_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 1,
+          "checked_subsets_until_first_optimum": 1,
+          "event_retention": 1.0,
+          "incidence_retention": 1.0,
+          "maximum_events": 9,
+          "witness_audit": {
+            "absolute_residual": 1.598588636369067e-14,
+            "cols": 36,
+            "condition_number_nonzero": 18743.92475052094,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.25,
+            "rank": 27,
+            "relative_residual": 5.6080608672937295e-15,
+            "rows": 27,
+            "smallest_nonzero_singular_value": 0.0816536635197162,
+            "solution_norm": 0.4108613532840794,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5",
+            "E6",
+            "E7",
+            "E8"
+          ]
+        },
+        "no_lane_reuse_cap": {
+          "at_least_this_many_optimal_witnesses_found": 1,
+          "checked_subsets_until_first_optimum": 1,
+          "event_retention": 1.0,
+          "incidence_retention": 1.0,
+          "maximum_events": 9,
+          "witness_audit": {
+            "absolute_residual": 1.598588636369067e-14,
+            "cols": 36,
+            "condition_number_nonzero": 18743.92475052094,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.25,
+            "rank": 27,
+            "relative_residual": 5.6080608672937295e-15,
+            "rows": 27,
+            "smallest_nonzero_singular_value": 0.0816536635197162,
+            "solution_norm": 0.4108613532840794,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5",
+            "E6",
+            "E7",
+            "E8"
+          ]
+        }
+      },
+      "name": "generic_rational_C18",
+      "notes": "Nine genuine rational R4 lines; every event is an exact intersection of consecutive lanes."
+    },
+    {
+      "candidate_event_count": 8,
+      "candidate_incidence_count": 16,
+      "discrete_identity_audit": {
+        "chronological_event_names": [
+          "E0",
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7"
+        ],
+        "extra_global_identity_entropy_bits": 0,
+        "final_token_on_lane": [
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "global_route_count": 1,
+        "interpretation": "For central swaps, labels are a deterministic permutation; identity adds no nonlocal constraint.",
+        "local_route_count_per_event": 1,
+        "valid": true
+      },
+      "family_sha256": "a09bda0df32842cc67484f1a97395cd81a1905be3b6b11bf3f13a5000d5cd917",
+      "full_network": {
+        "absolute_residual": 4.818610941913916e-15,
+        "cols": 32,
+        "condition_number_nonzero": 5.027339492125853,
+        "left_null_dimension": 0,
+        "minimum_time_gap": 0.1111111111111111,
+        "rank": 21,
+        "relative_residual": 1.824447668025039e-15,
+        "rows": 21,
+        "smallest_nonzero_singular_value": 0.3901806440322563,
+        "solution_norm": 6.454167462777815,
+        "wireable": true
+      },
+      "geometry_audit": {
+        "all_declared_intersections_exact_over_Q": true,
+        "all_event_times_in_0_1": true,
+        "distinct_event_time_count": 8,
+        "distinct_velocity_vectors": true,
+        "maximum_event_time_multiplicity": 1,
+        "no_repeated_lane_pair": true,
+        "unintended_exact_line_intersection_count": 0,
+        "unintended_exact_line_intersections": []
+      },
+      "geometry_class": "hinge tree / shared lane",
+      "lane_count": 9,
+      "maximum_compilable": {
+        "at_most_four_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 101,
+          "event_retention": 0.5,
+          "incidence_retention": 0.5,
+          "maximum_events": 4,
+          "witness_audit": {
+            "absolute_residual": 1.8006931038825993e-15,
+            "cols": 16,
+            "condition_number_nonzero": 2.414213562373095,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.1111111111111111,
+            "rank": 9,
+            "relative_residual": 1.0435796462048347e-15,
+            "rows": 9,
+            "smallest_nonzero_singular_value": 0.7653668647301795,
+            "solution_norm": 2.224986045929234,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1",
+            "E2",
+            "E3"
+          ]
+        },
+        "at_most_two_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 227,
+          "event_retention": 0.25,
+          "incidence_retention": 0.25,
+          "maximum_events": 2,
+          "witness_audit": {
+            "absolute_residual": 2.7194799110210365e-16,
+            "cols": 8,
+            "condition_number_nonzero": 1.0,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.1111111111111111,
+            "rank": 3,
+            "relative_residual": 2.7194799110210365e-16,
+            "rows": 3,
+            "smallest_nonzero_singular_value": 1.4142135623730951,
+            "solution_norm": 0.7002393588964961,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1"
+          ]
+        },
+        "no_lane_reuse_cap": {
+          "at_least_this_many_optimal_witnesses_found": 1,
+          "checked_subsets_until_first_optimum": 1,
+          "event_retention": 1.0,
+          "incidence_retention": 1.0,
+          "maximum_events": 8,
+          "witness_audit": {
+            "absolute_residual": 4.818610941913916e-15,
+            "cols": 32,
+            "condition_number_nonzero": 5.027339492125853,
+            "left_null_dimension": 0,
+            "minimum_time_gap": 0.1111111111111111,
+            "rank": 21,
+            "relative_residual": 1.824447668025039e-15,
+            "rows": 21,
+            "smallest_nonzero_singular_value": 0.3901806440322563,
+            "solution_norm": 6.454167462777815,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "witness_event_names": [
+            "E0",
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5",
+            "E6",
+            "E7"
+          ]
+        }
+      },
+      "name": "time_separated_hinge_star",
+      "notes": "All collisions on the shared lane are strictly time separated; leaf directions are non-coplanar."
+    },
+    {
+      "candidate_event_count": 10,
+      "candidate_incidence_count": 20,
+      "discrete_identity_audit": {
+        "extra_global_identity_entropy_bits": null,
+        "reason": "one lane is asked to undergo two binary collisions at the same time",
+        "valid": false
+      },
+      "family_sha256": "c1b88a5bb4604c4c1b5528bc0ba96acfeb9abb580d1bd769b79bf42754c8ef26",
+      "full_network": {
+        "reason": "one or more lanes are reused at the same time",
+        "wireable": false
+      },
+      "geometry_audit": {
+        "all_declared_intersections_exact_over_Q": true,
+        "all_event_times_in_0_1": true,
+        "distinct_event_time_count": 1,
+        "distinct_velocity_vectors": true,
+        "maximum_event_time_multiplicity": 10,
+        "no_repeated_lane_pair": true,
+        "unintended_exact_line_intersection_count": 0,
+        "unintended_exact_line_intersections": []
+      },
+      "geometry_class": "single spacetime bush",
+      "lane_count": 5,
+      "maximum_compilable": {
+        "at_most_four_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 989,
+          "event_retention": 0.2,
+          "incidence_retention": 0.2,
+          "maximum_events": 2,
+          "witness_audit": {
+            "absolute_residual": 0.0,
+            "cols": 8,
+            "condition_number_nonzero": 1.0,
+            "left_null_dimension": 0,
+            "minimum_time_gap": null,
+            "rank": 0,
+            "relative_residual": 0.0,
+            "rows": 0,
+            "smallest_nonzero_singular_value": 0.0,
+            "solution_norm": 0.0,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            7
+          ],
+          "witness_event_names": [
+            "E0_1",
+            "E2_3"
+          ]
+        },
+        "at_most_two_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 989,
+          "event_retention": 0.2,
+          "incidence_retention": 0.2,
+          "maximum_events": 2,
+          "witness_audit": {
+            "absolute_residual": 0.0,
+            "cols": 8,
+            "condition_number_nonzero": 1.0,
+            "left_null_dimension": 0,
+            "minimum_time_gap": null,
+            "rank": 0,
+            "relative_residual": 0.0,
+            "rows": 0,
+            "smallest_nonzero_singular_value": 0.0,
+            "solution_norm": 0.0,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            7
+          ],
+          "witness_event_names": [
+            "E0_1",
+            "E2_3"
+          ]
+        },
+        "no_lane_reuse_cap": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 989,
+          "event_retention": 0.2,
+          "incidence_retention": 0.2,
+          "maximum_events": 2,
+          "witness_audit": {
+            "absolute_residual": 0.0,
+            "cols": 8,
+            "condition_number_nonzero": 1.0,
+            "left_null_dimension": 0,
+            "minimum_time_gap": null,
+            "rank": 0,
+            "relative_residual": 0.0,
+            "rows": 0,
+            "smallest_nonzero_singular_value": 0.0,
+            "solution_norm": 0.0,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            7
+          ],
+          "witness_event_names": [
+            "E0_1",
+            "E2_3"
+          ]
+        }
+      },
+      "name": "simultaneous_bush_K5",
+      "notes": "All pair events are local but a binary hard-sphere movie may not reuse one particle at the same instant."
+    },
+    {
+      "candidate_event_count": 15,
+      "candidate_incidence_count": 30,
+      "discrete_identity_audit": {
+        "chronological_event_names": [
+          "E2_3",
+          "E1_3",
+          "E1_2",
+          "E1_4",
+          "E2_4",
+          "E0_3",
+          "E1_5",
+          "E0_4",
+          "E2_5",
+          "E0_5",
+          "E0_2",
+          "E3_4",
+          "E3_5",
+          "E4_5",
+          "E0_1"
+        ],
+        "extra_global_identity_entropy_bits": 0,
+        "final_token_on_lane": [
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "global_route_count": 1,
+        "interpretation": "For central swaps, labels are a deterministic permutation; identity adds no nonlocal constraint.",
+        "local_route_count_per_event": 1,
+        "valid": true
+      },
+      "family_sha256": "6e84cc177024a29c14db03f61a80f23c0e4c388138825a5f68dbd904738ee9a9",
+      "full_network": {
+        "absolute_residual": 7.793528074081353e-13,
+        "cols": 60,
+        "condition_number_nonzero": 162.2007449188523,
+        "left_null_dimension": 20,
+        "minimum_time_gap": 0.036734693877551024,
+        "rank": 52,
+        "relative_residual": 1.836952183516886e-13,
+        "rows": 72,
+        "smallest_nonzero_singular_value": 0.6013556575478902,
+        "solution_norm": 2.364631835093741,
+        "wireable": true
+      },
+      "geometry_audit": {
+        "all_declared_intersections_exact_over_Q": true,
+        "all_event_times_in_0_1": true,
+        "distinct_event_time_count": 15,
+        "distinct_velocity_vectors": true,
+        "maximum_event_time_multiplicity": 1,
+        "no_repeated_lane_pair": true,
+        "unintended_exact_line_intersection_count": 0,
+        "unintended_exact_line_intersections": []
+      },
+      "geometry_class": "coherent plany carrier",
+      "lane_count": 6,
+      "maximum_compilable": {
+        "at_most_four_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 365,
+          "event_retention": 0.8,
+          "incidence_retention": 0.8,
+          "maximum_events": 12,
+          "witness_audit": {
+            "absolute_residual": 3.2277531328239955e-13,
+            "cols": 48,
+            "condition_number_nonzero": 126.861912705485,
+            "left_null_dimension": 14,
+            "minimum_time_gap": 0.036734693877551024,
+            "rank": 40,
+            "relative_residual": 8.952176480720343e-14,
+            "rows": 54,
+            "smallest_nonzero_singular_value": 0.7607100288853689,
+            "solution_norm": 1.4761194650101963,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9,
+            10,
+            12,
+            13
+          ],
+          "witness_event_names": [
+            "E2_3",
+            "E1_3",
+            "E1_2",
+            "E1_4",
+            "E2_4",
+            "E0_3",
+            "E1_5",
+            "E0_4",
+            "E0_5",
+            "E0_2",
+            "E3_5",
+            "E4_5"
+          ]
+        },
+        "at_most_two_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 23604,
+          "event_retention": 0.4,
+          "incidence_retention": 0.4,
+          "maximum_events": 6,
+          "witness_audit": {
+            "absolute_residual": 1.8966326665071276e-15,
+            "cols": 24,
+            "condition_number_nonzero": 51.165226623339635,
+            "left_null_dimension": 4,
+            "minimum_time_gap": 0.06944444444444445,
+            "rank": 14,
+            "relative_residual": 9.483163332535638e-16,
+            "rows": 18,
+            "smallest_nonzero_singular_value": 1.4515526043639468,
+            "solution_norm": 0.6883842331954608,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            7,
+            9,
+            13
+          ],
+          "witness_event_names": [
+            "E2_3",
+            "E1_3",
+            "E1_2",
+            "E0_4",
+            "E0_5",
+            "E4_5"
+          ]
+        },
+        "no_lane_reuse_cap": {
+          "at_least_this_many_optimal_witnesses_found": 1,
+          "checked_subsets_until_first_optimum": 1,
+          "event_retention": 1.0,
+          "incidence_retention": 1.0,
+          "maximum_events": 15,
+          "witness_audit": {
+            "absolute_residual": 7.793528074081353e-13,
+            "cols": 60,
+            "condition_number_nonzero": 162.2007449188523,
+            "left_null_dimension": 20,
+            "minimum_time_gap": 0.036734693877551024,
+            "rank": 52,
+            "relative_residual": 1.836952183516886e-13,
+            "rows": 72,
+            "smallest_nonzero_singular_value": 0.6013556575478902,
+            "solution_norm": 2.364631835093741,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "witness_event_names": [
+            "E2_3",
+            "E1_3",
+            "E1_2",
+            "E1_4",
+            "E2_4",
+            "E0_3",
+            "E1_5",
+            "E0_4",
+            "E2_5",
+            "E0_5",
+            "E0_2",
+            "E3_4",
+            "E3_5",
+            "E4_5",
+            "E0_1"
+          ]
+        }
+      },
+      "name": "planar_weave_K6",
+      "notes": "All 15 crossings are distinct and lie in 0<t<1; this is the hard-rod escape branch."
+    },
+    {
+      "candidate_event_count": 16,
+      "candidate_incidence_count": 32,
+      "discrete_identity_audit": {
+        "chronological_event_names": [
+          "E0_0",
+          "E0_1",
+          "E1_0",
+          "E1_1",
+          "E2_0",
+          "E2_1",
+          "E0_2",
+          "E1_2",
+          "E3_0",
+          "E2_2",
+          "E3_1",
+          "E0_3",
+          "E1_3",
+          "E3_2",
+          "E2_3",
+          "E3_3"
+        ],
+        "extra_global_identity_entropy_bits": 0,
+        "final_token_on_lane": [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "global_route_count": 1,
+        "interpretation": "For central swaps, labels are a deterministic permutation; identity adds no nonlocal constraint.",
+        "local_route_count_per_event": 1,
+        "valid": true
+      },
+      "family_sha256": "fbf8f6a90b2f42eb3c5cb4aa867b0249df896667dc250a73550a3734f8b7f12f",
+      "full_network": {
+        "absolute_residual": 0.002284102481993694,
+        "cols": 64,
+        "condition_number_nonzero": 23.073321406791617,
+        "left_null_dimension": 13,
+        "minimum_time_gap": 0.045,
+        "rank": 59,
+        "relative_residual": 0.00046971218826262864,
+        "rows": 72,
+        "smallest_nonzero_singular_value": 0.1864817030110321,
+        "solution_norm": 4.534298744646783,
+        "wireable": false
+      },
+      "geometry_audit": {
+        "all_declared_intersections_exact_over_Q": true,
+        "all_event_times_in_0_1": true,
+        "distinct_event_time_count": 15,
+        "distinct_velocity_vectors": true,
+        "maximum_event_time_multiplicity": 2,
+        "no_repeated_lane_pair": true,
+        "unintended_exact_line_intersection_count": 0,
+        "unintended_exact_line_intersections": []
+      },
+      "geometry_class": "ruled quadric carrier",
+      "lane_count": 8,
+      "maximum_compilable": {
+        "at_most_four_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 725,
+          "event_retention": 0.75,
+          "incidence_retention": 0.75,
+          "maximum_events": 12,
+          "witness_audit": {
+            "absolute_residual": 4.4816955046934244e-15,
+            "cols": 48,
+            "condition_number_nonzero": 336.6198277704146,
+            "left_null_dimension": 5,
+            "minimum_time_gap": 0.045,
+            "rank": 43,
+            "relative_residual": 1.1263717947944564e-15,
+            "rows": 48,
+            "smallest_nonzero_singular_value": 0.009888697653939021,
+            "solution_norm": 3.4967583903350588,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12
+          ],
+          "witness_event_names": [
+            "E0_0",
+            "E0_1",
+            "E1_0",
+            "E1_1",
+            "E2_0",
+            "E2_1",
+            "E0_2",
+            "E1_2",
+            "E3_0",
+            "E3_1",
+            "E0_3",
+            "E1_3"
+          ]
+        },
+        "at_most_two_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 28301,
+          "event_retention": 0.5,
+          "incidence_retention": 0.5,
+          "maximum_events": 8,
+          "witness_audit": {
+            "absolute_residual": 5.915981207656152e-15,
+            "cols": 32,
+            "condition_number_nonzero": 40.95578352083557,
+            "left_null_dimension": 2,
+            "minimum_time_gap": 0.045,
+            "rank": 22,
+            "relative_residual": 2.111025751157623e-15,
+            "rows": 24,
+            "smallest_nonzero_singular_value": 0.08928020016015388,
+            "solution_norm": 1.5123629524543054,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            9,
+            13,
+            14,
+            15
+          ],
+          "witness_event_names": [
+            "E0_0",
+            "E0_1",
+            "E1_0",
+            "E1_1",
+            "E2_2",
+            "E3_2",
+            "E2_3",
+            "E3_3"
+          ]
+        },
+        "no_lane_reuse_cap": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 725,
+          "event_retention": 0.75,
+          "incidence_retention": 0.75,
+          "maximum_events": 12,
+          "witness_audit": {
+            "absolute_residual": 4.4816955046934244e-15,
+            "cols": 48,
+            "condition_number_nonzero": 336.6198277704146,
+            "left_null_dimension": 5,
+            "minimum_time_gap": 0.045,
+            "rank": 43,
+            "relative_residual": 1.1263717947944564e-15,
+            "rows": 48,
+            "smallest_nonzero_singular_value": 0.009888697653939021,
+            "solution_norm": 3.4967583903350588,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12
+          ],
+          "witness_event_names": [
+            "E0_0",
+            "E0_1",
+            "E1_0",
+            "E1_1",
+            "E2_0",
+            "E2_1",
+            "E0_2",
+            "E1_2",
+            "E3_0",
+            "E3_1",
+            "E0_3",
+            "E1_3"
+          ]
+        }
+      },
+      "name": "regulus_K4_4",
+      "notes": "Exact rational doubly ruled grid."
+    },
+    {
+      "candidate_event_count": 16,
+      "candidate_incidence_count": 32,
+      "discrete_identity_audit": {
+        "chronological_event_names": [
+          "E0_0",
+          "E0_1",
+          "E1_0",
+          "E1_1",
+          "E2_0",
+          "E2_1",
+          "E0_2",
+          "E1_2",
+          "E3_0",
+          "E2_2",
+          "E3_1",
+          "E0_3",
+          "E1_3",
+          "E3_2",
+          "E2_3",
+          "E3_3"
+        ],
+        "extra_global_identity_entropy_bits": 0,
+        "final_token_on_lane": [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "global_route_count": 1,
+        "interpretation": "For central swaps, labels are a deterministic permutation; identity adds no nonlocal constraint.",
+        "local_route_count_per_event": 1,
+        "valid": true
+      },
+      "family_sha256": "f6771c2b007528937c218b3662633eafddff0cc668371b554f98f57187bdd8e9",
+      "full_network": {
+        "absolute_residual": 0.00915832818895002,
+        "cols": 64,
+        "condition_number_nonzero": 34.41211425252255,
+        "left_null_dimension": 13,
+        "minimum_time_gap": 0.045,
+        "rank": 59,
+        "relative_residual": 0.0018914250026367066,
+        "rows": 72,
+        "smallest_nonzero_singular_value": 0.13736448765003414,
+        "solution_norm": 4.691583124111599,
+        "wireable": false
+      },
+      "geometry_audit": {
+        "all_declared_intersections_exact_over_Q": true,
+        "all_event_times_in_0_1": true,
+        "distinct_event_time_count": 15,
+        "distinct_velocity_vectors": true,
+        "maximum_event_time_multiplicity": 2,
+        "no_repeated_lane_pair": true,
+        "unintended_exact_line_intersection_count": 0,
+        "unintended_exact_line_intersections": []
+      },
+      "geometry_class": "ruled quadric carrier",
+      "lane_count": 8,
+      "maximum_compilable": {
+        "at_most_four_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 725,
+          "event_retention": 0.75,
+          "incidence_retention": 0.75,
+          "maximum_events": 12,
+          "witness_audit": {
+            "absolute_residual": 6.636210171117108e-15,
+            "cols": 48,
+            "condition_number_nonzero": 371.4273656599989,
+            "left_null_dimension": 5,
+            "minimum_time_gap": 0.045,
+            "rank": 43,
+            "relative_residual": 1.6743460274912902e-15,
+            "rows": 48,
+            "smallest_nonzero_singular_value": 0.009673834564228713,
+            "solution_norm": 3.4964652594049728,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12
+          ],
+          "witness_event_names": [
+            "E0_0",
+            "E0_1",
+            "E1_0",
+            "E1_1",
+            "E2_0",
+            "E2_1",
+            "E0_2",
+            "E1_2",
+            "E3_0",
+            "E3_1",
+            "E0_3",
+            "E1_3"
+          ]
+        },
+        "at_most_two_events_per_original_lane": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 28301,
+          "event_retention": 0.5,
+          "incidence_retention": 0.5,
+          "maximum_events": 8,
+          "witness_audit": {
+            "absolute_residual": 3.3235454122611662e-15,
+            "cols": 32,
+            "condition_number_nonzero": 45.90381534730211,
+            "left_null_dimension": 2,
+            "minimum_time_gap": 0.045,
+            "rank": 22,
+            "relative_residual": 1.1917018238842045e-15,
+            "rows": 24,
+            "smallest_nonzero_singular_value": 0.08707208940593361,
+            "solution_norm": 1.562444182095217,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            9,
+            13,
+            14,
+            15
+          ],
+          "witness_event_names": [
+            "E0_0",
+            "E0_1",
+            "E1_0",
+            "E1_1",
+            "E2_2",
+            "E3_2",
+            "E2_3",
+            "E3_3"
+          ]
+        },
+        "no_lane_reuse_cap": {
+          "at_least_this_many_optimal_witnesses_found": 8,
+          "checked_subsets_until_first_optimum": 725,
+          "event_retention": 0.75,
+          "incidence_retention": 0.75,
+          "maximum_events": 12,
+          "witness_audit": {
+            "absolute_residual": 6.636210171117108e-15,
+            "cols": 48,
+            "condition_number_nonzero": 371.4273656599989,
+            "left_null_dimension": 5,
+            "minimum_time_gap": 0.045,
+            "rank": 43,
+            "relative_residual": 1.6743460274912902e-15,
+            "rows": 48,
+            "smallest_nonzero_singular_value": 0.009673834564228713,
+            "solution_norm": 3.4964652594049728,
+            "wireable": true
+          },
+          "witness_event_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12
+          ],
+          "witness_event_names": [
+            "E0_0",
+            "E0_1",
+            "E1_0",
+            "E1_1",
+            "E2_0",
+            "E2_1",
+            "E0_2",
+            "E1_2",
+            "E3_0",
+            "E3_1",
+            "E0_3",
+            "E1_3"
+          ]
+        }
+      },
+      "name": "sheared_regulus_K4_4",
+      "notes": "A determinant-one rational spatial shear is applied."
+    }
+  ],
+  "metadata": {
+    "arithmetic": "exact rational incidence geometry; double-precision SVD/lstsq for unit-normal wiring",
+    "date": "2026-08-29",
+    "randomness": "none",
+    "scope": "finite central-swap hard-sphere compiler; not an asymptotic Kakeya extraction theorem",
+    "title": "Global legal collision-movie compilation audit"
+  },
+  "model": {
+    "collision_specific_entropy_proxy": "dimension and norm of the projection of c(omega) onto the left nullspace of A",
+    "congestion_sensitivity": "reported with no cap, degree cap 4, and degree cap 2 per original lane",
+    "global_constraint": "finite-radius contact half-rays must match on every shared original lane",
+    "local_event": "exact pair concurrence followed by a central equal-mass velocity swap",
+    "matching_system": "A(y_e,s_e)=c(omega_e)",
+    "retention": "maximum selected candidate events divided by all candidate events; event and incidence fractions coincide here",
+    "worldline": "x_i(t)=b_i+t v_i in R^3, hence an affine line in R^4"
+  },
+  "regulus_scaling_probe": [
+    {
+      "candidate_event_count": 4,
+      "full_grid_audit": {
+        "absolute_residual": 1.6229734558386786e-15,
+        "cols": 16,
+        "condition_number_nonzero": 20.932060492663197,
+        "left_null_dimension": 1,
+        "minimum_time_gap": 0.038461538461538464,
+        "rank": 11,
+        "relative_residual": 8.129388455030362e-16,
+        "rows": 12,
+        "smallest_nonzero_singular_value": 0.11551197459862012,
+        "solution_norm": 1.0210746758660008,
+        "wireable": true
+      },
+      "full_grid_wireable": true,
+      "lane_count": 4,
+      "n_per_ruling": 2,
+      "tested_circulant_skeletons": [
+        {
+          "circulant_degree": 2,
+          "matching_audit": {
+            "absolute_residual": 1.6229734558386786e-15,
+            "cols": 16,
+            "condition_number_nonzero": 20.932060492663197,
+            "left_null_dimension": 1,
+            "minimum_time_gap": 0.038461538461538464,
+            "rank": 11,
+            "relative_residual": 8.129388455030362e-16,
+            "rows": 12,
+            "smallest_nonzero_singular_value": 0.11551197459862012,
+            "solution_norm": 1.0210746758660008,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 1.0,
+          "selected_events": 4,
+          "wireable": true
+        }
+      ],
+      "warning": "Wireable skeleton fractions are certified lower bounds, not optimal retention for n>4."
+    },
+    {
+      "candidate_event_count": 9,
+      "full_grid_audit": {
+        "absolute_residual": 6.773609152807542e-05,
+        "cols": 36,
+        "condition_number_nonzero": 75.35864069776352,
+        "left_null_dimension": 5,
+        "minimum_time_gap": 0.02,
+        "rank": 31,
+        "relative_residual": 1.9572128622018887e-05,
+        "rows": 36,
+        "smallest_nonzero_singular_value": 0.03907358676784728,
+        "solution_norm": 2.484159452069561,
+        "wireable": false
+      },
+      "full_grid_wireable": false,
+      "lane_count": 6,
+      "n_per_ruling": 3,
+      "tested_circulant_skeletons": [
+        {
+          "circulant_degree": 2,
+          "matching_audit": {
+            "absolute_residual": 3.2386747270976677e-15,
+            "cols": 24,
+            "condition_number_nonzero": 20.777175636042486,
+            "left_null_dimension": 1,
+            "minimum_time_gap": 0.02,
+            "rank": 17,
+            "relative_residual": 1.324707379306034e-15,
+            "rows": 18,
+            "smallest_nonzero_singular_value": 0.11791757172478114,
+            "solution_norm": 1.2361611664081587,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.6666666666666666,
+          "selected_events": 6,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 3,
+          "matching_audit": {
+            "absolute_residual": 6.773609152807542e-05,
+            "cols": 36,
+            "condition_number_nonzero": 75.35864069776352,
+            "left_null_dimension": 5,
+            "minimum_time_gap": 0.02,
+            "rank": 31,
+            "relative_residual": 1.9572128622018887e-05,
+            "rows": 36,
+            "smallest_nonzero_singular_value": 0.03907358676784728,
+            "solution_norm": 2.484159452069561,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 1.0,
+          "selected_events": 9,
+          "wireable": false
+        }
+      ],
+      "warning": "Wireable skeleton fractions are certified lower bounds, not optimal retention for n>4."
+    },
+    {
+      "candidate_event_count": 16,
+      "full_grid_audit": {
+        "absolute_residual": 0.00014384828316994693,
+        "cols": 64,
+        "condition_number_nonzero": 124.6516548501679,
+        "left_null_dimension": 13,
+        "minimum_time_gap": 0.012195121951219513,
+        "rank": 59,
+        "relative_residual": 2.9380068623010767e-05,
+        "rows": 72,
+        "smallest_nonzero_singular_value": 0.02529784427797663,
+        "solution_norm": 4.516816376033565,
+        "wireable": false
+      },
+      "full_grid_wireable": false,
+      "lane_count": 8,
+      "n_per_ruling": 4,
+      "tested_circulant_skeletons": [
+        {
+          "circulant_degree": 2,
+          "matching_audit": {
+            "absolute_residual": 4.037343753567113e-15,
+            "cols": 32,
+            "condition_number_nonzero": 21.918611791645485,
+            "left_null_dimension": 1,
+            "minimum_time_gap": 0.012195121951219513,
+            "rank": 23,
+            "relative_residual": 1.4299606117426109e-15,
+            "rows": 24,
+            "smallest_nonzero_singular_value": 0.1132137796411299,
+            "solution_norm": 1.421581935108989,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.5,
+          "selected_events": 8,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 3,
+          "matching_audit": {
+            "absolute_residual": 7.213133879333554e-15,
+            "cols": 48,
+            "condition_number_nonzero": 276.7897739170175,
+            "left_null_dimension": 5,
+            "minimum_time_gap": 0.012195121951219513,
+            "rank": 43,
+            "relative_residual": 1.8051462943515256e-15,
+            "rows": 48,
+            "smallest_nonzero_singular_value": 0.010710648091311477,
+            "solution_norm": 3.0307681424053823,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.75,
+          "selected_events": 12,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 4,
+          "matching_audit": {
+            "absolute_residual": 0.00014384828316994693,
+            "cols": 64,
+            "condition_number_nonzero": 124.6516548501679,
+            "left_null_dimension": 13,
+            "minimum_time_gap": 0.012195121951219513,
+            "rank": 59,
+            "relative_residual": 2.9380068623010767e-05,
+            "rows": 72,
+            "smallest_nonzero_singular_value": 0.02529784427797663,
+            "solution_norm": 4.516816376033565,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 1.0,
+          "selected_events": 16,
+          "wireable": false
+        }
+      ],
+      "warning": "Wireable skeleton fractions are certified lower bounds, not optimal retention for n>4."
+    },
+    {
+      "candidate_event_count": 25,
+      "full_grid_audit": {
+        "absolute_residual": 0.0002075900495755808,
+        "cols": 100,
+        "condition_number_nonzero": 186.93919732775785,
+        "left_null_dimension": 25,
+        "minimum_time_gap": 0.00819672131147541,
+        "rank": 95,
+        "relative_residual": 3.2835965973578666e-05,
+        "rows": 120,
+        "smallest_nonzero_singular_value": 0.017480217120575143,
+        "solution_norm": 7.122521732829375,
+        "wireable": false
+      },
+      "full_grid_wireable": false,
+      "lane_count": 10,
+      "n_per_ruling": 5,
+      "tested_circulant_skeletons": [
+        {
+          "circulant_degree": 2,
+          "matching_audit": {
+            "absolute_residual": 2.943129046485809e-15,
+            "cols": 40,
+            "condition_number_nonzero": 23.365969848980974,
+            "left_null_dimension": 1,
+            "minimum_time_gap": 0.00819672131147541,
+            "rank": 29,
+            "relative_residual": 9.322071247754061e-16,
+            "rows": 30,
+            "smallest_nonzero_singular_value": 0.10720617963471897,
+            "solution_norm": 1.5864034292308733,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.4,
+          "selected_events": 10,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 3,
+          "matching_audit": {
+            "absolute_residual": 1.234605199052434e-14,
+            "cols": 60,
+            "condition_number_nonzero": 453.21644925735643,
+            "left_null_dimension": 6,
+            "minimum_time_gap": 0.00819672131147541,
+            "rank": 54,
+            "relative_residual": 2.7635638790435117e-15,
+            "rows": 60,
+            "smallest_nonzero_singular_value": 0.006624528783197907,
+            "solution_norm": 4.14688173786831,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.6,
+          "selected_events": 15,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 4,
+          "matching_audit": {
+            "absolute_residual": 0.01810932283524964,
+            "cols": 80,
+            "condition_number_nonzero": 233.6679949035111,
+            "left_null_dimension": 15,
+            "minimum_time_gap": 0.00819672131147541,
+            "rank": 75,
+            "relative_residual": 0.0033084209370285787,
+            "rows": 90,
+            "smallest_nonzero_singular_value": 0.013597618309692281,
+            "solution_norm": 5.150626248542347,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 0.8,
+          "selected_events": 20,
+          "wireable": false
+        },
+        {
+          "circulant_degree": 5,
+          "matching_audit": {
+            "absolute_residual": 0.0002075900495755808,
+            "cols": 100,
+            "condition_number_nonzero": 186.93919732775785,
+            "left_null_dimension": 25,
+            "minimum_time_gap": 0.00819672131147541,
+            "rank": 95,
+            "relative_residual": 3.2835965973578666e-05,
+            "rows": 120,
+            "smallest_nonzero_singular_value": 0.017480217120575143,
+            "solution_norm": 7.122521732829375,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 1.0,
+          "selected_events": 25,
+          "wireable": false
+        }
+      ],
+      "warning": "Wireable skeleton fractions are certified lower bounds, not optimal retention for n>4."
+    },
+    {
+      "candidate_event_count": 36,
+      "full_grid_audit": {
+        "absolute_residual": 0.0002580199366296799,
+        "cols": 144,
+        "condition_number_nonzero": 262.45838714725,
+        "left_null_dimension": 41,
+        "minimum_time_gap": 0.0058823529411764705,
+        "rank": 139,
+        "relative_residual": 3.331989003835151e-05,
+        "rows": 180,
+        "smallest_nonzero_singular_value": 0.012731940241413388,
+        "solution_norm": 10.302115985284836,
+        "wireable": false
+      },
+      "full_grid_wireable": false,
+      "lane_count": 12,
+      "n_per_ruling": 6,
+      "tested_circulant_skeletons": [
+        {
+          "circulant_degree": 2,
+          "matching_audit": {
+            "absolute_residual": 3.411073134121141e-15,
+            "cols": 48,
+            "condition_number_nonzero": 24.9181545494586,
+            "left_null_dimension": 1,
+            "minimum_time_gap": 0.0058823529411764705,
+            "rank": 35,
+            "relative_residual": 9.86137935775246e-16,
+            "rows": 36,
+            "smallest_nonzero_singular_value": 0.10123361647317576,
+            "solution_norm": 1.7360619985838608,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.3333333333333333,
+          "selected_events": 12,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 3,
+          "matching_audit": {
+            "absolute_residual": 1.095383554884683e-14,
+            "cols": 72,
+            "condition_number_nonzero": 702.9126094491079,
+            "left_null_dimension": 7,
+            "minimum_time_gap": 0.0058823529411764705,
+            "rank": 65,
+            "relative_residual": 2.238242794345159e-15,
+            "rows": 72,
+            "smallest_nonzero_singular_value": 0.004315179106840193,
+            "solution_norm": 6.415462494458869,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.5,
+          "selected_events": 18,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 4,
+          "matching_audit": {
+            "absolute_residual": 0.02550401125396195,
+            "cols": 96,
+            "condition_number_nonzero": 451.1406522797805,
+            "left_null_dimension": 17,
+            "minimum_time_gap": 0.0058823529411764705,
+            "rank": 91,
+            "relative_residual": 0.004253576274202145,
+            "rows": 108,
+            "smallest_nonzero_singular_value": 0.00710915194777758,
+            "solution_norm": 6.141050881767206,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 0.6666666666666666,
+          "selected_events": 24,
+          "wireable": false
+        },
+        {
+          "circulant_degree": 5,
+          "matching_audit": {
+            "absolute_residual": 0.02620145363848768,
+            "cols": 120,
+            "condition_number_nonzero": 291.44052506627327,
+            "left_null_dimension": 29,
+            "minimum_time_gap": 0.0058823529411764705,
+            "rank": 115,
+            "relative_residual": 0.0037835079211863774,
+            "rows": 144,
+            "smallest_nonzero_singular_value": 0.011289682885400594,
+            "solution_norm": 7.8995180846203255,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 0.8333333333333334,
+          "selected_events": 30,
+          "wireable": false
+        }
+      ],
+      "warning": "Wireable skeleton fractions are certified lower bounds, not optimal retention for n>4."
+    },
+    {
+      "candidate_event_count": 49,
+      "full_grid_audit": {
+        "absolute_residual": 0.0002977786693424935,
+        "cols": 196,
+        "condition_number_nonzero": 351.2922692407988,
+        "left_null_dimension": 61,
+        "minimum_time_gap": 0.004424778761061947,
+        "rank": 191,
+        "relative_residual": 3.249747534317047e-05,
+        "rows": 252,
+        "smallest_nonzero_singular_value": 0.00966120771035778,
+        "solution_norm": 14.055907906010933,
+        "wireable": false
+      },
+      "full_grid_wireable": false,
+      "lane_count": 14,
+      "n_per_ruling": 7,
+      "tested_circulant_skeletons": [
+        {
+          "circulant_degree": 2,
+          "matching_audit": {
+            "absolute_residual": 3.968377321673009e-15,
+            "cols": 56,
+            "condition_number_nonzero": 26.51283865958418,
+            "left_null_dimension": 1,
+            "minimum_time_gap": 0.004424778761061947,
+            "rank": 41,
+            "relative_residual": 1.0620099081725707e-15,
+            "rows": 42,
+            "smallest_nonzero_singular_value": 0.09565985649364411,
+            "solution_norm": 1.8740216099859137,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.2857142857142857,
+          "selected_events": 14,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 3,
+          "matching_audit": {
+            "absolute_residual": 1.4261970716937146e-14,
+            "cols": 84,
+            "condition_number_nonzero": 1027.3193365598563,
+            "left_null_dimension": 8,
+            "minimum_time_gap": 0.004424778761061947,
+            "rank": 76,
+            "relative_residual": 2.697922233789454e-15,
+            "rows": 84,
+            "smallest_nonzero_singular_value": 0.0029762099623828627,
+            "solution_norm": 9.876002969452205,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.42857142857142855,
+          "selected_events": 21,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 4,
+          "matching_audit": {
+            "absolute_residual": 0.02794942182880843,
+            "cols": 112,
+            "condition_number_nonzero": 716.6361690082006,
+            "left_null_dimension": 19,
+            "minimum_time_gap": 0.004424778761061947,
+            "rank": 107,
+            "relative_residual": 0.004315712256044109,
+            "rows": 126,
+            "smallest_nonzero_singular_value": 0.004514293380898134,
+            "solution_norm": 8.768905263776626,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 0.5714285714285714,
+          "selected_events": 28,
+          "wireable": false
+        },
+        {
+          "circulant_degree": 5,
+          "matching_audit": {
+            "absolute_residual": 0.042317212172647056,
+            "cols": 140,
+            "condition_number_nonzero": 446.34636086334245,
+            "left_null_dimension": 33,
+            "minimum_time_gap": 0.004424778761061947,
+            "rank": 135,
+            "relative_residual": 0.005657569529370814,
+            "rows": 168,
+            "smallest_nonzero_singular_value": 0.007428197609775704,
+            "solution_norm": 8.763659713770904,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 0.7142857142857143,
+          "selected_events": 35,
+          "wireable": false
+        }
+      ],
+      "warning": "Wireable skeleton fractions are certified lower bounds, not optimal retention for n>4."
+    },
+    {
+      "candidate_event_count": 64,
+      "full_grid_audit": {
+        "absolute_residual": 0.00032948127078784615,
+        "cols": 256,
+        "condition_number_nonzero": 453.4891923693305,
+        "left_null_dimension": 85,
+        "minimum_time_gap": 0.0034482758620689655,
+        "rank": 251,
+        "relative_residual": 3.113844344868128e-05,
+        "rows": 336,
+        "smallest_nonzero_singular_value": 0.00757068852303734,
+        "solution_norm": 18.38403812853227,
+        "wireable": false
+      },
+      "full_grid_wireable": false,
+      "lane_count": 16,
+      "n_per_ruling": 8,
+      "tested_circulant_skeletons": [
+        {
+          "circulant_degree": 2,
+          "matching_audit": {
+            "absolute_residual": 1.3600551432850565e-14,
+            "cols": 64,
+            "condition_number_nonzero": 28.12567297124549,
+            "left_null_dimension": 1,
+            "minimum_time_gap": 0.0034482758620689655,
+            "rank": 47,
+            "relative_residual": 3.40429048418243e-15,
+            "rows": 48,
+            "smallest_nonzero_singular_value": 0.0905648008550838,
+            "solution_norm": 2.002623055303666,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.25,
+          "selected_events": 16,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 3,
+          "matching_audit": {
+            "absolute_residual": 2.3850692845184525e-14,
+            "cols": 96,
+            "condition_number_nonzero": 1431.4276232891523,
+            "left_null_dimension": 9,
+            "minimum_time_gap": 0.0034482758620689655,
+            "rank": 87,
+            "relative_residual": 4.2202130188115316e-15,
+            "rows": 96,
+            "smallest_nonzero_singular_value": 0.002149669505924497,
+            "solution_norm": 14.426353318088461,
+            "wireable": true
+          },
+          "retention_lower_bound_if_wireable": 0.375,
+          "selected_events": 24,
+          "wireable": true
+        },
+        {
+          "circulant_degree": 4,
+          "matching_audit": {
+            "absolute_residual": 0.028565689013555624,
+            "cols": 128,
+            "condition_number_nonzero": 1112.5906026521345,
+            "left_null_dimension": 21,
+            "minimum_time_gap": 0.0034482758620689655,
+            "rank": 123,
+            "relative_residual": 0.004125991381173398,
+            "rows": 144,
+            "smallest_nonzero_singular_value": 0.0029283100055707933,
+            "solution_norm": 13.515586940866655,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 0.5,
+          "selected_events": 32,
+          "wireable": false
+        },
+        {
+          "circulant_degree": 5,
+          "matching_audit": {
+            "absolute_residual": 0.04884460732504113,
+            "cols": 160,
+            "condition_number_nonzero": 724.1836891940106,
+            "left_null_dimension": 37,
+            "minimum_time_gap": 0.0034482758620689655,
+            "rank": 155,
+            "relative_residual": 0.00610864752420546,
+            "rows": 192,
+            "smallest_nonzero_singular_value": 0.004610996868518113,
+            "solution_norm": 10.994609849955511,
+            "wireable": false
+          },
+          "retention_lower_bound_if_wireable": 0.625,
+          "selected_events": 40,
+          "wireable": false
+        }
+      ],
+      "warning": "Wireable skeleton fractions are certified lower bounds, not optimal retention for n>4."
+    }
+  ]
+}

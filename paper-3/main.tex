@@ -1,0 +1,300 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,longtable,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\hypersetup{pdftitle={Global First-Order Compatibility Obstructions for Finite-Radius Contact Wiring on Rational Worldline Networks},pdfauthor={Runyuan Wang}}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{1.2em}
+\setlength{\emergencystretch}{3em}
+\hbadness=10000
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\T}{\mathsf T}
+\newcommand{\col}{\operatorname{col}}
+\newcommand{\kerp}{\operatorname{ker}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\rhores}{\rho}
+
+\title{Global First-Order Compatibility Obstructions for Finite-Radius Contact Wiring on Rational Worldline Networks}
+\author{Runyuan Wang}
+\date{Author-review draft, 29 August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\small\emph{Not submitted or published. Runyuan Wang is the sole author and retains final scientific judgment and responsibility. LingTai AI assisted with organization, source checking, computational checking, and expression under Runyuan's direction.}
+\end{center}
+
+\begin{abstract}
+We study a finite compatibility problem for thickened affine worldlines. A lane is a rational worldline $x_i(t)=b_i+t v_i$ in $\R^3$, viewed as an affine line in spacetime $\R^4$. A declared pairwise concurrence is interpreted locally as an equal-mass central collision, so velocity tokens exchange lanes. For a finite set of events we write the contact midpoint and event time as $m_e=q_e+\eps y_e$ and $\tau_e=t_e+\eps s_e$. First-order continuity along every original lane gives a linear system $A(y,s)=c(\omega)$, where $A$ records lane order and velocities and the right-hand side records collision normals. We reran and audited a supplied compiler and independent verifier for seven exact-rational families, including generic cycles, a time-separated hinge, a simultaneous bush, a planar $K_6$ weave, and a doubly ruled rational $K_{4,4}$ carrier together with a determinant-one shear. The planar weave is wireable despite a 20-dimensional left nullspace, whereas the ruled $K_{4,4}$ system has left-null dimension 13 and a nonzero numerical compatibility residual: $4.6971\times10^{-4}$ before shear and $1.8914\times10^{-3}$ after shear. Exhaustive finite subset search retains at most 12 of 16 contacts without a lane-degree cap, 12 of 16 with cap 4, and 8 of 16 with cap 2. In a deterministic scaling probe, complete ruled grids pass only for $n=2$; degree-3 circulant skeletons pass for $n=4,\ldots,8$, giving the certified finite fractions $3/n$, not optimality claims. Central swaps contribute zero additional identity entropy, while ordinary congestion and chronology remain real restrictions. These are finite exact-geometric and floating-point compatibility results, not a theorem about general hard-sphere dynamics, Kakeya sets, entropy exponents, or four-dimensional Kakeya. The remaining passage from first-order contact wiring to a retained positive-radius movie is an interface problem and remains open.
+\end{abstract}
+
+\section{Introduction}
+
+The motivating question is whether a large finite incidence pattern of moving particles can survive the simultaneous requirements imposed by local collisions and global continuity. A point-worldline picture makes pairwise concurrence easy to specify: choose affine lines in spacetime and declare selected intersections to be collision events. A positive-radius picture is different. Each contact must be displaced in space and time, and displacements at neighboring events must agree when transported along the same original lane. The resulting compatibility test is global even when every event is locally legal.
+
+This paper isolates that finite mechanism. It does not turn an arbitrary tube family into a collision movie, and it does not use ``collision'' to claim a complete solution of the hard-sphere equations. The input is a prescribed rational line network; the output is a first-order contact-wiring audit. Central equal-mass collisions exchange velocities, so particle labels do not create an independent combinatorial branching process. Conversely, the linear compatibility matrix can have a substantial left nullspace without the collision normals violating compatibility. The obstruction is a nonzero projection of the right-hand side onto that left nullspace, not the nullspace dimension alone.
+
+The principal finite comparison is the following. A planar $K_6$ weave has left-null dimension 20 but passes the numerical matching test. An exact rational ruled $K_{4,4}$ family has left-null dimension 13 and fails it by a residual far above the declared numerical tolerance. A determinant-one spatial shear leaves the incidence graph unchanged and also fails, with a larger residual. The same ruled construction has wireable subfamilies, including a 12-contact skeleton. Thus ``the full grid fails'' and ``a 12/16 contact-wiring skeleton exists'' are simultaneously true; the latter is not a theorem that a complete hard-sphere dynamics retains 12/16 contacts.
+
+The bounded contributions are:
+\begin{enumerate}[leftmargin=2em]
+\item precise definitions for rational worldline networks, central-swap events, the first-order matching matrix, and the numerical compatibility criterion;
+\item exact rational geometry audits and a compiler certificate for seven named finite families;
+\item an independent verifier's finite optima, including the 12/16 ruled-grid result and complete-grid scaling probe; and
+\item negative controls and an explicit unresolved interface between first-order wiring and genuine positive-radius dynamics.
+\end{enumerate}
+
+Evidence labels are part of the assertions: \textbf{R} is an elementary derivation under explicit hypotheses; \textbf{E} is an exact rational or combinatorial fact for a named finite input; \textbf{N} is a finite floating-point calculation; and \textbf{O} is open. A numerical residual is not an exact incompatibility proof, and a finite enumeration is exhaustive only over the stated subsets and threshold.
+
+\section{Related work and positioning}
+
+\subsection{Framework compatibility and self-stress}
+Rigidity theory supplies the nearest established language for a finite constraint network. Asimow and Roth define continuous rigidity of a graph realization and analyze its edge-length map; Connelly studies global rigidity, rigidity maps, and stress matrices for generic bar frameworks \cite{asimow1978,connelly2005}. Those are prior mathematical structures, not a foundation claimed here. We use only the standard linear-algebra fact
+\[
+ c\in\col(A)\quad\Longleftrightarrow\quad u^\T c=0\quad\text{for every }u\in\kerp(A^\T).
+\]
+Our matrix is a contact-offset continuity matrix rather than a bar-framework stress matrix. Its rows arise from consecutive events on a moving lane, and its right-hand side changes with collision normals. A large left nullspace is therefore a capacity for obstructions, not an obstruction by itself.
+
+\subsection{Hard balls and billiards}
+In hard-ball systems, centers move freely between elastic impacts and the many-particle problem can be represented as billiard motion in a configuration space with cylindrical forbidden regions. Burago, Ferleger, and Kononenko proved uniform upper bounds on collision counts in semi-dispersing billiards \cite{burago1998}. Burago and Ivanov constructed hard-ball systems with exponentially many collisions, using tangent cones and controlled collision geometry \cite{burago2021}. Their work highlights issues absent from a first-order offset solve: simultaneous singularities, non-overlap inequalities, continuation through every collision, and the distinction between a kinematic diagram and an actual trajectory. We use this literature as a boundary marker. The certificate's 12/16 is a contact-wiring skeleton, not a complete hard-ball dynamics retention theorem.
+
+\subsection{Kakeya and polynomial-incidence context}
+Katz and Tao developed arithmetic-projection bounds and applications to Kakeya \cite{katztao1999,katztao2002}; Guth proved the endpoint multilinear Kakeya estimate using the polynomial method \cite{guth2010}; and Guth and Zahl studied polynomial Wolff axioms and grains-based structure in $\R^4$ \cite{guthzahl2018}. These papers motivate interest in direction-rich finite geometry and coherent algebraic carriers, but their hypotheses concern tube collections, transversality, volumes, and algebraic concentration, not the matching equation below. No map from a Kakeya set is supplied here. Consequently, no Kakeya theorem, dimension estimate, entropy exponent, or reduction follows from this paper.
+
+\section{Rational worldline and collision model}
+
+\subsection{Lanes and exact events}
+A lane $L_i$ is the affine worldline
+\[
+ x_i(t)=b_i+t v_i,\qquad b_i,v_i\in\Q^3,
+\]
+with spacetime lift $t\mapsto(t,x_i(t))\in\R^4$. A finite family consists of named lanes and events $e=(i,j,t_e,q_e)$, where $i\ne j$, $t_e\in\Q$, $q_e\in\Q^3$, and
+\[
+ b_i+t_e v_i=b_j+t_e v_j=q_e.
+\]
+Declared concurrences are checked over $\Q$, not inferred from rounded coordinates. The compiler also checks that declared lane pairs are not repeated and that no undeclared pair has an exact concurrence. Distinct velocities are required in the audited families.
+
+A selected set is \emph{chronology-valid} if no lane is used by two selected events at the same rational time. This is weaker than the complete hard-sphere admissibility problem but is necessary for a sequence of binary central collisions. The simultaneous $K_5$ bush fails: all ten pair events occur at one time, so a lane is asked to participate in several binary events simultaneously. Exact pairwise concurrence does not make it a valid binary movie.
+
+\subsection{Local central exchange}
+At event $e$, the relative velocity is $v_i-v_j$ and the compiler uses
+\[
+ \omega_e=-\frac{v_i-v_j}{\norm{v_i-v_j}_2}.
+\]
+The local interpretation is an equal-mass central elastic collision, under which the two velocity tokens swap lanes. The calculation does not solve a new globally coupled nonlinear post-impact trajectory; it uses prescribed original lanes as continuity carriers for the first-order contact audit.
+
+\begin{proposition}[Deterministic identity transport]
+For every chronology-valid selected event set, chronological central swaps induce one permutation of the lane tokens and no additional identity-route entropy.
+\end{proposition}
+\begin{proof}
+Initialize one token on each lane. Sorting events on each lane by time and applying each prescribed transposition gives a deterministic finite sequence. A composition of transpositions is one permutation, so there is one route for each fixed event sequence and no branching choice.\end{proof}
+
+\subsection{First-order contact wiring}
+Let $q_e,t_e$ be point-event data and introduce formally
+\[
+ m_e=q_e+\eps y_e,\qquad \tau_e=t_e+\eps s_e,
+\]
+with $y_e\in\R^3$ and $s_e\in\R$. If events $e,f$ are consecutive on lane $\ell$, first-order continuity gives
+\[
+ y_f-y_e-v_\ell(s_f-s_e)
+ =-\frac12\left(\sigma^{\rm in}_{f,\ell}\omega_f-
+                   \sigma^{\rm out}_{e,\ell}\omega_e\right).
+ \tag{1}
+\]
+The signs are the compiler's incidence signs. Stacking (1) gives
+\[
+ A z=c(\omega),\qquad z=(y,s). \tag{2}
+\]
+If a selected set has $m$ events and $r_\ell$ events on lane $\ell$, then $A$ has $4m$ columns and $3\sum_\ell\max(0,r_\ell-1)$ rows. The coefficient matrix depends on velocities and event order. The right-hand side depends on normals and incidence signs.
+
+\begin{proposition}[Finite compatibility criterion]
+For a chronology-valid selected set, the first-order system (2) is compatible if and only if $u^\T c(\omega)=0$ for every $u\in\kerp(A^\T)$. For a numerical least-squares solve, the residual in (3) below is a computable proxy for this condition.
+\end{proposition}
+\begin{proof}
+The fundamental theorem of finite-dimensional linear algebra gives $\col(A)=\kerp(A^\T)^\perp$. Thus $c\in\col(A)$ exactly when it is orthogonal to every vector in the left nullspace.\end{proof}
+
+Equation (2) is a first-order necessary matching calculation for the prescribed contact parameterization, not a complete nonlinear hard-sphere model. It does not enforce that all nonincident world-tubes stay disjoint at positive radius, that impacts have the required incoming sign, or that post-collision lanes remain the prescribed lines.
+
+\subsection{Compatibility and decision rule}
+The implementation uses float64 least squares with $\texttt{rcond}=10^{-12}$ and reports
+\[
+ \rhores(A,c)=\frac{\norm{A\widehat z-c}_2}{\max(\norm{c}_2,1)}. \tag{3}
+\]
+A chronology-valid selection is called \emph{wireable} when $\rhores\le2\times10^{-9}$. This is a numerical convention. We say ``numerical compatibility obstruction'' or ``fails the implemented wiring test,'' not ``proved incompatible over the reals.''
+
+The independent verifier rebuilds events with exact `Fraction` arithmetic, uses a different variable ordering (all midpoint coordinates followed by all times), computes the least-squares residual independently, and sweeps the cutoff parameter over $10^{-8},10^{-10},10^{-12},10^{-14}$ for the principal coherent families. This is a stability check, not an exact proof.
+
+\section{Exact and computational methods}
+
+\subsection{Seven families}
+The package contains seven named families:
+\begin{description}[leftmargin=2em,style=nextline]
+\item[Strict $C_{12}$ control.] Six lanes and six cycle events. It is an inherited positive control. Its event times are $0,1,2,3,201/100,99/100$, so it is not wholly contained in $[0,1]$.
+\item[Generic rational $C_{18}$.] Nine genuine rational lanes built from nine rational event points and a fixed cyclic incidence pattern; event times are a permutation of $0,1/8,\ldots,1$.
+\item[Time-separated hinge.] One spine meets eight transverse leaves at times $(j+1)/9$.
+\item[Simultaneous bush $K_5$.] Five lanes meet at one spacetime point, producing all ten pair labels at time zero. It is a chronology control, not a valid binary movie.
+\item[Planar weave $K_6$.] Six lanes lie in a one-spatial-coordinate carrier, with all 15 pair crossings distinct and in $0<t<1$.
+\item[Ruled $K_{4,4}$.] Four lanes from each ruling of a rational doubly ruled carrier; every $A_i$ meets every $B_j$, giving 16 exact events. With $s\in\{1/20,7/50,31/100,13/20\}$ and $u\in\{1/50,11/100,2/5,17/20\}$, the lanes are
+\[
+ A_s(t)=(-s+t,-s^2+2st,0),\qquad B_u(t)=(u-t,-u^2+2ut,0).
+\]
+Their event occurs at $t=(s+u)/2$, so all 16 events are exact over $\Q$.
+\item[Sheared ruled $K_{4,4}$.] The same incidence family after the determinant-one map $(x,y,z)\mapsto(x+2y/3+z/5,y+z/4,z)$.
+\end{description}
+For each family, exact geometry checks confirm declared intersections and report zero unintended exact line intersections. Time multiplicity is separate from chronology: the ruled families have maximum multiplicity two but no lane reuse at one time; the bush has multiplicity ten and is invalid.
+
+\subsection{Finite subset search}
+For each family the compiler tests all event subsets in descending cardinality. A subset is rejected for chronology or a declared per-lane degree cap; otherwise it is solved by (2). It returns at first feasible cardinality and records up to eight witnesses. The reported maxima are therefore optima for enumerated subsets under the stated float64 threshold and cap, not exact arithmetic theorems about the continuous contact problem. We report no cap, at most four selected events per original lane, and at most two. Event and incidence retention fractions coincide because each event has two lane incidences.
+
+\subsection{Scaling probe}
+The probe constructs rational $K_{n,n}$ ruled grids for $n=2,\ldots,8$. It tests each full grid and deterministic circulant skeletons. A degree-3 skeleton selects exactly $3n$ of $n^2$ events, so its fraction is $3/n$ whenever the implemented system is wireable. No maximum-subset claim is made for $n>4$ and no asymptotic inference is drawn.
+
+\section{Results}
+
+\subsection{Family-level compatibility}
+Table~\ref{tab:families} reports the archived certificate JSON; a fresh rerun reproduced every classification, rank, finite subset optimum, and scaling conclusion, with only expected floating-point variation. Rank, residual, singular value, and condition number are numerical float64 quantities; rationality, exact concurrence, and chronology are exact implementation checks. Residuals are rounded.
+
+\begin{table}[ht]
+\centering\small
+\caption{Full-network audit. A dash means that chronology rejected the full binary event set before matrix construction.}\label{tab:families}
+\vspace{0.35em}
+\begin{tabular}{@{}lrrr r c c@{}}
+\toprule
+Family & lanes & events & rows$\times$cols & rank/left null & residual & result\\
+\midrule
+Strict $C_{12}$ control & 6 & 6 & $18\times24$ & $18/0$ & $1.65\times10^{-15}$ & pass\\
+Generic rational $C_{18}$ & 9 & 9 & $27\times36$ & $27/0$ & $5.61\times10^{-15}$ & pass\\
+Time-separated hinge & 9 & 8 & $21\times32$ & $21/0$ & $1.82\times10^{-15}$ & pass\\
+Simultaneous bush $K_5$ & 5 & 10 & -- & -- & -- & invalid\\
+Planar weave $K_6$ & 6 & 15 & $72\times60$ & $52/20$ & $1.84\times10^{-13}$ & pass\\
+Ruled $K_{4,4}$ & 8 & 16 & $72\times64$ & $59/13$ & $4.70\times10^{-4}$ & fail\\
+Sheared ruled $K_{4,4}$ & 8 & 16 & $72\times64$ & $59/13$ & $1.89\times10^{-3}$ & fail\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A fresh rerun of the independent verifier reports the same classification, with residuals $1.64\times10^{-15}$, $6.67\times10^{-15}$, $1.96\times10^{-15}$, $1.32\times10^{-13}$, $4.6971\times10^{-4}$, and $1.8914\times10^{-3}$ for the chronology-valid rows above. Its result JSON has status `PASS'; this means its assertions and expected finite classifications passed, not that every family is wireable.
+
+The ruled residual is not explained by poor conditioning alone: the certificate reports condition number about 23.1 and smallest nonzero singular value about 0.1865 for the unsheared case. A cutoff sweep from $10^{-8}$ through $10^{-14}$ leaves rank and residual unchanged for the planar and both ruled cases. The planar control is decisive for interpretation: left-null dimension 20 does not force failure.
+
+\subsection{Exhaustive finite contact optima}
+\begin{table}[ht]
+\centering\small
+\caption{Maximum selected events under the compiler's finite subset enumeration.}\label{tab:optima}
+\vspace{0.35em}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Family & candidates & no cap & cap 4 & cap 2\\
+\midrule
+Strict $C_{12}$ control & 6 & 6/6 & 6/6 & 6/6\\
+Generic rational $C_{18}$ & 9 & 9/9 & 9/9 & 9/9\\
+Time-separated hinge & 8 & 8/8 & 4/8 & 2/8\\
+Simultaneous bush $K_5$ & 10 & 2/10 & 2/10 & 2/10\\
+Planar weave $K_6$ & 15 & 15/15 & 12/15 & 6/15\\
+Ruled $K_{4,4}$ & 16 & 12/16 & 12/16 & 8/16\\
+Sheared ruled $K_{4,4}$ & 16 & 12/16 & 12/16 & 8/16\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The ruled line is the strongest bounded result in this package: under event-subset enumeration and the numerical threshold, the complete 16-event system fails, while the largest feasible cardinality is 12 without a cap or with cap 4, and 8 with cap 2. This is a first-order contact-wiring maximum. It is not certified to satisfy excluded-crossing inequalities, incoming-velocity conditions, or nonlinear post-impact continuation.
+
+\subsection{Finite ruled-grid scaling probe}
+\begin{table}[ht]
+\centering\small
+\caption{Full-grid classifications and selected circulant skeletons. Fractions in the last column are finite lower-bound witnesses, not optimum claims.}\label{tab:scaling}
+\vspace{0.35em}
+\begin{tabular}{@{}rrrrl@{}}
+\toprule
+$n$ & lanes & full events & full grid & tested wireable skeleton\\
+\midrule
+2 & 4 & 4 & pass & full grid, fraction 1\\
+3 & 6 & 9 & fail & degree 2: $6/9$; degree 3 is full and fails\\
+4 & 8 & 16 & fail & degree 3: $12/16=3/4$\\
+5 & 10 & 25 & fail & degree 3: $15/25=3/5$\\
+6 & 12 & 36 & fail & degree 3: $18/36=1/2$\\
+7 & 14 & 49 & fail & degree 3: $21/49=3/7$\\
+8 & 16 & 64 & fail & degree 3: $24/64=3/8$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For $n=4,\ldots,8$, degree-3 rows are certified finite lower bounds within the tested circulant construction; they are not optimal upper bounds. The probe establishes no limiting retention law, universal exponent, or obstruction for all sparse subgraphs.
+
+\section{Negative results and controls}
+
+\paragraph{Identity.} On every chronology-valid selected subset, central equal-mass swaps produce one deterministic token permutation and zero additional identity entropy bits. The bush is rejected because binary chronology is undefined, not because it creates positive identity entropy.
+
+\paragraph{Congestion.} Degree caps reduce retention in the hinge and planar families even when their full matching systems pass. The ruled family fails before cap 4 removes any events, and its no-cap and cap-4 maxima both equal 12. Ordinary lane reuse and collision-normal compatibility are therefore distinct diagnostics.
+
+\paragraph{Left-null dimension.} The planar $K_6$ system has left-null dimension 20 and passes, while the ruled $K_{4,4}$ has dimension 13 and fails. The relevant quantity is the projection of $c(\omega)$ onto the left nullspace. This is standard compatibility/self-stress structure, not new foundational rigidity mathematics.
+
+\paragraph{Shear.} The determinant-one shear preserves incidence and exactness but increases the residual. This is one finite stability check, not a theorem that all shears fail.
+
+\paragraph{Full versus sparse grids.} Full-grid failure for $n=3,\ldots,8$ coexists with degree-3 witnesses for $n=4,\ldots,8$. A complete-grid obstruction cannot be promoted to a sparse universal obstruction without a further argument.
+
+\section{Relationship to Papers 1 and 2}
+
+This is the third independent research record in the public `runyuan-wang/yuan-conjecture' series, not a proof bridge.
+
+Paper 1 is publicly titled *A Computational Exploration of Finite Projection Obstructions and Local Worldline Counterexamples Motivated by Four-Dimensional Kakeya*. It reports a restricted finite projection-copy search, an exact rational strict-time $C_{12}$ local worldline counterexample to several local implications, and bounded numerical or heuristic diagnostics. Paper 3 reuses the series' separation of exact certificates, numerical evidence, and open interfaces; the strict $C_{12}$ family is retained as a compiler control. It does not revive that local construction as a Kakeya consequence.
+
+Paper 2 is publicly titled *Bounded-Span Obstructions for Sparse Elastic Rectangle Frames on Velocity Grids*. Its theorem is an explicit $m^{-2}$ upper bound for a degree-normalized elastic-rectangle operator when degree and side length are bounded; its unrestricted nonlocal proposition remains open. Paper 3 does not use that rectangle operator or theorem as a collision theorem. Here $A$ has four variables per collision event and three continuity rows per consecutive event pair on a lane; Paper 2 has four-point rectangle rows on a velocity grid. They are adjacent in motivation but not identified.
+
+The continuity is methodological: precise definitions, exact rational payloads where available, numerical claims labeled numerical, standard compatibility credited to prior mathematics, and the sentence ``An interface problem remains open'' wherever needed. The independence is substantive: this paper asks whether prescribed finite-radius contact wiring exists on rational worldline networks, rather than proving a bridge from either earlier model to Kakeya.
+
+\section{Relation to Yuan's conjecture and the open interface}
+
+The Yuan conjectural program motivates looking for structure in direction-rich and collision-like configurations. This paper supplies a finite obstruction mechanism for explicit rational networks, but it does not adjudicate an unrestricted geometric conjecture. No assertion is made about four-dimensional Kakeya, arbitrary small-union Kakeya sets, a universal entropy exponent, or a general hard-sphere dynamical representation.
+
+The next legitimate question has two parts: can a sequence of thick-tube near-incidence atlases produce a scale-stable left-null projection while retaining non-overlap and incoming inequalities; and, if that projection becomes small, does a small-ball or entropy argument control it, or does vanishing force coherent geometry? Neither implication is proved. **An interface problem remains open.**
+
+\section{Limitations}
+\begin{enumerate}[leftmargin=2em]
+\item Seven families and the tested $K_{n,n}$ probes are not exhaustive over rational networks, carriers, or collision graphs.
+\item Rank and residual use float64 SVD/least squares. The independent verifier and cutoff sweep give stability evidence, not exact incompatibility certificates.
+\item Equation (2) is first-order. Higher-order corrections and a uniform implicit-function theorem are absent.
+\item The package does not certify excluded-crossing inequalities, strict incoming impacts, post-collision continuation, or a complete positive-radius hard-sphere trajectory. The 12/16 number is a contact-wiring skeleton.
+\item No multibody collision law replaces the simultaneous bush.
+\item No construction maps arbitrary Kakeya sets, small-union tube families, planebrushes, or polynomial Wolff configurations to this certificate.
+\item The references are individually verified, and five complete benchmark texts were read for structure, but this is not a systematic priority review. No firstness or current-best claim is made.
+\item An initial Python 3.14 execution attempt was blocked by a CPython 3.13 NumPy extension. A parent rerun then used the configured LingTai Python 3.13.14 and NumPy 2.5.2 environment: both copied scripts exited successfully. The generated JSON differed from the archived JSON only in floating-point values; status, classifications, ranks, finite subset optima, and scaling conclusions matched exactly.
+\end{enumerate}
+
+\section{Reproducibility statement}
+
+The designated companion package is preserved byte-for-byte. It contains the compilation audit, compiler source, certificate JSON, independent verifier source and result JSON, SHA manifest, and master-progress record. The package declares exact rational incidence geometry, float64 SVD/least squares for wiring, no randomness, and threshold $2\times10^{-9}$. The independent result uses a different variable ordering and reports \texttt{status: PASS}.
+
+Checks actually performed were: public GitHub remote HEAD and local base commit verification at \texttt{12d4fd2c3715a3e0b8fc7e98a93e8fb4499a8b99}; reading all public Paper 1/Paper 2 source and boundary files at that commit; syntax compilation of both package scripts; preservation of the initial incompatible-environment failure; a fresh parent execution with the configured LingTai Python 3.13.14 and NumPy 2.5.2; recursive comparison of fresh and archived JSON; lawful retrieval and text extraction of benchmark full texts; and Crossref/OpenAlex verification of every external reference. Both fresh scripts exited zero. All 261 certificate differences and all 24 verifier differences were numerical floating-point variations only; status, categorical classifications, ranks, finite subset optima, and scaling conclusions matched exactly. Fresh outputs and the comparison record were preserved separately; the archived inputs were not overwritten.
+
+\section{Conclusion}
+
+A finite central-swap collision movie can be locally exact and still fail a global first-order contact-wiring test. In the audited rational ruled $K_{4,4}$ family, all 16 pairwise events are exact, yet the matching system fails numerically; a determinant-one shear also fails. The largest tested wireable contact subsets retain 12/16 without a lane-degree cap or with cap 4, and 8/16 with cap 2. A planar $K_6$ weave passes despite a larger left nullspace, and chronology-valid controls pass. Particle identity adds no entropy under deterministic central swaps, while ordinary congestion and simultaneous-event legality remain separate restrictions.
+
+These are finite model-specific compatibility results, not a continuum theorem. They do not prove general hard-sphere realizability, a Kakeya consequence, an entropy exponent, or a universal sparse obstruction. The passage from a first-order rational wiring certificate to a positive-radius dynamical movie, and then to any broader geometric conjecture, is an interface problem that remains open.
+
+\begin{thebibliography}{8}
+\bibitem{asimow1978} L. Asimow and B. Roth, ``The rigidity of graphs,'' \emph{Transactions of the American Mathematical Society} 245 (1978), 279--289. DOI: \href{https://doi.org/10.1090/S0002-9947-1978-0511410-9}{10.1090/S0002-9947-1978-0511410-9}.
+\bibitem{connelly2005} R. Connelly, ``Generic global rigidity,'' \emph{Discrete \& Computational Geometry} 33 (2005), 549--563. DOI: \href{https://doi.org/10.1007/s00454-004-1124-4}{10.1007/s00454-004-1124-4}.
+\bibitem{burago1998} D. Burago, S. Ferleger, and A. Kononenko, ``Uniform estimates on the number of collisions in semi-dispersing billiards,'' \emph{The Annals of Mathematics} 147 (1998), 695--708. DOI: \href{https://doi.org/10.2307/120962}{10.2307/120962}.
+\bibitem{burago2021} D. Burago and S. Ivanov, ``Examples of exponentially many collisions in a hard ball system,'' \emph{Ergodic Theory and Dynamical Systems} 41 (2021), 2754--2769. Published online 2020. DOI: \href{https://doi.org/10.1017/etds.2020.54}{10.1017/etds.2020.54}. Public preprint: arXiv:1809.02800.
+\bibitem{guth2010} L. Guth, ``The endpoint case of the Bennett--Carbery--Tao multilinear Kakeya conjecture,'' \emph{Acta Mathematica} 205 (2010), 263--286. DOI: \href{https://doi.org/10.1007/s11511-010-0055-6}{10.1007/s11511-010-0055-6}. Public preprint: arXiv:0811.2251.
+\bibitem{guthzahl2018} L. Guth and J. Zahl, ``Polynomial Wolff axioms and Kakeya-type estimates in $\mathbb R^4$,'' \emph{Proceedings of the London Mathematical Society} 117 (2018), 192--220. DOI: \href{https://doi.org/10.1112/plms.12138}{10.1112/plms.12138}. Public preprint: arXiv:1701.07045.
+\bibitem{katztao1999} N. H. Katz and T. Tao, ``Bounds on arithmetic projections, and applications to the Kakeya conjecture,'' \emph{Mathematical Research Letters} 6 (1999), 625--630. DOI: \href{https://doi.org/10.4310/MRL.1999.v6.n6.a3}{10.4310/MRL.1999.v6.n6.a3}.
+\bibitem{katztao2002} N. H. Katz and T. Tao, ``New bounds for Kakeya problems,'' \emph{Journal d'Analyse Mathématique} 87 (2002), 231--263. DOI: \href{https://doi.org/10.1007/BF02868476}{10.1007/BF02868476}.
+\end{thebibliography}
+\end{document}
