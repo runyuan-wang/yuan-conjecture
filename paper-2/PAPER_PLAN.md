@@ -1,11 +1,11 @@
-# Paper plan — bounded-span elastic rectangle frames
+# Paper plan — weighted-span elastic rectangle frames
 
 ## Working identity
 
-- **Working title:** *Bounded-Span Obstructions for Sparse Elastic Rectangle Frames on Velocity Grids*
+- **Working title:** *Weighted-Span Obstructions for Sparse Elastic Rectangle Frames on Velocity Grids*
 - **Author:** Runyuan Wang
 - **Document status:** local draft for parent review; not submitted or published
-- **Central thesis:** On the cubic velocity grids `V_m={-m,…,m}^3`, the canonical degree-normalized elastic-rectangle operator cannot have a scale-independent quotient gap when both incidence degree and Euclidean side length are uniformly bounded. The proof gives an explicit upper bound of order `m^-2`.
+- **Central thesis:** On the cubic velocity grids `V_m={-m,…,m}^3`, the canonical degree-normalized elastic-rectangle operator obeys a weighted-span test. Uniformly bounded degree plus sublinear side lengths gives `gamma_m=O_D((L_m/m)^2)`, so a scale-independent gap requires quantitatively macroscopic rectangles on a positive fraction of rows.
 
 ## Evidence classes used throughout
 
@@ -24,25 +24,25 @@ Let `V_m={-m,…,m}^3`, and let `R_m` be elastic rectangles whose four vertices 
 
 `A_m=(1/2) C_m D_m^{-1/2}`.
 
-Assume every vertex has positive degree, `1 <= d_v <= D`, and every rectangle can be written with orthogonal side vectors `p,q` satisfying `|p|,|q| <= L`. If `K_m=span{1,x,y,z,|v|^2}` and
+Assume every vertex has positive degree. If `K_m=span{1,x,y,z,|v|^2}` and
 
 `gamma_m=min{||A_m x||_2 : ||x||_2=1, x ⟂ D_m^{1/2}K_m}`,
 
 then
 
-`gamma_m <= (L^2/2) sqrt(D(2m+1)^3/G_m)`,
+`gamma_m^2 <= G_m^-1 sum_R (p_x q_x-p_y q_y)^2 <= G_m^-1 sum_R |p_R|^2 |q_R|^2`,
 
 where
 
 `G_m=sum_{v∈V_m}(x^2-y^2)^2=2S_0(S_0S_4-S_2^2)`,
 
-`S_j=sum_{t=-m}^m t^j`. Consequently,
+`S_j=sum_{t=-m}^m t^j`. Consequently, if `1<=d_v<=D` and `|p_R|,|q_R|<=L_m`,
 
-`gamma_m <= L^2 sqrt(45D/32) m^-2(1+o(1))`.
+`gamma_m <= O_D((L_m/m)^2)`.
 
-**Permitted corollary:** any family with uniform `D` and `L` has gap tending to zero; this excludes fixed-size local/block-glued constructions satisfying these hypotheses from being uniform expanders under this normalization.
+**Permitted corollary:** any family with uniform `D` and `L_m=o(m)` has gap tending to zero; this excludes fixed-size local, fixed-block-glued and all sublinear-span constructions satisfying these hypotheses from being uniform expanders under this normalization.
 
-**Not permitted:** any conclusion about bounded-degree constructions whose rectangle spans grow with `m`.
+**Macroscopic necessary condition:** if `gamma_m>=c>0` with constants `c,D`, then at least `eta=min(1,c^2/(540D))` of all rectangles have both side lengths at least `rho*m`, where `rho=min(1,c/sqrt(135D))`. This is necessary, not sufficient.
 
 ## Proof architecture
 
@@ -50,36 +50,37 @@ where
 2. Verify that each row annihilates the five collision modes.
 3. Choose `g(x,y,z)=x^2-y^2`; by cubic symmetry, `g` is unweighted-orthogonal to all five modes.
 4. Project `g` onto `K_m` in the degree-weighted norm and use `f=g-h`. Then `D_m^{1/2}f` lies in the quotient space and every rectangle has `Δf=Δg`.
-5. Compute `Δg=2(p_xq_x-p_yq_y)` and bound `|Δg|<=2L^2`.
-6. Use `4|R_m|=sum_v d_v<=D|V_m|` for the numerator.
-7. Use `d_v>=1` and the unweighted orthogonality of `g` to obtain `||f||_{d}^2>=G_m` for the denominator.
-8. Evaluate `G_m` exactly and take its asymptotics.
+5. Compute `Δg=2(p_xq_x-p_yq_y)`, so the `1/2` normalization cancels the factor `2`.
+6. Use `d_v>=1` and the unweighted orthogonality of `g` to obtain `||f||_{d}^2>=G_m` for the denominator.
+7. Apply Cauchy-Schwarz for the weighted product bound and then count rows using `4|R_m|=sum_v d_v<=D|V_m|`.
+8. Derive the sublinear-span and macroscopic-span corollaries.
 
 ## Section logic
 
-1. **Introduction and scope.** Explain the project motivation and state the evidence taxonomy before any result. Cite only already verified Kakeya context; explicitly deny a Kakeya transfer.
+1. **Introduction and scope.** Explain the independent rectangle-frame problem and state the evidence taxonomy before any result.
 2. **Elastic rectangle operators.** Give the rectangle parameterization, signed matrix, degree normalization, invariant space and quotient gap.
-3. **Bounded-span obstruction.** State and prove the explicit theorem and local-family corollary.
+3. **Weighted-span obstruction.** State and prove the proposition, sublinear-span corollary, and macroscopic necessary condition.
 4. **Canonical finite model and certificates.** Describe deterministic pool deduplication and the exact rational-kernel certificate logic, with no claim that exact kernel controls the gap.
 5. **Finite full-pool search evidence.** Report the four residual-greedy matrices `m=2,3,4,5`. Separate exact integer/rational columns from floating gaps.
 6. **Validation and reproducibility.** Identify source scripts, fresh parent reruns, independent raw-JSON recomputation, theorem arithmetic checks, and manuscript-local checks.
 7. **Open problem and limitations.** State the unrestricted nonlocal proposition and the missing asymptotic lower bound/proof. Record that no systematic novelty review or exhaustiveness claim is present.
-8. **Conclusion.** Restate only the bounded theorem and the remaining open problem.
+8. **Conclusion.** Restate only the weighted-span theorem and the remaining macroscopic open problem.
 
 ## Contribution boundary
 
 ### Included
 
-- A self-contained proof of the bounded-degree, bounded-side-length normalized-gap upper bound `[R]`.
-- The exact implication for uniformly local or fixed-block-glued families `[R]`.
+- A self-contained proof of the weighted-span normalized-gap upper bound `[R]`.
+- The exact implication for uniformly local, fixed-block-glued, and sublinear-span families `[R]`.
+- A quantitative macroscopic-span necessary condition `[R]`.
 - Four exact finite rational-kernel statements and exact degree/count data `[E]`.
 - Four finite normalized gap estimates, with independent raw-JSON recomputation `[N]`.
 - A precise formulation of the unrestricted nonlocal proposition as open `[O]`.
 
 ### Explicitly excluded
 
-- A Kakeya theorem, dimension estimate, counterexample extraction, or reduction.
-- A proof or disproof of the unrestricted bounded-degree rectangle-expander proposition.
+- A claim about a relation to any other research route.
+- A proof or disproof of the remaining macroscopic bounded-degree rectangle-expander proposition.
 - An asymptotic lower bound inferred from `m=2,…,5`.
 - Any implication from `ker_Q(C_m)=K_m` to a uniform spectral gap.
 - Any global novelty, priority, current-best, literature-exhaustiveness, or attack-exhaustiveness claim.
@@ -87,7 +88,7 @@ where
 
 ## Citation strategy
 
-Only citations already verified in the first-paper package are eligible. The manuscript uses Katz–Tao (1999, 2002) solely for broad Kakeya-project context and does not use them to support the rectangle theorem. No additional public citation is introduced. The mathematical result itself is proved in full. Before any submission, a separate systematic literature and priority review remains mandatory.
+The manuscript uses targeted literature-boundary checks for DVM/normal invariants and locality vs spectral gap. No novelty or priority claim is made. Before any submission, a separate systematic literature and priority review remains mandatory.
 
 ## Draft acceptance gates
 

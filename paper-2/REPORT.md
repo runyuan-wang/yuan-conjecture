@@ -2,7 +2,7 @@
 
 ## Status
 
-A complete local second-paper draft package has been prepared for parent review. The manuscript is self-contained at the mathematical level: it defines the elastic rectangle operator and canonical normalization, proves the explicit bounded-span theorem, separates exact finite certificates from floating-point gap evidence, formulates the remaining nonlocal problem as open, and states the Kakeya/non-novelty boundaries repeatedly and consistently.
+A local second-paper revision package has been prepared for parent review. The manuscript is self-contained at the mathematical level: it defines the elastic rectangle operator and canonical normalization, proves the weighted-span theorem and its sublinear/macroscopic corollaries, separates exact finite certificates from floating-point gap evidence, formulates the remaining macroscopic nonlocal problem as open, and states the non-novelty boundaries repeatedly and consistently.
 
 No source package, repository, public record, runtime configuration, credential, or user data was modified. Nothing was committed, pushed, published, submitted, released, or communicated externally.
 
@@ -22,17 +22,17 @@ The drafting pass read the substantive first-paper/publication manuscript, claim
 
 For the accepted sparse elastic rectangle package, the pass read the parent final review and final progress, report, validation, mathematical theorem paper, README, literature boundary, input receipt, failure log, mechanical preflight, complete core/generator/search/exact-validator/theorem-validator scripts, independent raw-gap script/result, bounded-span rerun, attack accounting, certificate comparison, all four complete fresh exact certificates (including full minor index payloads), and the raw candidate/result fields needed for every manuscript claim. `validation_checks.py` independently traverses every row of all four raw candidate arrays and rechecks their hashes, geometry, five exact mode residuals, degrees, and listed odd minors.
 
-Only citations already verified in the first-paper package are used: Katz–Tao 1999 and Katz–Tao 2002, solely for broad Kakeya-project context. No search result or snippet was used as scholarly evidence, and no additional citation was introduced.
+Only the targeted literature-boundary citations are used in the manuscript. No search result or snippet was used as scholarly evidence, and no additional citation was introduced in the scope-lint repair.
 
 ## Scientific boundary preserved
 
-The only infinite-family rigorous conclusion is:
+The main infinite-family rigorous conclusion is:
 
-`gamma_m <= (L^2/2) sqrt(D(2m+1)^3/G_m) = L^2 sqrt(45D/32) m^-2(1+o(1))`
+`gamma_m^2 <= G_m^-1 sum_R (p_x q_x-p_y q_y)^2 <= G_m^-1 sum_R |p_R|^2 |q_R|^2`.
 
-under positive degrees `1<=d_v<=D` and uniformly bounded Euclidean side lengths `|p|,|q|<=L`. This excludes fixed-size local/fixed-block-glued uniform expanders under the canonical normalization.
+Under positive degrees `1<=d_v<=D` and side lengths `|p|,|q|<=L_m`, this gives `gamma_m=O_D((L_m/m)^2)`. It excludes fixed-size local, fixed-block-glued and sublinear-span uniform expanders under the canonical normalization. If `gamma_m>=c>0`, a positive fraction of rectangles must have both side lengths at least a fixed multiple of `m`.
 
-The draft does **not** infer anything from that theorem about nonlocal families whose spans grow with `m`. The unrestricted nonlocal proposition is explicitly open. The four rational-kernel statements and degree/count data are exact but finite; the four normalized gaps are floating-point and finite. Exact kernel dimension is explicitly not treated as a uniform gap. There is no Kakeya extraction, theorem, proof/disproof, dimension bound, global novelty, current-best, priority, literature-exhaustiveness, search-exhaustiveness, or attack-exhaustiveness claim.
+The draft does **not** infer sufficiency from macroscopic spans. The remaining quantitatively macroscopic nonlocal proposition is explicitly open. The four rational-kernel statements and degree/count data are exact but finite; the four normalized gaps are floating-point and finite. Exact kernel dimension is explicitly not treated as a uniform gap. There is no relation claim, proof/disproof of the remaining proposition, global novelty, current-best, priority, literature-exhaustiveness, search-exhaustiveness, or attack-exhaustiveness claim.
 
 ## Validation performed
 
@@ -67,7 +67,7 @@ Checks include:
 - exact moment/orthogonality arithmetic for `m=1,…,10` and the parent theorem rerun;
 - artifact presence, synchronization of finite values, citation allowlist/bibliography equality, brace/document structure, private-path leakage, claim-boundary language, conflict markers, and trailing whitespace.
 
-Result: PASS: `26,803` deterministic assertions and four candidate notes; standard error is empty. The exact record is `validation_checks.stdout.txt`.
+Current revision result: PASS: `26,823` deterministic assertions and four candidate notes. The validator was run against a fresh unpack of the rebuilt ZIP plus the copied `parent-reruns` certificates/gap/theorem artifacts.
 
 ### 3. LaTeX build
 
@@ -77,7 +77,7 @@ Command:
 latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error main.tex
 ```
 
-Result: PASS. BibTeX completed, citations resolved, and `main.pdf` was produced. `latexmk.stderr.txt` retains the expected first-pass notice that `main.bbl` did not yet exist; LaTeXmk then generated it and completed normally. A scan of the final `main.log` found no LaTeX/package warnings, undefined references, overfull boxes, or underfull boxes. The PDF has 8 letter-sized pages, is unencrypted, has no JavaScript, and `pdfinfo` reports no suspects.
+Current revision result: PASS. BibTeX completed, citations resolved, and `main.pdf` was produced as 9 pages, 268,723 bytes. The final log has cosmetic underfull-box warnings in the compact literature-boundary table; no unresolved references remained.
 
 ### 4. PDF readback and fonts
 
@@ -109,7 +109,7 @@ The installed `chktex` executable ran but exited `2` because its bundled regular
 - No recursive nonlocal family with a uniform lower gap is constructed.
 - No obstruction is proved when side lengths grow with `m`.
 - The four spectral gaps are not interval-certified or exact algebraic values.
-- No Kakeya extraction, regularization, bounded-congestion lemma, or geometric transfer is supplied.
+- No relation construction is supplied.
 - The fresh finite data end at `m=5`; increasing scale alone would not resolve the structural question.
 
 ### Review

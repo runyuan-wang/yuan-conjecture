@@ -25,9 +25,9 @@
 \newcommand{\norm}[1]{\lVert #1\rVert}
 \newcommand{\gap}{\gamma_m}
 
-\title{Bounded-Span Obstructions for Sparse Elastic Rectangle Frames on Velocity Grids}
+\title{Weighted-Span Obstructions for Sparse Elastic Rectangle Frames on Velocity Grids}
 \author{Runyuan Wang}
-\date{Draft of 15 August 2026}
+\date{Draft revised 21 August 2026}
 
 \begin{document}
 \maketitle
@@ -38,42 +38,35 @@ rectangle gives a signed four-point row that annihilates the five collision
 modes $1,x,y,z,$ and $|v|^2$.  For a family of such rows, let
 $C_m$ be the signed matrix, let $D_m$ be the diagonal matrix of vertex
 incidence degrees, and use the canonical normalization
-$A_m=\tfrac12 C_mD_m^{-1/2}$.  We give a self-contained bounded-span
-obstruction.  If every degree lies in $[1,D]$ and every rectangle has both
-Euclidean side lengths at most $L$, then the least singular value of $A_m$
-on the quotient by the five weighted collision modes obeys
+$A_m=\tfrac12 C_mD_m^{-1/2}$.  We give a self-contained weighted-span
+obstruction.  If $R$ has orthogonal side vectors $p_R,q_R$, then the least
+singular value of $A_m$ on the quotient by the five weighted collision modes
+obeys
 \[
- \gamma_m\leq \frac{L^2}{2}
- \sqrt{\frac{D(2m+1)^3}{G_m}}
- = L^2\sqrt{\frac{45D}{32}}\,m^{-2}(1+o(1)),
+ \gamma_m^2\leq
+ G_m^{-1}\sum_{R\in\mathcal R_m}(p_{R,x}q_{R,x}-p_{R,y}q_{R,y})^2
+ \leq G_m^{-1}\sum_{R\in\mathcal R_m}|p_R|^2|q_R|^2,
 \]
 where $G_m=\sum_{v\in V_m}(x^2-y^2)^2$.  Thus uniformly bounded degree
-and uniformly bounded side length cannot produce a uniform normalized gap;
-in particular, fixed-size local or block-glued families satisfying these
-hypotheses are excluded.
+and sublinear side lengths $L_m=o(m)$ cannot produce a uniform normalized
+gap.  Conversely, any bounded-degree family with $\gamma_m\geq c>0$ must put
+a positive fraction of rectangles at quantitatively macroscopic scale.  This
+condition is necessary, not sufficient.
 
 We separately report four finite full-pool residual-greedy instances for
 $m=2,3,4,5$.  Exact odd-minor certificates show that each of their rational
 kernels is precisely the five-dimensional collision space, while numerical
 normalized gaps range from approximately $0.138$ to $0.104$.  The exact
 kernel statements and the floating-point gaps are finite evidence only.
-Rectangles with spans growing with $m$ are not covered by the theorem, and
-the unrestricted nonlocal bounded-degree proposition remains open.  No
-Kakeya extraction, Kakeya theorem, or dimension consequence is claimed.
+Only the quantitatively macroscopic, diameter-scale regime remains open for
+the unrestricted nonlocal bounded-degree proposition.
 \end{abstract}
 
 \section{Introduction and scope}\label{sec:intro}
 
-The motivating research program asks whether collision-type incidence
-structures can support sparse, well-conditioned constraint systems.  Such a
-question is adjacent in motivation to arithmetic and additive-combinatorial
-approaches in Kakeya research; see, for example,
-\cite{KatzTao1999ArithmeticProjections,KatzTao2002NewBounds}.  The result
-proved here, however, is a statement about finite matrices built from
-orthogonal velocity rectangles.  We do not provide a map from a Kakeya
-configuration to one of these matrices, nor a converse.  Consequently, no
-Kakeya theorem, counterexample extraction, or dimension bound follows from
-this paper.
+This paper asks whether collision-type incidence structures can support
+sparse, well-conditioned constraint systems.  The result proved here is a
+statement about finite matrices built from orthogonal velocity rectangles.
 
 The paper has two deliberately separated components.  First, we prove an
 explicit upper bound for the normalized quotient gap when both vertex degree
@@ -97,7 +90,7 @@ O & open & neither proved nor disproved by the available argument or data.\\
 \bottomrule
 \end{tabular}
 \end{center}
-The bounded-span obstruction is R.  The rational ranks and degree counts in
+The weighted-span obstruction is R.  The rational ranks and degree counts in
 Section~\ref{sec:finite} are E.  The gaps in that section are N.  The
 unrestricted nonlocal proposition in Section~\ref{sec:open} is O.
 
@@ -182,39 +175,31 @@ additional kernel vector makes $\gamma_m=0$.  Conversely, the exact identity
 $\ker_{\mathbb Q}C_m=\mathcal K_m$ for a finite rational matrix does not
 supply a scale-independent lower bound on $\gamma_m$.
 
-\section{The bounded-span obstruction}\label{sec:theorem}
+\section{The weighted-span obstruction}\label{sec:theorem}
 
 We now give the rigorous result of the paper.  Vector lengths are Euclidean.
-The constants $D$ and $L$ may first be read as bounds for one value of $m$;
-the asymptotic corollary applies when they are uniform in $m$.
+For each rectangle $R$, choose one representation \eqref{eq:rectangle} and
+write its side vectors as $p_R,q_R$.
 
-\begin{theorem}[Bounded degree and bounded side length]\label{thm:bounded-span}
-Let $m\geq1$.  Suppose every vertex of $V_m$ has incidence degree
-$1\leq d_v\leq D$, and every $R\in\mathcal R_m$ has a representation
-\eqref{eq:rectangle} with
-\[
- |p|\leq L,\qquad |q|\leq L.
-\]
-Then the gap in Definition~\ref{def:gap} satisfies
-\begin{equation}\label{eq:main-bound}
- \gamma_m\leq \frac{L^2}{2}
- \sqrt{\frac{D(2m+1)^3}{G_m}},
- \qquad
- G_m=\sum_{(x,y,z)\in V_m}(x^2-y^2)^2.
+\begin{proposition}[Weighted-span test]\label{prop:weighted-span}
+Let $m\geq1$ and suppose every vertex has positive incidence degree.  Then
+the gap in Definition~\ref{def:gap} satisfies
+\begin{equation}\label{eq:weighted-chain}
+ \gamma_m^2\leq
+ G_m^{-1}\sum_{R\in\mathcal R_m}(p_{R,x}q_{R,x}-p_{R,y}q_{R,y})^2
+ \leq G_m^{-1}\sum_{R\in\mathcal R_m}|p_R|^2|q_R|^2,
 \end{equation}
+where
+\[
+ G_m=\sum_{(x,y,z)\in V_m}(x^2-y^2)^2.
+\]
 Writing $S_j=\sum_{t=-m}^m t^j$, one has
 \begin{align}
  G_m
  &=2S_0(S_0S_4-S_2^2)\label{eq:G-moment}\\
  &=\frac{2(2m+1)^3m(m+1)(4m^2+4m-3)}{45}.\label{eq:G-closed}
 \end{align}
-Consequently,
-\begin{equation}\label{eq:main-exact-simplified}
- \gamma_m\leq\frac{L^2}{2}
- \sqrt{\frac{45D}{2m(m+1)(4m^2+4m-3)}}
- =L^2\sqrt{\frac{45D}{32}}\,m^{-2}(1+o(1)).
-\end{equation}
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 Set
@@ -250,26 +235,20 @@ For a rectangle represented by $(a,p,q)$, direct expansion gives
 \begin{equation}\label{eq:delta-g}
  \Delta_{a,p,q}g=2(p_xq_x-p_yq_y).
 \end{equation}
-By Cauchy--Schwarz in the first two coordinates,
-\begin{equation}\label{eq:delta-bound}
- |p_xq_x-p_yq_y|
- \leq\sqrt{p_x^2+p_y^2}\sqrt{q_x^2+q_y^2}
- \leq |p|\,|q|\leq L^2.
-\end{equation}
-Hence $|\Delta_Rg|\leq2L^2$ for every row.  Since every row meets four
-distinct vertices,
-\begin{equation}\label{eq:degree-count}
- 4|\mathcal R_m|=\sum_{v\in V_m}d_v\leq DN_m.
-\end{equation}
-Using $A_mX=\tfrac12C_mf=\tfrac12C_mg$, we therefore obtain
+Using $A_mX=\tfrac12C_mf=\tfrac12C_mg$ and \eqref{eq:delta-g}, we obtain
 \begin{equation}\label{eq:num-bound}
  \norm{A_mX}_2^2
  =\frac14\sum_{R\in\mathcal R_m}|\Delta_Rg|^2
- \leq L^4|\mathcal R_m|
- \leq\frac{L^4DN_m}{4}.
+ =\sum_{R\in\mathcal R_m}(p_{R,x}q_{R,x}-p_{R,y}q_{R,y})^2.
 \end{equation}
 The Rayleigh quotient of this admissible $X$, together with
-\eqref{eq:den-bound}, proves \eqref{eq:main-bound}.
+\eqref{eq:den-bound}, proves the first inequality in
+\eqref{eq:weighted-chain}.  The second follows from Cauchy--Schwarz:
+\[
+ |p_xq_x-p_yq_y|
+ \leq\sqrt{p_x^2+p_y^2}\sqrt{q_x^2+q_y^2}
+ \leq |p|\,|q|.
+\]
 
 It remains to evaluate $G_m$.  Expanding and summing first in $x,y$ and then
 in $z$ yields
@@ -282,27 +261,81 @@ which is \eqref{eq:G-moment}.  The standard finite sums are
  S_2=\frac{m(m+1)(2m+1)}{3},\qquad
  S_4=\frac{m(m+1)(2m+1)(3m^2+3m-1)}{15}.
 \]
-Substitution gives \eqref{eq:G-closed}.  Cancelling $(2m+1)^3=N_m$ in
-\eqref{eq:main-bound} gives the first part of
-\eqref{eq:main-exact-simplified}; its leading term gives the stated
-asymptotic bound.
+Substitution gives \eqref{eq:G-closed}.
 \end{proof}
 
-\begin{corollary}[No uniformly local normalized expander]\label{cor:local}
-Let $(\mathcal R_m)$ be a family for unbounded $m$.  If every vertex has
-positive degree, $\sup_{m,v}d_v<\infty$, and the two side lengths of every
-rectangle are bounded by one constant independent of $m$, then
-$\gamma_m=O(m^{-2})$ and in particular $\inf_m\gamma_m=0$.
-Thus a fixed-size local or fixed-block-glued family satisfying these
-hypotheses is not a uniform expander under \eqref{eq:A}--\eqref{eq:gap}.
+\begin{corollary}[Sublinear spans give no uniform gap]\label{cor:sublinear}
+Let $(\mathcal R_m)$ be a family for unbounded $m$.  Suppose every vertex has
+positive degree, $d_v\leq D$ with $D$ independent of $m$, and every rectangle
+has $|p_R|,|q_R|\leq L_m$.  Then
+\begin{equation}\label{eq:sublinear}
+ \gamma_m\leq
+ \frac{L_m^2}{2}
+ \sqrt{\frac{45D}{2m(m+1)(4m^2+4m-3)}}
+ =O_D\bigl((L_m/m)^2\bigr).
+\end{equation}
+In particular, $L_m=o(m)$ implies $\gamma_m\to0$.  Fixed-span families have
+$L_m=O(1)$ and recover the older $O_D(m^{-2})$ local obstruction.  More
+generally, any sublinear-span family fails to be a uniform expander under
+\eqref{eq:A}--\eqref{eq:gap}.  The only span regime not excluded by this
+test is diameter scale, $L_m=\Theta(m)$.
 \end{corollary}
 
-\begin{remark}[What the theorem does not cover]\label{rem:nonlocal}
-Theorem~\ref{thm:bounded-span} is an upper bound containing $L^2$.  If the
-chosen rectangles have side lengths that grow with $m$, the estimate need not
-tend to zero.  The theorem therefore cannot be used to reject bounded-degree
-nonlocal constructions.  It also makes no assertion about the sharpness of
-the exponent or constant.
+\begin{proof}
+Every row has four distinct vertices, so
+$4|\mathcal R_m|=\sum_vd_v\leq D(2m+1)^3$.  Combining this count with
+Proposition~\ref{prop:weighted-span} and $|p_R|,|q_R|\leq L_m$ gives
+\[
+ \gamma_m^2\leq \frac{D(2m+1)^3L_m^4}{4G_m}.
+\]
+Substituting \eqref{eq:G-closed} gives \eqref{eq:sublinear}.
+\end{proof}
+
+\begin{corollary}[Macroscopic-span necessary condition]\label{cor:macro}
+Fix constants $D<\infty$ and $c>0$.  Let
+\[
+ \rho=\min\{1,c/\sqrt{135D}\},
+ \qquad
+ \eta=\min\{1,c^2/(540D)\}.
+\]
+If a family on $V_m$ has $1\leq d_v\leq D$ and $\gamma_m\geq c$, then at
+least an $\eta$ fraction of its rectangles simultaneously satisfy
+\[
+ |p_R|\geq\rho m,\qquad |q_R|\geq\rho m.
+\]
+Thus a scale-independent gap forces a positive density of quantitatively
+macroscopic, diameter-scale rectangles.  This condition is necessary only;
+it is not sufficient for a gap.
+\end{corollary}
+
+\begin{proof}
+From \eqref{eq:G-closed}, $G_m\geq(4/45)(2m+1)^3m^4$.  Also
+$|\mathcal R_m|\leq D(2m+1)^3/4$.  In the cube $V_m$, every side vector has
+length at most $2\sqrt3\,m$, so $|p_R|^2|q_R|^2\leq144m^4$.
+
+Call a rectangle bad if at least one of its two side lengths is $<\rho m$.
+For a bad rectangle, $|p_R|^2|q_R|^2\leq12\rho^2m^4$.  Therefore the total
+bad contribution is at most
+$3D\rho^2(2m+1)^3m^4\leq(c^2/45)(2m+1)^3m^4$.  Since $\gamma_m\geq c$,
+Proposition~\ref{prop:weighted-span} forces
+\[
+ \sum_R|p_R|^2|q_R|^2\geq c^2G_m
+ \geq (4c^2/45)(2m+1)^3m^4.
+\]
+The good rectangles therefore contribute at least
+$(c^2/15)(2m+1)^3m^4$.  Each contributes at most $144m^4$, so their number is
+at least $c^2(2m+1)^3/2160$.  Dividing by
+$|\mathcal R_m|\leq D(2m+1)^3/4$ gives a fraction at least
+$c^2/(540D)$, and hence at least $\eta$.
+\end{proof}
+
+\begin{remark}[What remains open]\label{rem:nonlocal}
+Corollary~\ref{cor:sublinear} rules out fixed, local, block-glued, and all
+sublinear-span bounded-degree families under the stated normalization.
+Corollary~\ref{cor:macro} says any positive answer to the nonlocal problem
+must place a positive fraction of rows in the diameter-scale regime.  The
+paper does not prove that such a macroscopic family exists, nor that every
+macroscopic family has a gap.
 \end{remark}
 
 \section{Canonical finite pools and exact kernel certificates}
@@ -326,8 +359,8 @@ mode on the displayed representatives.
 
 The designated finite instances were selected by a residual-greedy branch
 from these complete pools.  The branch begins with a degree-capped balanced
-selection and then adds rows having large residual on a currently computed
-soft quotient mode.  This is a search heuristic, not an infinite recursive
+selection and then adds rows having large residual in the current numerical
+quotient computation.  This is a search heuristic, not an infinite recursive
 construction and not an exhaustive optimization.
 
 For each designated candidate, the exact certificate performs the following
@@ -400,7 +433,7 @@ Two non-implications are essential.  First, exact five-dimensional kernels
 at four sizes do not imply exact kernels at later sizes.  Second, the observed
 numbers do not imply that $\liminf_{m\to\infty}\gamma_m>0$.  The candidates
 were chosen from full, nonperiodic pools without a fixed side-length cutoff,
-so Corollary~\ref{cor:local} does not itself rule them out; conversely, the
+so Corollary~\ref{cor:sublinear} does not itself rule them out; conversely, the
 four candidates do not define or certify an infinite nonlocal family.
 
 \section{Validation and reproducibility}\label{sec:validation}
@@ -417,14 +450,14 @@ candidates.  Fresh proof payloads agree with the packaged payloads after
 excluding run metadata.
 \item \textbf{Raw-gap recomputation.}  The normalized operators and
 constraint bases were reconstructed from the raw row arrays rather than from
-summary tables.  Stored soft vectors and fresh constrained eigenvectors were
-checked for norm, constraint residual, operator residual, and relative gap
-agreement.
+summary tables.  Stored numerical vectors and fresh constrained eigenvectors
+were checked for norm, constraint residual, operator residual, and relative
+gap agreement.
 \item \textbf{Theorem arithmetic checks.}  Exact integer summation checks
 \eqref{eq:G-moment} and the five orthogonality identities for $m=1,\ldots,10$.
 On four finite local block candidates, a separate script checks the identity
 \eqref{eq:delta-g}, the side-length bound, the projected Rayleigh quotient,
-and the inequality chain in Theorem~\ref{thm:bounded-span}.
+and the inequality chain in Proposition~\ref{prop:weighted-span}.
 \item \textbf{Manuscript-local checks.}  The draft package contains a source
 and claim checker, build logs, and a source matrix mapping each strong claim
 to an exact local artifact or to one of the two verified citations.
@@ -432,6 +465,46 @@ to an exact local artifact or to one of the two verified citations.
 The finite checks in items 3 and 4 are validation aids.  The general theorem
 depends on the proof in Section~\ref{sec:theorem}, not on extrapolation from
 those checks.
+
+\section{Literature-boundary checks}\label{sec:literature}
+
+This revision made two targeted public literature checks.  First, in discrete
+velocity models for the Boltzmann equation, the standard physical invariants
+are mass, momentum, and energy; extra invariants are called spurious or
+nonphysical, and DVMs without them are called normal
+\cite{BobylevCercignani1999DVM,BernhoffVinerean2016Mixtures}.  This is close
+in vocabulary to the finite statement $\ker C=\operatorname{span}\{1,v_x,v_y,
+v_z,|v|^2\}$, but the checked sources concern kinetic DVM construction and
+mixtures, not this paper's finite cubic-lattice rectangle-frame quotient gap.
+
+Second, the locality obstruction is consistent with standard finite-state
+Poincar\'e and spectral-gap intuition: bounded-range walks on long one-
+dimensional or lattice-like sets have gaps that decay with the diameter; for
+example, the simple random walk on the $n$-cycle has spectral gap
+$1-\cos(2\pi/n)$ \cite{GoelMontenegroTetali2006SpectralProfile}.  This paper's
+proof is nevertheless a separate test-function argument for the specific
+four-point collision operator, five-mode quotient, $1/2$ normalization, and
+constants above.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.20\textwidth}p{0.24\textwidth}p{0.18\textwidth}p{0.22\textwidth}@{}}
+\toprule
+Claim & closest prior result checked & same/different & safe wording \\
+\midrule
+Five physical collision modes & normal DVMs have no spurious collision
+invariants beyond mass, momentum and energy & same invariant vocabulary;
+different finite matrix and no gap theorem & exact finite kernels here are
+normal-DVM-like evidence, not a novelty or priority claim \\
+Locality obstructs uniform gap & cycle/lattice spectral-gap decay under
+local moves & same Poincar\'e intuition; different operator and quotient &
+the paper proves a source-bound weighted-span obstruction for this model \\
+Finite $m=2,\ldots,5$ certificates & no direct finite cubic elastic-rectangle
+coverage found in the targeted check & related only by invariant language &
+certificates retain independent finite meaning; no uniform-gap evidence \\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \section{The remaining nonlocal problem}\label{sec:open}
 
@@ -446,26 +519,20 @@ $\ker_{\mathbb Q}C_m=\mathcal K_m$, and the normalized gap satisfies
 $\gamma_m\geq c$, when rectangle side lengths are allowed to grow with $m$?
 \end{quote}
 
-Theorem~\ref{thm:bounded-span} identifies a necessary escape from locality:
-any positive answer must use side lengths that are not uniformly bounded (or
-must change another stated hypothesis).  This is only a necessary condition.
+Corollary~\ref{cor:macro} identifies a necessary escape from locality: any
+positive answer must use a positive fraction of rectangles whose two side
+lengths are both bounded below by a fixed multiple of $m$ (or must change
+another stated hypothesis).  This is only a necessary condition.
 The four values in Table~\ref{tab:candidates} neither prove nor disprove the
 open proposition.  The broader existence question on other growing rational
 or integer velocity sets is likewise not settled by this draft.
-
-No extraction statement is available from a hypothetical Kakeya
-counterexample to such a frame, and no implication in the reverse direction
-is proved.  In particular, failure of a local rectangle expander does not by
-itself force a ``plany,'' grain, or other Kakeya alternative.  Establishing a
-transfer would require additional regularization, bounded-congestion, and
-geometric realization arguments that are absent here.
 
 \section{Limitations and next technical step}\label{sec:limits}
 
 The main limitations are structural rather than cosmetic.
 \begin{itemize}
-\item The theorem is one-sided and conditional on both bounded degree and
-bounded side length.  It supplies no lower bound and no sharpness result.
+\item The theorem is one-sided and conditional on positive bounded degree.  It
+rules out sublinear span but supplies no lower bound and no sharpness result.
 \item The exact certificates concern four finite matrices only.  They do not
 provide a recursive construction.
 \item The spectral values are floating-point estimates, not interval or
@@ -473,10 +540,10 @@ symbolic eigenvalue certificates.
 \item The computational search and attacks are finite.  They are not claimed
 to cover all selection mechanisms, all nonlocal patterns, or all velocity
 sets.
-\item The literature audit inherited from the first paper verifies the two
-citations actually used here, but it is not a systematic priority review of
-rectangle-frame Poincar\'e inequalities.  This paper therefore makes no
-novelty, priority, ``current best,'' or no-precedent claim.
+\item The two targeted literature checks in Section~\ref{sec:literature} are
+not a systematic priority review of rectangle-frame Poincar\'e inequalities.
+This paper therefore makes no novelty, priority, ``current best,'' or
+no-precedent claim.
 \end{itemize}
 
 The exact next mathematical step is to prove or refute a scale-free
@@ -484,21 +551,19 @@ Poincar\'e inequality for an explicit nonlocal bounded-degree rectangle
 family, with the five collision modes as the full rational kernel.  A
 positive route needs a recursive construction and a uniform lower bound; a
 negative route needs a test function or decomposition that remains effective
-when side lengths grow with $m$.  Extending the finite table alone is not a
-substitute for either argument.  Before formal submission, a systematic
+in the quantitatively macroscopic side-length regime.  Extending the finite
+table alone is not a substitute for either argument.  Before formal submission, a systematic
 literature review and independent mathematical review are also required.
 
 \section{Conclusion}
 
-The rigorous conclusion is narrow and explicit: on $V_m$, uniformly bounded
-incidence degree together with uniformly bounded rectangle side length forces
-the canonical normalized quotient gap to be $O(m^{-2})$.  This rules out
-fixed-scale local and block-glued uniform expanders under the stated positive-
-degree normalization.  Exact finite certificates at $m=2,3,4,5$ establish
+The rigorous conclusion is narrow and explicit: on $V_m$, the weighted-span
+test rules out uniformly bounded-degree families whose rectangle side lengths
+are $o(m)$.  A scale-independent gap would require a positive fraction of
+diameter-scale rectangles.  Exact finite certificates at $m=2,3,4,5$ establish
 five-dimensional rational kernels for four selected matrices, and numerical
 recomputation supports their displayed finite gaps.  Those observations do
-not settle the unrestricted nonlocal proposition, which remains open, and
-they have no proved Kakeya consequence.
+not settle the unrestricted nonlocal proposition, which remains open.
 
 \section*{AI authorship, assistance, and responsibility disclosure}
 

@@ -1,4 +1,4 @@
-# Bounded-Span Obstructions for Sparse Elastic Rectangle Frames on Velocity Grids
+# Weighted-Span Obstructions for Sparse Elastic Rectangle Frames on Velocity Grids
 
 **Author:** Runyuan Wang
 
@@ -14,13 +14,17 @@
 
 ## Main result
 
-For the cubic velocity grids `V_m={-m,…,m}^3`, the paper proves that the canonical degree-normalized elastic-rectangle operator has quotient gap
+For the cubic velocity grids `V_m={-m,…,m}^3`, the paper proves the weighted-span test
 
-`gamma_m <= L^2 sqrt(45D/32) m^-2(1+o(1))`
+`gamma_m^2 <= G_m^-1 sum_R (p_x q_x - p_y q_y)^2 <= G_m^-1 sum_R |p_R|^2 |q_R|^2`.
 
-when incidence degree is uniformly bounded by `D` and all rectangle side lengths are uniformly bounded by `L`. Thus fixed-size local or fixed-block-glued families satisfying these hypotheses cannot be uniform expanders under this normalization.
+Consequently, if incidence degree is uniformly bounded by `D` and all rectangle side lengths are at most `L_m`, then
 
-The unrestricted nonlocal problem, where rectangle spans may grow with `m`, remains **open**. The exact rational certificates for `m=2,…,5` and the finite floating-point gaps are reported as finite evidence only. They do not establish a Kakeya theorem, a new dimension bound, a uniform nonlocal gap, novelty/priority, current-best status, or search exhaustiveness.
+`gamma_m <= O_D((L_m/m)^2)`.
+
+Thus fixed-size local, fixed-block-glued and all sublinear-span families satisfying these hypotheses cannot be uniform expanders under this normalization. If a bounded-degree family had `gamma_m>=c>0`, at least a fixed positive fraction of its rectangles would need both side lengths at least a fixed multiple of `m`.
+
+The remaining nonlocal problem is therefore narrowed to the quantitatively macroscopic/diameter-scale regime and remains **open**. The exact rational certificates for `m=2,…,5` and the finite floating-point gaps are reported as finite evidence only. They do not establish a uniform nonlocal gap, novelty/priority, current-best status, or search exhaustiveness.
 
 ## AI-production disclosure
 

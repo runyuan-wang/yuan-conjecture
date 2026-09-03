@@ -2,12 +2,12 @@
 
 ## Frozen artifacts
 
-- `main.pdf`: 8 letter-sized pages, 259,336 bytes, SHA-256 `9eda214d86520015c6017ce0bebccd41de38c687aa377f6dfbe2259600185eb9`
-- `main.tex`: SHA-256 `911a21ff8138e336a0355c7e57cf70613fb9c197b5c3147f09e2ba56ed207403`
-- `validation_checks.py`: SHA-256 `6ce9983736d499231cbd92c77534ed11c4d1e71e32779c08db4fd713ba47faed`
-- `assets/collision_rectangle_expander_assets.zip`: 2,001,758 bytes, 200 regular files, SHA-256 `cd4b859a8dfb51ac07427748a9ba852e5b90c2b166e75c9c04999600d829bf2a`
+- `main.pdf`: 9 letter-sized pages, 268,723 bytes, SHA-256 `9de879a158a7a99bc9df7bfbb1a8541e559390c3738087647d13c2f1903626c7`
+- `main.tex`: SHA-256 `04a541e03a64407bbe574c540643752be0606a373fdec408f31d8e08b42c731d`
+- `validation_checks.py`: SHA-256 `b28b00c214425c730250b09813981d651d479f92b316b598c97bcd89253d28f0`
+- `assets/collision_rectangle_expander_assets.zip`: 2,073,624 bytes, 200 regular files, SHA-256 `e0b045bb43f5c37ea4a52f27644dcb8b964db25b4782ced47cc4cba5a5ced4a9`
 
-The experiment ZIP is preserved byte-for-byte. The six JSON files under `parent-reruns/` are the exact certificate, gap and bounded-span artifacts consumed by the manuscript validator.
+The experiment ZIP was rebuilt after repairing the `basic_statistics.min_incidence_degree` generator bug in `rectangle_core.py`; row arrays and candidate SHA-256 identifiers are unchanged. The six JSON files under `parent-reruns/` are the exact certificate, gap and bounded-span artifacts consumed by the manuscript validator.
 
 ## Deterministic manuscript/source validator
 
@@ -23,9 +23,9 @@ cp parent-reruns/certificates/*.json .repro/PARENT_RERUNS/certificates/
 PYTHONDONTWRITEBYTECODE=1 python3 validation_checks.py --source .repro --root .
 ```
 
-Accepted parent result: **PASS — 26,818 deterministic assertions and four candidate notes; empty standard error**.
+Current revision result: **PASS** when run against the rebuilt `.repro` source package; the four repaired stored minima are `4,3,3,3` and all zero-degree counts are `0`.
 
-The validator checks every designated candidate row, canonical rectangle geometry, five exact collision-mode residuals, domain-separated hashes, degree ranges, four exact rational-kernel certificates and listed odd minors over `F_2`, two large-prime screens, finite gap values/residuals, bounded-span arithmetic, citations, synchronized manuscript values, claim-boundary language, structure and path/privacy hygiene.
+The validator checks every designated candidate row, canonical rectangle geometry, five exact collision-mode residuals, domain-separated hashes, degree ranges, stored degree metadata against recomputed incidence degrees, four exact rational-kernel certificates and listed odd minors over `F_2`, two large-prime screens, finite gap values/residuals, weighted-span arithmetic, citations, synchronized manuscript values, claim-boundary language, structure and path/privacy hygiene.
 
 ## Independent bounded-span arithmetic rerun
 
@@ -52,15 +52,15 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error main.tex
 Accepted build checks:
 
 - BibTeX and all citations resolved;
-- no unresolved references, overfull boxes or underfull boxes in the final log;
+- no unresolved references in the final log; underfull box warnings remain in the compact literature-boundary table and are cosmetic;
 - PDF is unencrypted, has no JavaScript or reported suspects;
 - 20 fonts are embedded, subsetted and Unicode mapped;
-- all eight pages passed visual review.
+- `main.pdf` was rebuilt locally; no visual review beyond successful compilation was performed in this revision pass.
 
 ## Independent review and parent acceptance
 
-One corrected source-first independent Sol review read the proof, source scripts, raw evidence and certificate package before reading the parent review. It reported `INDEPENDENT_SOL_PASS` with no MATERIAL or MINOR manuscript findings on the original manuscript. The later disclosure-only amendment changed no proof, evidence or scientific claim; parent reran the 26,818-assertion validator, exact theorem arithmetic, PDF metadata/log/font gates and all-eight-page visual review on the amended build.
+Earlier parent/independent review records applied to the pre-revision draft. This revision supersedes their validation counts with the current fresh-unpack validator result: `PASS 26823 deterministic assertions; 4 candidate notes`. No new independent visual review was performed in this narrow documentation-consistency repair.
 
 ## Limits
 
-This package does not prove the unrestricted nonlocal proposition, interval-certify the four numerical gaps, establish a Kakeya result, or claim novelty/priority/current-best/exhaustiveness. A systematic subject-specific literature/priority review and independent human mathematical review are still required before formal submission.
+This package does not prove the unrestricted nonlocal proposition, interval-certify the four numerical gaps, or claim novelty/priority/current-best/exhaustiveness. A systematic subject-specific literature/priority review and independent human mathematical review are still required before formal submission.

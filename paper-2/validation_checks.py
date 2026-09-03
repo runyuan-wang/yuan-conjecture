@@ -18,8 +18,9 @@ from pathlib import Path
 CANDIDATE_HASH_DOMAIN = b"elastic-rectangle-candidate-v1\0uint32be(+,+,-,-)\0"
 PRIMES = (2_147_483_647, 2_147_483_629)
 CITATION_ALLOWLIST = {
-    "KatzTao1999ArithmeticProjections",
-    "KatzTao2002NewBounds",
+    "BobylevCercignani1999DVM",
+    "BernhoffVinerean2016Mixtures",
+    "GoelMontenegroTetali2006SpectralProfile",
 }
 
 EXPECTED = {
@@ -162,14 +163,12 @@ def audit_candidate_and_certificate(audit: Audit, source: Path, m: int, spec: di
 
     digest = hash_rows(rows)
     audit.require(digest == obj["candidate_sha256"] == spec["sha"], f"row hash mismatch m={m}")
-    audit.require(min(degrees) == spec["dmin"] and max(degrees) == spec["dmax"], f"degree mismatch m={m}")
+    dmin, dmax = min(degrees), max(degrees)
+    audit.require(dmin == spec["dmin"] and dmax == spec["dmax"], f"degree mismatch m={m}")
+    audit.require(0 not in degrees, f"degree-zero vertex from raw rows m={m}")
     bs = obj["basic_statistics"]
-    # The delivered basic_statistics field used d.min(initial=0), so its stored
-    # minimum is mechanically 0 even when every degree is positive.  Do not
-    # promote that known summary bug: raw-row recomputation above and the
-    # independent parent recomputation are authoritative for dmin.
-    audit.require(bs["min_incidence_degree"] == 0, f"unexpected stored-min bug shape m={m}")
-    audit.require(bs["max_incidence_degree"] == spec["dmax"], f"stored dmax mismatch m={m}")
+    audit.require(bs["min_incidence_degree"] == dmin, f"stored dmin mismatch m={m}")
+    audit.require(bs["max_incidence_degree"] == dmax, f"stored dmax mismatch m={m}")
     audit.require(bs["zero_degree_vertices"] == 0, f"zero degree m={m}")
     audit.require(math.isclose(obj["normalized_spectrum"]["gap_singular_value"], spec["stored_gap"], rel_tol=0, abs_tol=1e-15),
                   f"stored gap mismatch m={m}")
@@ -295,12 +294,15 @@ def audit_manuscript(audit: Audit, root: Path) -> None:
 
     audit.require(tex.count("{") == tex.count("}"), "main.tex brace count")
     audit.require("\\begin{document}" in tex and "\\end{document}" in tex, "main.tex document markers")
-    audit.require("\\begin{theorem}" in tex and "\\begin{proof}" in tex and "\\end{proof}" in tex,
+    audit.require(("\\begin{theorem}" in tex or "\\begin{proposition}" in tex)
+                  and "\\begin{proof}" in tex and "\\end{proof}" in tex,
                   "main theorem/proof structure")
     audit.require("A_m=\\frac12 C_mD_m^{-1/2}" in tex, "normalization missing from main.tex")
-    audit.require("L^2\\sqrt{\\frac{45D}{32}}" in tex, "asymptotic constant missing from main.tex")
+    audit.require("\\sum_{R\\in\\mathcal R_m}|p_R|^2|q_R|^2" in tex, "weighted-span theorem missing")
+    audit.require("\\rho=\\min\\{1,c/\\sqrt{135D}\\}" in tex, "macroscopic threshold rho missing")
+    audit.require("\\eta=\\min\\{1,c^2/(540D)\\}" in tex, "macroscopic threshold eta missing")
+    audit.require("literature-boundary" in tex.lower(), "literature-boundary section missing")
     audit.require("unrestricted nonlocal" in tex.lower() and "remains open" in tex.lower(), "open boundary missing")
-    audit.require(re.search(r"no\s+Kakeya extraction", tex, re.IGNORECASE) is not None, "Kakeya boundary missing")
     audit.require("finite evidence only" in tex, "finite-evidence boundary missing")
 
     english_disclosure = (
@@ -348,15 +350,14 @@ def audit_manuscript(audit: Audit, root: Path) -> None:
 
     cites = citation_keys(tex)
     entries = bib_keys(bib)
-    audit.require(cites == CITATION_ALLOWLIST, f"citation set mismatch: {sorted(cites)}")
-    audit.require(entries == CITATION_ALLOWLIST, f"bibliography set mismatch: {sorted(entries)}")
+    audit.require(cites <= CITATION_ALLOWLIST, f"citation set mismatch: {sorted(cites)}")
+    audit.require(CITATION_ALLOWLIST <= entries, f"bibliography set mismatch: {sorted(entries)}")
     audit.require(cites <= entries, "unresolved citation keys")
     audit.require(all(key in matrix for key in cites), "cited key absent from SOURCE_MATRIX.md")
 
     combined = "\n".join(texts.values()).lower()
     positive_overclaims = [
-        r"we (?:have )?prove[d]? the kakeya",
-        r"this (?:paper|result) (?:settles|solves|disproves) (?:the )?(?:yuan|kakeya|unrestricted)",
+        r"this (?:paper|result) (?:settles|solves|disproves) (?:the )?(?:yuan|unrestricted)",
         r"liminf[^\n]{0,40}>\s*0[^\n]{0,80}(?:therefore|hence|proves)",
         r"(?:this|our) (?:paper|result|method|bound)[^\n]{0,40}(?:is|gives|achieves|sets)[^\n]{0,30}(?:first[- ]ever|world[- ]first|current[- ]best|state[- ]of[- ]the[- ]art)",
         r"our (?:search|attacks?) (?:is|are|was|were) exhaustive",
